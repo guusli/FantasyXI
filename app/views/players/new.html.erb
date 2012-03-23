@@ -1,0 +1,9 @@
+<h1>Ny Spelare</h1>
+
+<%= form_for @player do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :team_id %>
+	<%= f.text_field :team_id %>
+	<%= f.submit %>
+<% end %>
