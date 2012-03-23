@@ -11,7 +11,7 @@
 	</tr>
 <% for player in @players %>
 	<tr>
-		<td><%= player.name %></td>
+		<td><%= link_to player.name, player_path(player)  %></td>
 		<td><%= player.points %></td>
 		<td><%= player.goals %></td>
 		<td><%= player.assists %></td>
