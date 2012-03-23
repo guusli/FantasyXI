@@ -1,10 +1,22 @@
 <h1>Players</h1>
 
 <table class="table table-striped">
+	<tr>
+		<th>Namn</th>
+		<th>Poäng</th>
+		<th>Mål</th>
+		<th>Assist</th>	
+		<th>Gula kort</th>
+		<th>Röda kort</th>		
+	</tr>
 <% for player in @players %>
 	<tr>
 		<td><%= player.name %></td>
 		<td><%= player.points %></td>
+		<td><%= player.goals %></td>
+		<td><%= player.assists %></td>
+		<td><%= player.yellow %></td>
+		<td><%= player.red %></td>
 	</tr>
 <% end %>
 </table>
