@@ -18,7 +18,7 @@
         </a>
         <a class="brand" href="#">Fantasy XI</a>
         <div class="nav-collapse">
-          <ul class="nav">
+          <ul class="nav pull-left">
             <li><%= link_to "Mitt Lag"%></li>
             <li class="dropdown">
 		    <a href="#"
@@ -28,19 +28,19 @@
 		          <b class="caret"></b>
 		    </a>
 		    <ul class="dropdown-menu">
-		   		<li><p>Test</p></li>
+		   		<li><%= link_to "Test" %></li>
 		    </ul>
 		  </li>
             <li><%= link_to "Ranking" %></li>
             <li><%= link_to "Statistik" %></li>
-            <li class="pull-right"><%= link_to "Logga Ut" %></li>
+        </ul>
+            <ul class="nav pull-right"><li><%= link_to "Logga Ut" %></li></ul>
           </ul>
         </div>
       </div>
     </div>
   </div>
-
-<%= yield %>
+<div class="container"><%= yield %></div>
 
 </body>
 </html>
