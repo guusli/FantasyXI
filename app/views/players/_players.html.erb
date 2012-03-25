@@ -10,7 +10,7 @@
 		<th><%= sortable "assists" %></th>	
 		<th><%= sortable "yellow" %></th>
 		<th><%= sortable "red" %></th>		
-	</tr></theadsortable >
+	</tr></thead >
 
 <% for player in @players %>
 	<tbody><tr>
@@ -26,4 +26,4 @@
 
 </table>
 
-<%= will_paginate @products %>
+<%= will_paginate @players %>
