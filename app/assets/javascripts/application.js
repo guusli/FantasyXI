@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(function() {
+	$("#players th a, #players .pagination a").live("click", function(){
+		$.getScript(this.href);
+		return false;
+	});
+	  $("#players_search input").keyup(function() {
+    $.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");
+    return false;
+  });
+});
