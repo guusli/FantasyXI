@@ -5,6 +5,17 @@
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
+
+ 	<div class="btn-group">
+  		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    	Action
+    	<span class="caret"></span>
+  		</a>
+  		<ul class="dropdown-menu">
+	    	<li><a href="?round=1">Runda 1</a></li>
+	  	</ul>
+	</div>
+
   <div id="players"><%= render 'players' %></div>
 <% end %>
 

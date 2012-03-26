@@ -13,10 +13,19 @@
 	</tr></thead >
 
 <% for player in @players %>
+	<% if !params[:round].nil? && params[:round].size
+		player_stats = player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", player.id, params[:round]]).first;
+		%>
 	<tbody><tr>
 		<td><%= link_to player.name, player_path(player)  %></td>
 		<td><%= Team.find(player.team_id).name %></td>
+		<td><%= player_stats.points %></td>
+		<td><%= player_stats.goals %></td>
+		<td><%= player_stats.assists %></td>
+		<td><%= player_stats.yellow %></td>
+		<td><%= player_stats.red %></td>
 	</tr></tbody>
+	<% end %>
 <% end %>
 
 </table>
