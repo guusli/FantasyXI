@@ -16,11 +16,6 @@
 	<tbody><tr>
 		<td><%= link_to player.name, player_path(player)  %></td>
 		<td><%= Team.find(player.team_id).name %></td>
-		<td><%= player.points %></td>
-		<td><%= player.goals %></td>
-		<td><%= player.assists %></td>
-		<td><%= player.yellow %></td>
-		<td><%= player.red %></td>
 	</tr></tbody>
 <% end %>
 
