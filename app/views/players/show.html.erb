@@ -8,7 +8,7 @@
 		<h2>Statistik</h2>
 		<table class="table table-striped table-bordered table-condensed">
 		<tr><td>Namn:</td><td><%= @player.name %></td></tr>
-		<tr><td>Namn:</td><td><%= @player.player_stats.points %></td></tr>
+		<tr><td>Namn:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], 1]).first.goals %></td></tr>
 		</table>
 	</div>
 </div>
