@@ -23,6 +23,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :test, :development do
 	gem 'minitest'

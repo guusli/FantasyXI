@@ -28,5 +28,4 @@ class PlayersController < ApplicationController
   def sort_direction
   	params[:direction] || "asc"
   end
-
 end

@@ -34,7 +34,14 @@
             <li><%= link_to "Ranking" %></li>
             <li><%= link_to "Statistik", players_path %></li>
         </ul>
-            <ul class="nav pull-right"><li><%= link_to "Logga Ut" %></li></ul>
+            <ul class="nav pull-right"><li><a href="#"><%= current_user.name if current_user %></a></li>
+            <li>
+              <% if current_user %>
+                <%= link_to "Logga Ut", logout_path %>
+              <% else %>
+                <%= link_to "Logga In", "auth/facebook" %>
+              <% end %> 
+            </li></ul>
           </ul>
         </div>
       </div>

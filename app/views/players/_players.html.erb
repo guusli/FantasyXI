@@ -14,7 +14,7 @@
 
 <% for player in @players %>
 	<%
-		player_stats = player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", player.id, '1']).first;
+		player_stats = player.player_stats.find_by_player_id_and_round(player.id, '1');
 		%>
 	<tbody><tr>
 		<td><%= link_to player.name, player_path(player)  %></td>
