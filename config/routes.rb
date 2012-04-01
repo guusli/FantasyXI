@@ -6,6 +6,8 @@ Fantasyxi::Application.routes.draw do
   match "/logout" => "sessions#destroy", :as => :logout
 
   resources :players
+  resources :leagues
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
