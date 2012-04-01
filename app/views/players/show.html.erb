@@ -1,15 +1,49 @@
+<%= hidden_field_tag :round, params[:round] %>
 <h1><%= @player.name %></h1>
-<h2>Hej</h2>
-<!-- test -->
 <div class="row">
 	<div class="span3">
 		<%= image_tag "kits/#{Team.find(@player.team_id).name.downcase!}.png" %>
 	</div>
 	<div class="span3">
 		<h2>Statistik</h2>
+
+		<ul class="nav nav-pills">
+			  <li class="dropdown" id="menu1">
+			    <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+			      Omgång
+			      <b class="caret"></b>
+			    </a>
+			    <ul class="dropdown-menu">
+			      <li><%= link_to "Omgång 1", player_path(@player, :round => 1)  %></li>
+			      <li><%= link_to "Omgång 2", player_path(@player, :round => 2)  %></li>
+			      <li><%= link_to "Omgång 3", player_path(@player, :round => 3)  %></li>
+			      <li><%= link_to "Kvartsfinal", player_path(@player, :round => 4)  %></li>
+			      <li><%= link_to "Semifinal", player_path(@player, :round => 5)  %></li>
+			      <li><%= link_to "Final", player_path(@player, :round => 6)  %></li>
+			      <li class="divider"></li>
+			      <li><%= link_to "Totalt", player_path(@player)  %></li>
+			    </ul>
+			  </li>
+			</ul>
+
 		<table class="table table-striped table-bordered table-condensed">
 		<tr><td>Namn:</td><td><%= @player.name %></td></tr>
-		<tr><td>Namn:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], 1]).first.goals %></td></tr>
+			<% if params[:round] != nil%>
+
+				<tr><td>Poäng:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], params[:round]]).first.points %></td></tr>
+				<tr><td>Mål:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], params[:round]]).first.goals %></td></tr>
+				<tr><td>Assist:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], params[:round]]).first.assists %></td></tr>
+				<tr><td>Gula:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], params[:round]]).first.yellow %></td></tr>
+				<tr><td>Röda:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], params[:round]]).first.red %></td></tr>
+			<% else %>
+
+				<tr><td>Poäng:</td><td><%= PlayerStat.where(:player_id => @player.id).sum(:points) %></td></tr>
+				<tr><td>Mål:</td><td><%= PlayerStat.where(:player_id => @player.id).sum(:goals) %></td></tr>
+				<tr><td>Assists:</td><td><%= PlayerStat.where(:player_id => @player.id).sum(:assists) %></td></tr>
+				<tr><td>Gula:</td><td><%= PlayerStat.where(:player_id => @player.id).sum(:yellow) %></td></tr>
+				<tr><td>Röda:</td><td><%= PlayerStat.where(:player_id => @player.id).sum(:red) %></td></tr>
+
+			<% end %>
 		</table>
 	</div>
 </div>

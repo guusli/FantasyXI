@@ -19,11 +19,11 @@
 	<tbody><tr>
 		<td><%= link_to player.name, player_path(player)  %></td>
 		<td><%= Team.find(player.team_id).name %></td>
-		<td><%= player_stats.points %></td>
-		<td><%= player_stats.goals %></td>
-		<td><%= player_stats.assists %></td>
-		<td><%= player_stats.yellow %></td>
-		<td><%= player_stats.red %></td>
+		<td><%= PlayerStat.where(:player_id => player.id).sum(:points) %></td>
+		<td><%= PlayerStat.where(:player_id => player.id).sum(:goals) %></td>
+		<td><%= PlayerStat.where(:player_id => player.id).sum(:assists) %></td>
+		<td><%= PlayerStat.where(:player_id => player.id).sum(:yellow) %></td>
+		<td><%= PlayerStat.where(:player_id => player.id).sum(:red) %></td>
 	</tr></tbody>
 <% end %>
 
