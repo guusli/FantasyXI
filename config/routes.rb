@@ -6,6 +6,7 @@ Fantasyxi::Application.routes.draw do
   match "/logout" => "sessions#destroy", :as => :logout
 
   match "leagues/:id/join" => "leagues#join"
+  match "leagues/:id/leave" => "leagues#leave"
 
   resources :players
   resources :leagues

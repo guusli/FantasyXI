@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_leagues
-  	@leagues ||= current_user.leagues
+  	@user_leagues ||= current_user.leagues if current_user
   end
 
 end

@@ -1,3 +1,12 @@
 <h1><%= @league.name %></h1>
 
-<%= link_to "Gå Med", :controller => :leagues, :action => :join %>
+<%= 
+	if current_user
+
+		if @member 
+			link_to "Gå Ur", :controller => :leagues, :action => :leave 
+		else
+			link_to "Gå Med", :controller => :leagues, :action => :join
+		end
+	end
+%>

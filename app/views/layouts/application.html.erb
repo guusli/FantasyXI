@@ -28,10 +28,12 @@
 		          <b class="caret"></b>
 		    </a>
 		    <ul class="dropdown-menu">
+          <% if user_leagues.length > 0 %>
           <% user_leagues.each do |league| %>
             <li><%= link_to league.name , league %></li>
           <% end %>
-          <li class="divider"></li>
+            <li class="divider"></li>
+          <% end %>
           <li><%= link_to "Alla ligor" , leagues_path %></li>
 		    </ul>
 		  </li>
