@@ -5,9 +5,11 @@ Fantasyxi::Application.routes.draw do
   match "/auth/facebook/callback" => "sessions#create"
   match "/logout" => "sessions#destroy", :as => :logout
 
+  match "leagues/:id/join" => "leagues#join"
+
   resources :players
   resources :leagues
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

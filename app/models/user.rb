@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-	has_many :league, :through => :league_membership
+	has_many :league_membership
+	has_many :leagues, :through => :league_membership
 
 	def self.create_with_omniauth(auth)
 		create! do |user|
