@@ -1,7 +1,7 @@
 class LeaguesController < ApplicationController
 
 	def index
-		@leagues = League.all
+		@leagues = League.search(params[:search])
 	end
 
 	def show

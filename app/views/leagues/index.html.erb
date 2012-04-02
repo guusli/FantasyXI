@@ -1,7 +1,15 @@
 <h1>Leagues</h1>
 
+<%= form_tag leagues_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+
+
 <ul>
 	<% @leagues.each do |league|%>
 		<li> <%= link_to league.name, league %> </li>		
 	<% end %>
 </ul>
+<% end %>
