@@ -1,6 +1,6 @@
 Fantasyxi::Application.routes.draw do
 
-  root :to => "Players#index"
+  root :to => "UserTeams#show"
 
   match "/auth/facebook/callback" => "sessions#create"
   match "/logout" => "sessions#destroy", :as => :logout
@@ -10,6 +10,9 @@ Fantasyxi::Application.routes.draw do
 
   resources :players
   resources :leagues
+
+  resources :users
+  resources :user_teams
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

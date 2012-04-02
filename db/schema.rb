@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120401202020) do
+ActiveRecord::Schema.define(:version => 20120402134341) do
+
+  create_table "acquisitions", :force => true do |t|
+    t.integer  "user_team_id"
+    t.integer  "player_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "league_memberships", :force => true do |t|
     t.integer  "league_id"
@@ -53,6 +60,20 @@ ActiveRecord::Schema.define(:version => 20120401202020) do
   add_index "players", ["team_id"], :name => "index_players_on_team_id"
 
   create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_team_stats", :force => true do |t|
+    t.integer  "points"
+    t.integer  "user_team_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "user_teams", :force => true do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

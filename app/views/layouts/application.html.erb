@@ -19,7 +19,7 @@
         <a class="brand" href="#">Fantasy XI</a>
         <div class="nav-collapse">
           <ul class="nav pull-left">
-            <li><%= link_to "Mitt Lag"%></li>
+            <li><%= link_to "Mitt Lag", current_user.user_team %></li>
             <li class="dropdown">
 		    <a href="#"
 		          class="dropdown-toggle"
@@ -37,7 +37,7 @@
           <li><%= link_to "Alla ligor" , leagues_path %></li>
 		    </ul>
 		  </li>
-            <li><%= link_to "Ranking" %></li>
+            <li><%= link_to "Ranking" , user_teams_path %></li>
             <li><%= link_to "Statistik", players_path %></li>
         </ul>
             <ul class="nav pull-right"><li><a href="#"><%= current_user.name if current_user %></a></li>
