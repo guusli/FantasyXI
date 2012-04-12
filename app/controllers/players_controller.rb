@@ -3,7 +3,7 @@ class PlayersController < ApplicationController
 				
 
 	def index
-		@players = Player.search(params[:search]).order(sort_column + " " + sort_direction)
+		@players = Player.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 20, :page => params[:page])
 		@player = Player.new
 	end
 
