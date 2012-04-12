@@ -4,6 +4,6 @@ class UserTeamsController < ApplicationController
 	end
 
 	def show
-		@user_team = current_user.user_team
+		@user_team = current_user.user_team if current_user
 	end
 end
