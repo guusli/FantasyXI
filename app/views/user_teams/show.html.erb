@@ -1,4 +1,11 @@
 
 <% if current_user %>
+<% if @user_team %>
   <h1><%= @user_team.name %></h1>
+  <% else %>
+	<h1>Inget lag</h1>
+	<% end %>
+
+	<%= render 'pitch' %>
 <% end %>
+
