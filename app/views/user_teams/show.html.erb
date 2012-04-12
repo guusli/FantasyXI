@@ -4,8 +4,15 @@
   <h1><%= @user_team.name %></h1>
   <% else %>
 	<h1>Inget lag</h1>
-	<% end %>
-
-	<%= render 'pitch' %>
+<% end %>
+	
+	<div class="row">
+		<div class="span6">
+			<%= render 'pitch' %>
+		</div>
+		<div class="span6">
+			<%= render 'players/pickplayer' %>
+		</div>	
+	</div><!-- /row -->
 <% end %>
 

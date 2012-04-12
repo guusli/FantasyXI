@@ -1,3 +1,47 @@
 // Place all the styles related to the UserTeams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#pitch {
+	background-image: url('pitch/pitch.png');
+
+	height: 575px;
+	width: 400px;	
+}
+
+.goalie {
+	width: 400px;
+	height: 143px;
+	text-align: center;
+
+}
+
+.defense {
+	width: 400px;
+	height: 143px;
+	text-align: center;
+
+}
+
+.midfield {
+	width: 400px;
+	height: 143px;
+	text-align: center;
+
+}
+
+.forwards {
+	width: 400px;
+	height: 143px;
+	text-align: center;
+
+}
+
+.player {
+	width: 50px;
+	height: 50px;
+	margin: 35px 20px;
+	background-color: #fff;
+	display: inline-block
+
+}
