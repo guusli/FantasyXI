@@ -32,7 +32,7 @@ function handleDragStart(e) {
 
 		  e.originalEvent.dataTransfer.setData("text/plain", e.target.getAttribute('id'));
 		  var dragIcon = document.createElement('img');
-			dragIcon.src = 'assets/kits/danmarkthumb.png';
+			dragIcon.src = 'assets/kits/'+ e.target.children[3].innerText.toLowerCase()+ 'thumb.png';
 		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 40,40);
 }
 
@@ -45,8 +45,8 @@ function handleDragOver(e) {
 function handleDrop(e) {
 			var msg = e.originalEvent.dataTransfer.getData("text/plain");
 
-			$(e.currentTarget).css('background', msg);
-			$(e.currentTarget).css('border','');
+			$(e.currentTarget).css('background', 'transparent');
+			$(e.currentTarget).css('background-image','');
 
 			$("#" + msg).css('opacity', '1.0');
 		}
