@@ -6,12 +6,14 @@
 	<th>Position</th>
 	<th>Land</th>
 <% @players.each do |player| %>
-	<tr draggable="true">
+	<tr draggable="true" class="<%= player.id %>" >
 	<td><%= player.name %></td>
 	<td><%= player.price %></td>
 	<td><%= player.position %></td>
 	<td><%= Team.find(player.team_id).name %></td>
 	</tr>
+
+
 </span>
 <% end %>
 </table>

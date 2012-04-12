@@ -30,29 +30,37 @@ $(function() {
 function handleDragStart(e) {
 		  e.srcElement.style.opacity = '0.4';
 
-		  e.originalEvent.dataTransfer.setData("text/plain", e.target.getAttribute('id'));
-		  var dragIcon = document.createElement('img');
-			dragIcon.src = 'assets/kits/danmark_thumb.png';
-		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 25,25);
+		  e.originalEvent.dataTransfer.setData("text/plain", e.target.children[3].innerText);
+
+		  console.log(e);
+		  //var dragIcon = document.createElement('img');
+			//dragIcon.src = 'http://localhost:3000/assets/kits/england.png';
+		  //e.originalEvent.dataTransfer.setDragImage(dragIcon, 50,25);
+
 }
 
 function handleDragOver(e) {
 			e.preventDefault();
 
-			$(e.currentTarget).css('border','2px dashed black');
+			$(e.currentTarget).css('background','red');
 }
 
 function handleDrop(e) {
-			var msg = e.originalEvent.dataTransfer.getData("text/plain");
+			var player_country = e.originalEvent.dataTransfer.getData("text/plain");
 
-			$(e.currentTarget).css('background', msg);
-			$(e.currentTarget).css('border','');
 
-			$("#" + msg).css('opacity', '1.0');
+			var kit_url = 'http://localhost:3000/assets/kits/' + player_country.toLowerCase() + 'small.png';
+			console.log("url('" + kit_url + "')" );
+
+			$(e.currentTarget).css('background','transparent');
+			$(e.currentTarget).css('background-image',"url('" + kit_url + "')");
+
+
+			//$("#" + msg).css('opacity', '1.0');
 		}
 
 function handleDragLeave(e) {
-	$(e.currentTarget).css('border','');
+	$(e.currentTarget).css('background','white');
 }
 
 $(document).ready(function(){
