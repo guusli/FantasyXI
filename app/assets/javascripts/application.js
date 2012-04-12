@@ -32,8 +32,8 @@ function handleDragStart(e) {
 
 		  e.originalEvent.dataTransfer.setData("text/plain", e.target.getAttribute('id'));
 		  var dragIcon = document.createElement('img');
-			dragIcon.src = 'assets/kits/danmark_thumb.png';
-		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 25,25);
+			dragIcon.src = 'assets/kits/danmarkthumb.png';
+		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 40,40);
 }
 
 function handleDragOver(e) {
@@ -53,6 +53,7 @@ function handleDrop(e) {
 
 function handleDragLeave(e) {
 	$(e.currentTarget).css('border','');
+
 }
 
 $(document).ready(function(){
