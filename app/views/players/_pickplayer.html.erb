@@ -1,1 +1,17 @@
-<h2>Pick Players</h2>
+<table id="players" class="table table-condensed">
+<span draggable="true" >
+<tr draggable="true">
+	<th>Namn</th>
+	<th>Pris</th>
+	<th>Position</th>
+	<th>Land</th>
+<% @players.each do |player| %>
+	<tr draggable="true">
+	<td><%= player.name %></td>
+	<td><%= player.price %></td>
+	<td><%= player.position %></td>
+	<td><%= Team.find(player.team_id).name %></td>
+	</tr>
+</span>
+<% end %>
+</table>

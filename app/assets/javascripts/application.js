@@ -25,3 +25,47 @@ $(function() {
     return false;
   });
 });
+
+
+function handleDragStart(e) {
+		  e.srcElement.style.opacity = '0.4';
+
+		  e.originalEvent.dataTransfer.setData("text/plain", e.target.getAttribute('id'));
+		  var dragIcon = document.createElement('img');
+			dragIcon.src = 'assets/kits/danmark_thumb.png';
+		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 25,25);
+}
+
+function handleDragOver(e) {
+			e.preventDefault();
+
+			$(e.currentTarget).css('border','2px dashed black');
+}
+
+function handleDrop(e) {
+			var msg = e.originalEvent.dataTransfer.getData("text/plain");
+
+			$(e.currentTarget).css('background', msg);
+			$(e.currentTarget).css('border','');
+
+			$("#" + msg).css('opacity', '1.0');
+		}
+
+function handleDragLeave(e) {
+	$(e.currentTarget).css('border','');
+}
+
+$(document).ready(function(){
+
+
+			$("#players tr").each(function(index, player) {
+				$(player).bind('dragstart', handleDragStart);
+			});
+
+
+			$("#pitch .player").each(function(index, box) {
+				$(box).bind('dragover', handleDragOver);
+				$(box).bind('drop', handleDrop);
+				$(box).bind('dragleave', handleDragLeave);
+			});
+});
