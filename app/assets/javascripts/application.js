@@ -40,7 +40,7 @@ function handleDragStart(e) {
  	e.originalEvent.dataTransfer.setData("text/plain", e.target.children[3].innerText);
 		  var dragIcon = document.createElement('img');
 			dragIcon.src = 'http://localhost:3000/assets/kits/thumbs/'+ e.target.children[3].innerText.toLowerCase()+ 'thumb.png';
-		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 40,40);
+		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 25,25);
 }
 
 function handleDragOver(e) {
