@@ -46,11 +46,15 @@ function handleDragStart(e) {
 function handleDragOver(e) {
 			e.preventDefault();
 
-			$(e.currentTarget).css('background','red');
+
+			console.log(e.currentTarget);
+			$(e.currentTarget.children[0]).css('display','inline-block');
 }
 
 function handleDrop(e) {
 			var player_country = e.originalEvent.dataTransfer.getData("text/plain");
+
+			$(e.currentTarget.children[0]).css('display','none');
 
 			teamPlayers[e.target.innerText] = draggedPlayer;
 
@@ -68,7 +72,7 @@ function handleDrop(e) {
 
 
 function handleDragLeave(e) {
-	$(e.currentTarget).css('border','');
+	$(e.currentTarget.children[0]).css('display','none');
 
 }
 
