@@ -28,6 +28,13 @@ $(function() {
 
 
 $(function() {
+	$('#post_team_select').change(function() {
+  		var team_id = this.value;
+  		window.location = "?team_id=" + team_id; 	
+	});
+});
+
+$(function() {
 
 	var teamPlayers = [];
 	var draggedPlayer;

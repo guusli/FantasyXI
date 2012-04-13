@@ -9,10 +9,19 @@ class UserTeamsController < ApplicationController
 
 	def show
 		@user_team = current_user.user_team if current_user
-		@players = Player.order(sort_column + " " + sort_direction)
+		
+		if team_id
+			@players = Player.where(:team_id => team_id).order(sort_column + " " + sort_direction)
+		else	
+			@players = Player.order(sort_column + " " + sort_direction)
+		end
 	end
 
 	private
+
+	def team_id
+		params[:team_id] || nil
+	end
   
   def sort_column
   	params[:sort] || "name"
