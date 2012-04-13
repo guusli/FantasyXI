@@ -23,6 +23,11 @@
 			<%= render 'pitch' %>
 		</div>
 		<div class="span6">
+			<div id="filter_settings">
+				<label>Sök</label><input />
+				<label>Land</label>
+				<%= select("post", "team_select", Team.all.collect {|t| [ t.name, t.id ] }, {:include_blank => 'Alla Länder'}) %>
+			</div>
 		<%= render 'players/pickplayer' %>
 		</div>	
 	</div><!-- /row -->

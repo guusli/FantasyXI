@@ -1,10 +1,10 @@
 <table id="players" class="table table-condensed">
 <span>
 <tr>
-	<th>Namn</th>
-	<th>Pris</th>
-	<th>Position</th>
-	<th>Land</th>
+	<td><%= sortable "name", "Namn"%></td>
+	<td><%= sortable "price", "Pris"%></td>
+	<td><%= sortable "position", "Position"%></td>
+	<td><%= sortable "team_id", "Land"%></td>
 <% @players.each do |player| %>
 	<tr draggable="true" id=<%="player_#{player.id}"%> >
 	<td><%= player.name %></td>
