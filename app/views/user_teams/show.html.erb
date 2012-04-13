@@ -8,6 +8,18 @@
 	
 	<div class="row">
 		<div class="span6">
+			<div class="btn-group">
+  				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    				Välj formation
+    				<span class="caret"></span>
+  				</a>
+  					<ul class="dropdown-menu">
+    					<li><%= link_to "3-4-3", :def => 3, :mid => 4, :for => 3, :method => :post %></li>
+    					<li><%= link_to "4-4-2", :def => 4, :mid => 4, :for => 2, :method => :post %></li>
+    					<li><%= link_to "4-3-3", :def => 4, :mid => 3, :for => 3, :method => :post %></li>
+ 					 </ul>
+			</div>
+
 			<%= render 'pitch' %>
 		</div>
 		<div class="span6">
