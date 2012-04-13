@@ -30,7 +30,7 @@ $(function() {
 function handleDragStart(e) {
 		  e.srcElement.style.opacity = '0.4';
 
-		  e.originalEvent.dataTransfer.setData("text/plain", e.target.getAttribute('id'));
+ 	e.originalEvent.dataTransfer.setData("text/plain", e.target.children[3].innerText);
 		  var dragIcon = document.createElement('img');
 			dragIcon.src = 'assets/kits/'+ e.target.children[3].innerText.toLowerCase()+ 'thumb.png';
 		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 40,40);
@@ -56,7 +56,11 @@ function handleDrop(e) {
 			//$("#" + msg).css('opacity', '1.0');
 		}
 
-function handleDragLeave(e) {}
+
+function handleDragLeave(e) {
+	$(e.currentTarget).css('border','');
+
+}
 
 $(document).ready(function(){
 
