@@ -54,7 +54,6 @@ function handleDrop(e) {
 
 			teamPlayers[e.target.innerText] = draggedPlayer;
 
-			console.log(teamPlayers);
 
 
 			var kit_url = 'http://localhost:3000/assets/kits/thumbs/' + player_country.toLowerCase() + 'thumb.png';
