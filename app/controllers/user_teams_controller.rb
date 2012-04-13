@@ -6,6 +6,6 @@ class UserTeamsController < ApplicationController
 
 	def show
 		@user_team = current_user.user_team if current_user
-		@players = Player.limit(50)
+		@players = Player.all
 	end
 end

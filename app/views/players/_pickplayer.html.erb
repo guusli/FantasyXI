@@ -6,7 +6,7 @@
 	<th>Position</th>
 	<th>Land</th>
 <% @players.each do |player| %>
-	<tr draggable="true" class="<%= player.id %>" >
+	<tr draggable="true" id=<%="player_#{player.id}"%> >
 	<td><%= player.name %></td>
 	<td><%= player.price %></td>
 	<td><%= player.position %></td>
