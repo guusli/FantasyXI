@@ -30,6 +30,7 @@ $(function() {
 function handleDragStart(e) {
 		  e.srcElement.style.opacity = '0.4';
 
+<<<<<<< HEAD
 		  e.originalEvent.dataTransfer.setData("text/plain", e.target.children[3].innerText);
 
 		  console.log(e);
@@ -37,6 +38,12 @@ function handleDragStart(e) {
 			//dragIcon.src = 'http://localhost:3000/assets/kits/england.png';
 		  //e.originalEvent.dataTransfer.setDragImage(dragIcon, 50,25);
 
+=======
+		  e.originalEvent.dataTransfer.setData("text/plain", e.target.getAttribute('id'));
+		  var dragIcon = document.createElement('img');
+			dragIcon.src = 'assets/kits/'+ e.target.children[3].innerText.toLowerCase()+ 'thumb.png';
+		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 40,40);
+>>>>>>> 7860b6dbe9602a9d966704917b023fa301df725b
 }
 
 function handleDragOver(e) {
@@ -55,12 +62,23 @@ function handleDrop(e) {
 			$(e.currentTarget).css('background','transparent');
 			$(e.currentTarget).css('background-image',"url('" + kit_url + "')");
 
+<<<<<<< HEAD
+=======
+			$(e.currentTarget).css('background', 'transparent');
+			$(e.currentTarget).css('background-image','');
+>>>>>>> 7860b6dbe9602a9d966704917b023fa301df725b
 
 			//$("#" + msg).css('opacity', '1.0');
 		}
 
+<<<<<<< HEAD
 function handleDragLeave(e) {}
 	$(e.currentTarget).css('background','white');
+=======
+function handleDragLeave(e) {
+	$(e.currentTarget).css('border','');
+
+>>>>>>> 7860b6dbe9602a9d966704917b023fa301df725b
 }
 
 $(document).ready(function(){
