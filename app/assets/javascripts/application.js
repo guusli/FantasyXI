@@ -32,10 +32,24 @@ $(function() {
 	var teamPlayers = [];
 	var draggedPlayer;
 
+
+function Player(id, name, country) {
+	this.id = id;
+	this.name = name;
+	this.country = country;
+}
+
 function handleDragStart(e) {
 		  e.srcElement.style.opacity = '0.4';
 
-		  draggedPlayer = e.target;
+		  var id = e.target.getAttribute('id').match(/\d+/)[0];
+		  var name = e.target.children[0].innerText;
+		  var country = e.target.children[3].innerText;
+
+
+		  draggedPlayer = new Player(id, name, country);
+
+
 
  	e.originalEvent.dataTransfer.setData("text/plain", e.target.children[3].innerText);
 		  var dragIcon = document.createElement('img');
@@ -46,25 +60,25 @@ function handleDragStart(e) {
 function handleDragOver(e) {
 			e.preventDefault();
 
-
-			console.log(e.currentTarget);
-			$(e.currentTarget.children[0]).css('display','inline-block');
 }
 
 function handleDrop(e) {
 			var player_country = e.originalEvent.dataTransfer.getData("text/plain");
 
-			$(e.currentTarget.children[0]).css('display','none');
 
 			teamPlayers[e.target.innerText] = draggedPlayer;
 
 
 
-			var kit_url = 'http://localhost:3000/assets/kits/thumbs/' + player_country.toLowerCase() + 'thumb.png';
+			var kit_url = 'http://localhost:3000/assets/kits/thumbs/' + draggedPlayer.country.toLowerCase() + 'thumb.png';
 			console.log("url('" + kit_url + "')" );
 
-			$(e.currentTarget).css('background','transparent');
-			$(e.currentTarget).css('background-image',"url('" + kit_url + "')");
+			console.log(e);
+
+			$(e.currentTarget.children[0]).css('background-image',"url('" + kit_url + "')");
+			var name = draggedPlayer.name.replace(" ", "\n");
+			console.log(name);
+			$(e.currentTarget.children[1]).text(name);
 
 
 			//$("#" + msg).css('opacity', '1.0');
@@ -72,7 +86,6 @@ function handleDrop(e) {
 
 
 function handleDragLeave(e) {
-	$(e.currentTarget.children[0]).css('display','none');
 
 }
 

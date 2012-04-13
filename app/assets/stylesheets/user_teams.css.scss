@@ -38,17 +38,41 @@
 }
 
 .player {
+	width: 90px;
+	height: 70px;
+	margin-top: 30px;
+	
+	display: inline-block;
+
+	text-align: center;
+
+
+}
+
+.player .kit {
+	background-image: url('kits/empty.png');
+
 	width: 50px;
 	height: 50px;
-	margin: 35px 20px;
-	background-image: url('kits/empty.png');
-	display: inline-block
+	margin: 0px auto;
 
 }
 
-.player .plus {
+.player .player_name {
+	width: 90px;
+	text-align: center;
+	display: block;
+	white-space: pre-line;
+	//word-wrap: break-word;
+
+
+}
+
+/*.player .plus {
 	display: none;
-}
+	margin-left: 25%;
+	margin-top: 25%;
+}*/
 
 #save_button {
 	width: 375px;
