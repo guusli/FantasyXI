@@ -32,7 +32,7 @@ function handleDragStart(e) {
 
  	e.originalEvent.dataTransfer.setData("text/plain", e.target.children[3].innerText);
 		  var dragIcon = document.createElement('img');
-			dragIcon.src = 'assets/kits/'+ e.target.children[3].innerText.toLowerCase()+ 'thumb.png';
+			dragIcon.src = 'http://localhost:3000/assets/kits/'+ e.target.children[3].innerText.toLowerCase()+ 'thumb.png';
 		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 40,40);
 }
 
@@ -46,7 +46,7 @@ function handleDrop(e) {
 			var player_country = e.originalEvent.dataTransfer.getData("text/plain");
 
 
-			var kit_url = 'http://localhost:3000/assets/kits/' + player_country.toLowerCase() + 'small.png';
+			var kit_url = 'http://localhost:3000/assets/kits/' + player_country.toLowerCase() + 'thumb.png';
 			console.log("url('" + kit_url + "')" );
 
 			$(e.currentTarget).css('background','transparent');
