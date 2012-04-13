@@ -59,7 +59,7 @@ function handleDrop(e) {
 			//$("#" + msg).css('opacity', '1.0');
 		}
 
-function handleDragLeave(e) {
+function handleDragLeave(e) {}
 	$(e.currentTarget).css('background','white');
 }
 
