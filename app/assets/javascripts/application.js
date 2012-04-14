@@ -60,7 +60,7 @@ function handleDragStart(e) {
 
  	e.originalEvent.dataTransfer.setData("text/plain", e.target.children[3].innerText);
 		  var dragIcon = document.createElement('img');
-			dragIcon.src = 'http://localhost:3000/assets/kits/thumbs/'+ e.target.children[3].innerText.toLowerCase()+ 'thumb.png';
+			dragIcon.src = '/assets/kits/thumbs/'+ e.target.children[3].innerText.toLowerCase()+ 'thumb.png';
 		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 25,25);
 }
 
@@ -77,7 +77,7 @@ function handleDrop(e) {
 
 
 
-			var kit_url = 'http://localhost:3000/assets/kits/thumbs/' + draggedPlayer.country.toLowerCase() + 'thumb.png';
+			var kit_url = '/assets/kits/thumbs/' + draggedPlayer.country.toLowerCase() + 'thumb.png';
 			console.log("url('" + kit_url + "')" );
 
 			console.log(e);
