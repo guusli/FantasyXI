@@ -16,6 +16,17 @@
 //= require_tree .
 
 $(function() {
+	initDnd();
+});
+
+
+$(function() {
+	$('.disabled').click(function(e) {
+		e.preventDefault();
+	});
+});
+
+$(function() {
 	$("#players th a, #players .pagination a").live("click", function(){
 		$.getScript(this.href);
 		return false;
@@ -34,7 +45,7 @@ $(function() {
 	});
 });
 
-$(function() {
+var initDnd = function() {
 
 	var teamPlayers = [];
 	var draggedPlayer;
@@ -70,6 +81,7 @@ function handleDragOver(e) {
 }
 
 function handleDrop(e) {
+
 			var player_country = e.originalEvent.dataTransfer.getData("text/plain");
 
 
@@ -97,7 +109,7 @@ function handleDragLeave(e) {
 }
 
 
-		$("#players tr").each(function(index, player) {
+		$("#players_table tr").each(function(index, player) {
 			$(player).bind('dragstart', handleDragStart);
 		});
 
@@ -107,4 +119,4 @@ function handleDragLeave(e) {
 			$(box).bind('drop', handleDrop);
 			$(box).bind('dragleave', handleDragLeave);
 		});
-});
+}

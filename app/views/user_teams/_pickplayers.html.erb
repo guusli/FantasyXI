@@ -1,0 +1,21 @@
+<table id="players_table" class="table table-condensed">
+<span>
+<tr>
+	<th><%= sortable "name", "Namn"%></th>
+	<td><%= sortable "price", "Pris"%></td>
+	<td><%= sortable "position", "Position"%></td>
+	<td><%= sortable "team_id", "Land"%></td>
+<% @players.each do |player| %>
+	<tr draggable="true" id=<%="player_#{player.id}"%> >
+	<td><%= player.name %></td>
+	<td><%= player.price %></td>
+	<td><%= player.position %></td>
+	<td><%= Team.find(player.team_id).name %></td>
+	</tr>
+
+
+</span>
+<% end %>
+</table>
+
+<%= will_paginate @players ,:inner_window => 3, :previous_label => "«", :next_label => '»', :renderer => PaginationListLinkRenderer %>

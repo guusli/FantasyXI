@@ -23,12 +23,20 @@
 			<%= render 'pitch' %>
 		</div>
 		<div class="span6">
-			<div id="filter_settings">
-				<label>Sök</label><input />
+			<%= form_tag @user_team, :method => 'get', :id => "players_search" do %>
+
+				<%= hidden_field_tag :direction, params[:direction] %>
+				<%= hidden_field_tag :sort, params[:sort] %>
+				<div id="filter_settings">
+				<label>Sök</label>
+				<%= text_field_tag :search, params[:search] %>
 				<label>Land</label>
 				<%= select("post", "team_select", Team.all.collect {|t| [ t.name, t.id ] }, {:include_blank => 'Alla Länder'}) %>
-			</div>
-		<%= render 'players/pickplayer' %>
+				</div>
+				<div id="players"><%= render 'pickplayers' %>
+
+				</div>
+			<% end %>
 		</div>	
 	</div><!-- /row -->
 	<div class="row">

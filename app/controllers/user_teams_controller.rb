@@ -11,9 +11,9 @@ class UserTeamsController < ApplicationController
 		@user_team = current_user.user_team if current_user
 		
 		if team_id
-			@players = Player.where(:team_id => team_id).order(sort_column + " " + sort_direction)
+			@players = Player.where(:team_id => team_id).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
 		else	
-			@players = Player.order(sort_column + " " + sort_direction)
+			@players = Player.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
 		end
 	end
 
