@@ -15,8 +15,31 @@
 //= require twitter/bootstrap
 //= require_tree .
 
+
+var kits = {};
 $(function() {
-	initDnd();
+	preloads = "danmark,england,frankrike,grekland,holland,irland,italien,kroatien,polen,portugal,ryssland,spanien,sverige,tjeckien,tyskland,ukraina".split(",");
+
+	$.each(preloads, function(x, c) {
+	    kits[c] = new Image();
+	    kits[c].src = "/assets/kits/thumbs/" + preloads[x] + "thumb.png";
+	});
+
+
+
+});
+
+$(function() {
+	$("#players_table tr").each(function(index, player) {
+			$(player).bind('dragstart', handleDragStart);
+		});
+
+
+		$("#pitch .player").each(function(index, box) {
+			$(box).bind('dragover', handleDragOver);
+			$(box).bind('drop', handleDrop);
+			$(box).bind('dragleave', handleDragLeave);
+		});
 });
 
 
@@ -31,8 +54,8 @@ $(function() {
 		$.getScript(this.href);
 		return false;
 	});
-	  $("#players_search input").keyup(function() {
-    $.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");
+	$("#players_search input").keyup(function() {
+    	$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");
     return false;
   });
 });
@@ -41,11 +64,10 @@ $(function() {
 $(function() {
 	$('#post_team_select').change(function() {
   		var team_id = this.value;
-  		window.location = "?team_id=" + team_id; 	
+  		$.getScript("?team_id=" + team_id); 	
 	});
 });
 
-var initDnd = function() {
 
 	var teamPlayers = [];
 	var draggedPlayer;
@@ -70,9 +92,12 @@ function handleDragStart(e) {
 
 
  	e.originalEvent.dataTransfer.setData("text/plain", e.target.children[3].innerText);
-		  var dragIcon = document.createElement('img');
-			dragIcon.src = '/assets/kits/thumbs/'+ e.target.children[3].innerText.toLowerCase()+ 'thumb.png';
-		  e.originalEvent.dataTransfer.setDragImage(dragIcon, 25,25);
+
+
+		  var dragIcon = kits[draggedPlayer.country.toLowerCase()]
+
+			console.log(dragIcon);
+		   e.originalEvent.dataTransfer.setDragImage(dragIcon, 25,25);
 }
 
 function handleDragOver(e) {
@@ -81,7 +106,6 @@ function handleDragOver(e) {
 }
 
 function handleDrop(e) {
-
 			var player_country = e.originalEvent.dataTransfer.getData("text/plain");
 
 
@@ -90,13 +114,13 @@ function handleDrop(e) {
 
 
 			var kit_url = '/assets/kits/thumbs/' + draggedPlayer.country.toLowerCase() + 'thumb.png';
-			console.log("url('" + kit_url + "')" );
+			//console.log("url('" + kit_url + "')" );
 
-			console.log(e);
+			//console.log(e);
 
 			$(e.currentTarget.children[0]).css('background-image',"url('" + kit_url + "')");
 			var name = draggedPlayer.name.replace(" ", "\n");
-			console.log(name);
+			//console.log(name);
 			$(e.currentTarget.children[1]).text(name);
 
 
@@ -106,17 +130,4 @@ function handleDrop(e) {
 
 function handleDragLeave(e) {
 
-}
-
-
-		$("#players_table tr").each(function(index, player) {
-			$(player).bind('dragstart', handleDragStart);
-		});
-
-
-		$("#pitch .player").each(function(index, box) {
-			$(box).bind('dragover', handleDragOver);
-			$(box).bind('drop', handleDrop);
-			$(box).bind('dragleave', handleDragLeave);
-		});
 }

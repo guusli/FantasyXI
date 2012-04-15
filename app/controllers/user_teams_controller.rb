@@ -17,6 +17,12 @@ class UserTeamsController < ApplicationController
 		end
 	end
 
+	def change_formation
+		respond_to do |format|
+        	format.js { render :layout=>false }
+    	end
+	end
+
 	private
 
 	def team_id

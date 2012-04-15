@@ -2,9 +2,9 @@
 <span>
 <tr>
 	<th><%= sortable "name", "Namn"%></th>
-	<td><%= sortable "price", "Pris"%></td>
-	<td><%= sortable "position", "Position"%></td>
-	<td><%= sortable "team_id", "Land"%></td>
+	<th><%= sortable "price", "Pris"%></th>
+	<th><%= sortable "position", "Position"%></th>
+	<th><%= sortable "team_id", "Land"%></th>
 <% @players.each do |player| %>
 	<tr draggable="true" id=<%="player_#{player.id}"%> >
 	<td><%= player.name %></td>
@@ -18,4 +18,4 @@
 <% end %>
 </table>
 
-<%= will_paginate @players ,:inner_window => 3, :previous_label => "«", :next_label => '»', :renderer => PaginationListLinkRenderer %>
+<%= will_paginate @players ,:inner_window => 2, :previous_label => "«", :next_label => '»', :renderer => PaginationListLinkRenderer %>
