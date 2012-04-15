@@ -9,28 +9,28 @@
 	width: 400px;	
 }
 
-.goalie {
+#goalie {
 	width: 400px;
 	height: 143px;
 	text-align: center;
 
 }
 
-.defense {
+#defense {
 	width: 400px;
 	height: 143px;
 	text-align: center;
 
 }
 
-.midfield {
+#midfield {
 	width: 400px;
 	height: 143px;
 	text-align: center;
 
 }
 
-.forwards {
+#forwards {
 	width: 400px;
 	height: 143px;
 	text-align: center;
@@ -47,6 +47,10 @@
 	text-align: center;
 
 
+}
+
+#players_table  td {
+	cursor: move;
 }
 
 .player .kit {

@@ -1,33 +1,33 @@
 <div id="pitch">
 	<% if params[:def] && params[:mid] && params[:for] != nil%>
-		<div class="goalie">
-			<div class="player">
+		<div id="goalie">
+			<div class="player gk_0">
 				<div class="kit"></div>
 				<div class="player_name"></div>
 			</div>
 		</div>
 		
-		<div class="defense">
+		<div id="defense">
 			<% params[:def].to_i.times do |i|  %>
-				<div class="player">
+				<div class="player df_<%=i %>" >
 					<div class="kit"></div>
 					<div class="player_name"></div>
 				</div>
 			<% end %>
 		</div>
 		
-		<div class="midfield">
+		<div id="midfield">
 			<% params[:mid].to_i.times do |i|  %>
-				<div class="player">
+				<div class="player mf_<%=i %>">
 					<div class="kit"></div>
 					<div class="player_name"></div>
 				</div>
 			<% end %>
 		</div>
 		
-		<div class="forwards">
+		<div id="forwards">
 			<% params[:for].to_i.times do |i|  %>
-				<div class="player">
+				<div class="player fw_<%=i %>">
 					<div class="kit"></div>
 					<div class="player_name"></div>
 				</div>

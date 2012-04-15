@@ -33,13 +33,6 @@ $(function() {
 	$("#players_table tr").each(function(index, player) {
 			$(player).bind('dragstart', handleDragStart);
 		});
-
-
-		$("#pitch .player").each(function(index, box) {
-			$(box).bind('dragover', handleDragOver);
-			$(box).bind('drop', handleDrop);
-			$(box).bind('dragleave', handleDragLeave);
-		});
 });
 
 
@@ -69,14 +62,19 @@ $(function() {
 });
 
 
-	var teamPlayers = [];
+	var teamPlayers = {};
+	teamPlayers.GK = [];
+	teamPlayers.DF = [];
+	teamPlayers.MF = [];
+	teamPlayers.FW = [];
 	var draggedPlayer;
 
 
-function Player(id, name, country) {
+function Player(id, name, country, position) {
 	this.id = id;
 	this.name = name;
 	this.country = country;
+	this.position = position;
 }
 
 function handleDragStart(e) {
@@ -84,10 +82,26 @@ function handleDragStart(e) {
 
 		  var id = e.target.getAttribute('id').match(/\d+/)[0];
 		  var name = e.target.children[0].innerText;
+		  var position = e.target.children[2].innerText;
 		  var country = e.target.children[3].innerText;
 
 
-		  draggedPlayer = new Player(id, name, country);
+		  draggedPlayer = new Player(id, name, country, position);
+
+
+
+		 // Koppla event beroende på position
+		 var player_position;
+		if (draggedPlayer.position == "GK") player_position = "#goalie";
+		else if(draggedPlayer.position == "DF") player_position = "#defense";
+		else if (draggedPlayer.position == "MF") player_position = "#midfield";
+		else if (draggedPlayer.position == "FW") player_position = "#forwards";
+
+		$(player_position + " .player").each(function(index, box) {
+			$(box).bind('dragover', handleDragOver);
+			$(box).bind('drop', handleDrop);
+			$(box).bind('dragleave', handleDragLeave);
+		});
 
 
 
@@ -106,10 +120,14 @@ function handleDragOver(e) {
 }
 
 function handleDrop(e) {
-			var player_country = e.originalEvent.dataTransfer.getData("text/plain");
 
 
-			teamPlayers[e.target.innerText] = draggedPlayer;
+			var player_parent = e.target.parentElement.className.split(" ")[1].match(/\d+/)[0];
+			
+			teamPlayers[draggedPlayer.position][player_parent] = draggedPlayer;
+
+
+			console.log(teamPlayers);
 
 
 
@@ -124,10 +142,21 @@ function handleDrop(e) {
 			$(e.currentTarget.children[1]).text(name);
 
 
+
+
+			// Koppla bort eventet
+			$("#pitch .player").each(function(index, box) {
+			$(box).unbind('dragover');
+			$(box).bind('drop');
+			$(box).unbind('dragleave');
+		});
+
+
 			//$("#" + msg).css('opacity', '1.0');
 		}
 
 
 function handleDragLeave(e) {
+	e.preventDefault();
 
 }
