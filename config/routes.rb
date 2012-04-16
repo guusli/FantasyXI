@@ -8,11 +8,14 @@ Fantasyxi::Application.routes.draw do
   match "leagues/:id/join" => "leagues#join"
   match "leagues/:id/leave" => "leagues#leave"
 
+
   resources :players
   resources :leagues
 
   resources :users
   resources :user_teams
+
+  match 'change_formation' => 'user_teams#change_formation'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

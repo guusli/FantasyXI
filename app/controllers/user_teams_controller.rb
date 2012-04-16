@@ -18,9 +18,7 @@ class UserTeamsController < ApplicationController
 	end
 
 	def change_formation
-		respond_to do |format|
-        	format.js { render :layout=>false }
-    	end
+		@players = Player.all
 	end
 
 	private

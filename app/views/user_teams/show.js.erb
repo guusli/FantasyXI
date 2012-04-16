@@ -4,17 +4,4 @@ $("#players_table td").fadeOut('fast', function() {
 	$("#players #players_table tr").each(function(index, player) {
 			$(player).bind('dragstart', handleDragStart);
 		});
-
-
-		$("#pitch .player").each(function(index, box) {
-			$(box).bind('dragover', handleDragOver);
-			$(box).bind('drop', handleDrop);
-			$(box).bind('dragleave', handleDragLeave);
-		});
 });
-
-/* 	$("#players_table tr").each(function(index, player) {
-			$(player).bind('dragstart', handleDragStart);
-		});
-
-*/
