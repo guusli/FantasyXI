@@ -155,7 +155,8 @@ function handleDrop(e) {
 			//console.log(name);
 			$(e.currentTarget.children[1]).text(name);
 
-			$("tr#player_"+ draggedPlayer.id).addClass("test");
+			$("tr#player_"+ draggedPlayer.id).addClass("marked");
+			$("tr#player_"+ draggedPlayer.id).attr('draggable','false');
 
 
 

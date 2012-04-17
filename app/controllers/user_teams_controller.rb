@@ -15,7 +15,7 @@ class UserTeamsController < ApplicationController
 		end
 		
 		if team_id
-			@players = Player.where(:team_id => team_id, :position => ).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+			@players = Player.where(:team_id => team_id).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
 		else	
 			@players = Player.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
 		end
@@ -32,6 +32,7 @@ class UserTeamsController < ApplicationController
 	end
 
 	def positions
+	end
   
   def sort_column
   	params[:sort] || "name"
@@ -40,4 +41,5 @@ class UserTeamsController < ApplicationController
   def sort_direction
   	params[:direction] || "asc"
   end
+
 end

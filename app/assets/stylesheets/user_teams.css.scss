@@ -7,6 +7,11 @@
 
 	height: 575px;
 	width: 400px;	
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	cursor:default;
+
 }
 
 #goalie {
@@ -49,9 +54,14 @@
 
 }
 
-#players_table  td {
-	cursor: move;
+#players_table  {
+	cursor: pointer;
 }
+
+#players_table th, a {
+	cursor: default;
+}
+
 
 .player .kit {
 	background-image: url('kits/empty.png');
@@ -99,4 +109,14 @@
 
 #save_button {
 	width: 375px;
+}
+
+
+.marked {
+
+  opacity:0.4;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  cursor:default;
 }
