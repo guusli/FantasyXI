@@ -72,6 +72,25 @@
 
 }
 
+#name_input {
+	height: 50px;
+	width: 400px;
+	font-size: 30px;
+	color: #aaa;
+}
+
+#filter_settings {
+	float: left;
+}
+
+#position_select {
+	float:left ;
+}
+
+#position_select ul {
+	list-style: none;
+}
+
 /*.player .plus {
 	display: none;
 	margin-left: 25%;

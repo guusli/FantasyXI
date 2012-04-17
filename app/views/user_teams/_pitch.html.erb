@@ -1,4 +1,8 @@
-	<% if params[:def] && params[:mid] && params[:for] != nil%>
+	<% unless params[:def] && params[:mid] && params[:for]%>
+		<% params[:def] = '4'; %>
+		<% params[:mid] = '4'; %>
+		<% params[:for] = '2'; %>
+	<% end %>
 		<div id="goalie">
 			<div class="player gk_0">
 				<div class="kit"></div>
@@ -32,4 +36,3 @@
 				</div>
 			<% end %>
 		</div>
-		<% end %>

@@ -1,1 +1,93 @@
-$("#pitch").html("<%= escape_javascript(render("pitch"))%>");
+function countPlayers(players) {
+	num_players = 0;
+	$.each(players, function(i,p) {
+		if(p) num_players++;
+	});
+
+	return num_players;
+}
+
+teamplayers = $.parseJSON($("#teamplayers").text());
+
+
+if(teamplayers && (countPlayers(teamplayers["DF"]) > <%= params[:def].to_i %>) ||
+	teamplayers && (countPlayers(teamplayers["MF"]) > <%= params[:mid].to_i %>)||
+	teamplayers && (countPlayers(teamplayers["FW"]) > <%= params[:for].to_i %>)) {
+	alert("Noo!");
+}
+else {
+
+	$("#pitch").html("<%= escape_javascript(render("pitch"))%>");
+
+$.each(teamplayers["GK"], function(index, player) {
+	var kit = $("#goalie .gk_0 .kit");
+	var player_name = $("#goalie .gk_0 .player_name");
+
+	var kit_url = '/assets/kits/thumbs/' + player.country.toLowerCase() + 'thumb.png';
+	var name = player.name.replace(" ", "\n");
+
+			$(kit).css('background-image',"url('" + kit_url + "')");
+			$(player_name).text(name);
+
+});
+
+var player_position = 0;
+
+$.each(teamplayers["DF"], function(index, player) {
+	if(player) {
+
+	var kit = $("#defense .df_" + player_position +  " .kit");
+	var player_name = $("#defense .df_" + player_position + " .player_name");
+
+	var kit_url = '/assets/kits/thumbs/' + player.country.toLowerCase() + 'thumb.png';
+	var name = player.name.replace(" ", "\n");
+
+			$(kit).css('background-image',"url('" + kit_url + "')");
+			$(player_name).text(name);
+
+
+	teamplayers["DF"][player_position] = player;
+		player_position++
+	}
+
+});
+
+var player_position = 0;
+$.each(teamplayers["MF"], function(index, player) {
+	if(player) {
+		var kit = $("#midfield .mf_" + player_position +  " .kit");
+		var player_name = $("#midfield .mf_" + player_position + " .player_name");
+
+		var kit_url = '/assets/kits/thumbs/' + player.country.toLowerCase() + 'thumb.png';
+		var name = player.name.replace(" ", "\n");
+
+				$(kit).css('background-image',"url('" + kit_url + "')");
+				$(player_name).text(name);
+
+
+		teamplayers["MF"][player_position] = player;
+		player_position++
+	}
+
+});
+
+var player_position = 0;
+$.each(teamplayers["FW"], function(index, player) {
+	if(player) {
+	var kit = $("#forwards .fw_" + player_position +  " .kit");
+	var player_name = $("#forwards .fw_" + player_position + " .player_name");
+
+	var kit_url = '/assets/kits/thumbs/' + player.country.toLowerCase() + 'thumb.png';
+	var name = player.name.replace(" ", "\n");
+
+			$(kit).css('background-image',"url('" + kit_url + "')");
+			$(player_name).text(name);
+
+	teamplayers["FW"][player_position] = player;
+		player_position++
+	}
+
+});
+
+$("#teamplayers").text(JSON.serialize(teamplayers));
+}

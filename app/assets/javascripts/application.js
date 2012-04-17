@@ -40,6 +40,15 @@ $(function() {
 	$('.disabled').click(function(e) {
 		e.preventDefault();
 	});
+
+	$('#save_button').click(function() {
+		alert("Save!");
+	});
+
+	$('#name_input').click(function() {
+		$(this).css('color','#333');
+		$(this).val('');
+	});
 });
 
 $(function() {
@@ -51,6 +60,11 @@ $(function() {
     	$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");
     return false;
   });
+
+	$('.position_check').change(function() {
+		$.getScript(this.href);
+		return false;
+	});
 });
 
 
@@ -110,7 +124,7 @@ function handleDragStart(e) {
 
 		  var dragIcon = kits[draggedPlayer.country.toLowerCase()]
 
-			console.log(dragIcon);
+			//console.log(dragIcon);
 		   e.originalEvent.dataTransfer.setDragImage(dragIcon, 25,25);
 }
 
@@ -127,7 +141,7 @@ function handleDrop(e) {
 			teamPlayers[draggedPlayer.position][player_parent] = draggedPlayer;
 
 
-			console.log(teamPlayers);
+			$("#teamplayers").text(JSON.stringify(teamPlayers));
 
 
 

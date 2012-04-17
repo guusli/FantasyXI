@@ -8,10 +8,14 @@ class UserTeamsController < ApplicationController
 	end
 
 	def show
-		@user_team = current_user.user_team if current_user
+		if not current_user.user_teams.empty?
+			@user_team = current_user.user_team
+		else
+			UserTeam.new
+		end
 		
 		if team_id
-			@players = Player.where(:team_id => team_id).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+			@players = Player.where(:team_id => team_id, :position => ).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
 		else	
 			@players = Player.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
 		end
@@ -26,6 +30,8 @@ class UserTeamsController < ApplicationController
 	def team_id
 		params[:team_id] || nil
 	end
+
+	def positions
   
   def sort_column
   	params[:sort] || "name"
