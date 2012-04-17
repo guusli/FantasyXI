@@ -78,7 +78,7 @@ function Player(id, name, country, position) {
 }
 
 function handleDragStart(e) {
-		  e.srcElement.style.opacity = '0.4';
+		  //e.srcElement.style.opacity = '0.4';
 
 		  var id = e.target.getAttribute('id').match(/\d+/)[0];
 		  var name = e.target.children[0].innerText;
@@ -141,6 +141,7 @@ function handleDrop(e) {
 			//console.log(name);
 			$(e.currentTarget.children[1]).text(name);
 
+			$("tr#player_"+ draggedPlayer.id).addClass("test");
 
 
 
