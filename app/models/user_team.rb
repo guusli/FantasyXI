@@ -3,5 +3,5 @@ class UserTeam < ActiveRecord::Base
 	has_many :user_team_stats
 
 	has_many :acquisitions
-	has_many :players, :through => :acquisition
+	has_many :players, :through => :acquisitions
 end

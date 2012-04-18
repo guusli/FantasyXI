@@ -3,11 +3,14 @@
 <% if @user_team %>
   <h1><%= @user_team.name %></h1>
   <% else %>
-	<h1><input id="name_input" value="Namn"/></h1>
+	<h1><input id="name_input" value="Namn"/> </h1>
 <% end %>
 	
 	<div class="row">
 		<div class="span6">
+			<% if flash[:notice] %>
+		      <p class="notice"><%= flash[:notice] %></p>
+		    <% end %>
 			<div class="btn-group">
   				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
     				Välj formation
@@ -30,6 +33,8 @@
 
 				<%= hidden_field_tag :direction, params[:direction] %>
 				<%= hidden_field_tag :sort, params[:sort] %>
+				<%= hidden_field_tag :team_id, params[:team_id] %>
+
 				<div id="filter_settings">
 				<label>Sök</label>
 				<%= text_field_tag :search, params[:search] %>
@@ -39,9 +44,10 @@
 				<div id="position_select">
 					<label>Position</label>
 					<ul>
-					<li><%= check_box_tag 'accept',"hej", true, :class => "position_check" %></li>
-					<li><%= check_box_tag 'accept',"hej", true, :class => "position_check" %></li>
-					<li><%= check_box_tag 'accept',"hej", true, :class => "position_check" %></li>
+					<li><%= check_box_tag 'gk_check',"gk_check", true, :id=> 'gk_check', :class => "position_check" %></li>	
+					<li><%= check_box_tag 'df_check',"df_check", true, :id=> 'df_check', :class => "position_check" %></li>
+					<li><%= check_box_tag 'mf_check',"mf_check", true, :id=> 'mf_check', :class => "position_check" %></li>
+					<li><%= check_box_tag 'fw_check',"fw_check", true, :id=> 'fw_check',:class => "position_check" %></li>
 					</ul>
 				</div>
 				<div id="players"><%= render 'pickplayers' %>
@@ -52,7 +58,7 @@
 	</div><!-- /row -->
 	<div class="row">
 		<div class="span6">
-			<a href="#" class="btn btn-large" id="save_button" >Spara lag</a>
+			<%= link_to "Spara Lag", save_team_path, :remote => true  %>
 		</div>
 	</div><!-- /row -->
 <% end %>

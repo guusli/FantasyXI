@@ -41,9 +41,6 @@ $(function() {
 		e.preventDefault();
 	});
 
-	$('#save_button').click(function() {
-		alert("Save!");
-	});
 
 	$('#name_input').click(function() {
 		$(this).css('color','#333');
@@ -52,6 +49,9 @@ $(function() {
 });
 
 $(function() {
+
+	var positions = ["GK","DF","MF","FW"];
+
 	$("#players th a, #players .pagination a").live("click", function(){
 		$.getScript(this.href);
 		return false;
@@ -62,8 +62,32 @@ $(function() {
   });
 
 	$('.position_check').change(function() {
-		$.getScript(this.href);
-		return false;
+
+		positions = [];
+
+		if ($('#gk_check:checked').val() !== undefined) {
+  			positions.push("GK");
+		}
+		if ($('#df_check:checked').val() !== undefined) {
+  			positions.push("DF");
+		}
+		if ($('#mf_check:checked').val() !== undefined) {
+  			positions.push("MF");
+		}
+		if ($('#fw_check:checked').val() !== undefined) {
+  			positions.push("FW");
+		}
+
+		if(positions.length < 1) {
+			$.getScript(this.href);
+			return false;
+		}
+		else {
+			console.log(positions);
+			$.getScript("?positions=" + positions.toString());
+			return false;
+		}
+
 	});
 });
 

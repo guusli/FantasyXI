@@ -3,7 +3,7 @@ class Player < ActiveRecord::Base
 	has_many :player_stats
 
 	has_many :acquisitions
-	has_many :user_teams, :through => :acquisition
+	has_many :user_teams, :through => :acquisitions
 
 	def self.search(search)
 	  if search

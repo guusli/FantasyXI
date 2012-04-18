@@ -8,6 +8,7 @@ class UserTeamsController < ApplicationController
 	end
 
 	def show
+
 		if not current_user.user_teams.empty?
 			@user_team = current_user.user_team
 		else
@@ -22,7 +23,10 @@ class UserTeamsController < ApplicationController
 	end
 
 	def change_formation
-		@players = Player.all
+	end
+
+	def save_team
+		flash[:notice] = "Ditt lag ar sparat!"
 	end
 
 	private
@@ -32,6 +36,7 @@ class UserTeamsController < ApplicationController
 	end
 
 	def positions
+		params[:positions] || "XX"
 	end
   
   def sort_column

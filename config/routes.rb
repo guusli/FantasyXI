@@ -16,6 +16,7 @@ Fantasyxi::Application.routes.draw do
   resources :user_teams
 
   match 'change_formation' => 'user_teams#change_formation'
+  match 'save_team' => 'user_teams#save_team'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
