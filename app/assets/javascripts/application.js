@@ -258,7 +258,6 @@ function handleDrop(e) {
 			$("tr#player_"+ draggedPlayer.id).attr('draggable','false');
 
 
-
 			// Koppla bort eventet
 			$("#pitch .player").each(function(index, box) {
 			$(box).unbind('dragover');
@@ -274,4 +273,31 @@ function handleDrop(e) {
 function handleDragLeave(e) {
 	e.preventDefault();
 
+}
+
+function handleMarked() {
+		$.each(teamPlayers["GK"], function(index, player) {
+				if(player){
+					$("tr#player_"+ player.id).addClass("marked");
+					$("tr#player_"+ player.id).attr('draggable','false');
+				}
+			});
+			$.each(teamPlayers["DF"], function(index, player) {
+				if(player){
+					$("tr#player_"+ player.id).addClass("marked");
+					$("tr#player_"+ player.id).attr('draggable','false');
+				}
+			});
+			$.each(teamPlayers["MF"], function(index, player) {
+				if(player){
+					$("tr#player_"+ player.id).addClass("marked");
+					$("tr#player_"+ player.id).attr('draggable','false');
+				}
+			});
+			$.each(teamPlayers["FW"], function(index, player) {
+				if(player){
+					$("tr#player_"+ player.id).addClass("marked");
+					$("tr#player_"+ player.id).attr('draggable','false');
+				}
+			});
 }
