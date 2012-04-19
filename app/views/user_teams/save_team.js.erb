@@ -1,6 +1,9 @@
- var teamplayers = $.parseJSON($("#teamplayers").text());
+ //var teamplayers = $.parseJSON($("#teamplayers").text());
 
-alert("save_team-action körs men inget skickas och sparas!");
+$("#pitch_alert").html("<%= flash[:notice] %>");
+$("#pitch_alert").css('display','block');
+
+$('#user_team_name').html("<h1><%= current_user.user_teams[0].name %>");
 
 /*$.each(teamplayers, function(i, position) {
 	$.each(position, function(j, player) {

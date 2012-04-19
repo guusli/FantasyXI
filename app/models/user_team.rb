@@ -4,4 +4,5 @@ class UserTeam < ActiveRecord::Base
 
 	has_many :acquisitions
 	has_many :players, :through => :acquisitions
+
 end

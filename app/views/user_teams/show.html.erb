@@ -1,16 +1,16 @@
 
 <% if current_user %>
-<% if @user_team %>
+<div id="user_team_name">
+<% if not current_user.user_teams.empty? %>
   <h1><%= @user_team.name %></h1>
   <% else %>
 	<h1><input id="name_input" value="Namn"/> </h1>
 <% end %>
+</div>
 	
 	<div class="row">
 		<div class="span6">
-			<% if flash[:notice] %>
-		      <p class="notice"><%= flash[:notice] %></p>
-		    <% end %>
+		      <div id="pitch_alert" class="alert alert-success"><%= flash[:notice] %></div>
 			<div class="btn-group">
   				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
     				Välj formation
@@ -22,7 +22,6 @@
     					<li><%= link_to "4-3-3", change_formation_path(:def => 4, :mid => 3, :for => 3),:format => :js, :remote => true %></li>
  					 </ul>
 
- 					 <input type="hidden" id="teamplayers" />
 			</div>
 			<div id="pitch">
 			<%= render 'pitch' %>
@@ -58,7 +57,12 @@
 	</div><!-- /row -->
 	<div class="row">
 		<div class="span6">
-			<%= link_to "Spara Lag", save_team_path, :remote => true  %>
+				<%= form_for(@user_team, :remote => true, :url => save_team_path) do |f| %>
+				<input type="text" name="teamplayers" id="teamplayers" value="<%= @user_team.players.to_json %>" />
+				<input type="text" name="teamname" id="teamname_hidden" value="<%= @user_team.name %>" />
+				<%= f.submit %>
+			<% end %>
+			<%= link_to "Spara Lag", save_team_path, :remote => true %>
 		</div>
 	</div><!-- /row -->
 <% end %>

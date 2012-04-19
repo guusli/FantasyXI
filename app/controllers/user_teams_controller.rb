@@ -8,11 +8,15 @@ class UserTeamsController < ApplicationController
 	end
 
 	def show
-
+	if current_user
 		if not current_user.user_teams.empty?
-			@user_team = current_user.user_team
+			@user_team = current_user.user_teams[0]
+
+			@user_team_ids = @user_team.players.map do |p|
+				p.id
+			end
 		else
-			UserTeam.new
+			@user_team = UserTeam.new
 		end
 		
 		if team_id
@@ -21,12 +25,44 @@ class UserTeamsController < ApplicationController
 			@players = Player.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
 		end
 	end
+	end
 
 	def change_formation
 	end
 
 	def save_team
-		flash[:notice] = "Ditt lag ar sparat!"
+
+		flash[:notice] = "Ditt lag har uppdaterats"
+
+		if current_user.user_teams.empty?
+			current_user.user_teams.push(UserTeam.create(:name => params[:teamname]))
+			flash[:notice] = "Ditt lag har skapats"
+		end
+
+		@user_team = current_user.user_teams[0]
+
+		@user_team.players.destroy_all
+		j = ActiveSupport::JSON
+		teamplayers = j.decode(params[:teamplayers])
+
+		teamplayers["GK"].each do |player|
+			p = Player.find(player['id'])
+			@user_team.players.push(p)
+		end
+		teamplayers["DF"].each do |player|
+			p = Player.find(player['id'])
+			@user_team.players.push(p)
+		end
+		teamplayers["MF"].each do |player|
+			p = Player.find(player['id'])
+			@user_team.players.push(p)
+		end
+		teamplayers["FW"].each do |player|
+			p = Player.find(player['id'])
+			@user_team.players.push(p)
+		end
+
+
 	end
 
 	private

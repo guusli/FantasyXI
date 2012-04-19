@@ -17,8 +17,9 @@
 
 
 var kits = {};
+var countries = "danmark,england,frankrike,grekland,holland,irland,italien,kroatien,polen,portugal,ryssland,spanien,sverige,tjeckien,tyskland,ukraina".split(",");
 $(function() {
-	preloads = "danmark,england,frankrike,grekland,holland,irland,italien,kroatien,polen,portugal,ryssland,spanien,sverige,tjeckien,tyskland,ukraina".split(",");
+	preloads = countries;
 
 	$.each(preloads, function(x, c) {
 	    kits[c] = new Image();
@@ -36,6 +37,7 @@ $(function() {
 });
 
 
+
 $(function() {
 	$('.disabled').click(function(e) {
 		e.preventDefault();
@@ -46,11 +48,84 @@ $(function() {
 		$(this).css('color','#333');
 		$(this).val('');
 	});
+
+	$("#name_input").keyup(function() {
+		$("#teamname_hidden").val($("#name_input").val());
+	});
 });
 
 $(function() {
 
 	var positions = ["GK","DF","MF","FW"];
+
+	var squad_players = $.parseJSON($("#teamplayers").val());
+
+	console.log(squad_players);
+	
+	var gk_count = 0;
+	var df_count = 0;
+	var mf_count = 0;
+	var fw_count = 0;
+
+	if(squad_players) {
+	$.each(squad_players, function(i, player) {
+
+
+		var new_player = new Player(player.id, player.name, countries[player.team_id-1], player.position);
+
+
+		if(player.position == "GK") {
+
+			var kit_url = '/assets/kits/thumbs/' + countries[player.team_id-1] + 'thumb.png';
+			$('.gk_' + gk_count + ' .kit').css('background-image',"url('" + kit_url + "')");
+			var name = player.name.replace(" ", "\n");
+			//console.log(name);
+			$('.gk_' + gk_count + ' .player_name').text(name);
+
+			teamPlayers["GK"][gk_count] = new_player;
+
+			gk_count++;
+		}
+		else if(player.position == "DF") {
+
+			var kit_url= '/assets/kits/thumbs/' + countries[player.team_id-1] + 'thumb.png';
+			$('.df_' + df_count + ' .kit').css('background-image',"url('" + kit_url + "')");
+			var name = player.name.replace(" ", "\n");
+			//console.log(name);
+			$('.df_' + df_count + ' .player_name').text(name);
+
+			teamPlayers["DF"][df_count] = new_player;
+
+			df_count++;
+		}
+		else if(player.position == "MF") {
+			var kit_url = '/assets/kits/thumbs/' + countries[player.team_id-1] + 'thumb.png';
+			$('.mf_' + mf_count + ' .kit').css('background-image',"url('" + kit_url + "')");
+			var name = player.name.replace(" ", "\n");
+			//console.log(name);
+			$('.mf_' + mf_count + ' .player_name').text(name);
+
+			teamPlayers["MF"][mf_count] = new_player;
+
+			mf_count++;
+		}
+		else if(player.position == "FW") {
+			var kit_url = '/assets/kits/thumbs/' + countries[player.team_id-1] + 'thumb.png';
+			$('.fw_' + fw_count + ' .kit').css('background-image',"url('" + kit_url + "')");
+			var name = player.name.replace(" ", "\n");
+			//console.log(name);
+			$('.fw_' + fw_count + ' .player_name').text(name);
+
+			teamPlayers["FW"][fw_count] = new_player;
+
+			fw_count++;
+		}
+
+		$('#teamplayers').val(JSON.stringify(teamPlayers));
+
+	});
+
+	}
 
 	$("#players th a, #players .pagination a").live("click", function(){
 		$.getScript(this.href);
@@ -165,7 +240,7 @@ function handleDrop(e) {
 			teamPlayers[draggedPlayer.position][player_parent] = draggedPlayer;
 
 
-			$("#teamplayers").text(JSON.stringify(teamPlayers));
+			$("#teamplayers").val(JSON.stringify(teamPlayers));
 
 
 
