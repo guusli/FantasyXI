@@ -52,6 +52,16 @@ $(function() {
 	$("#name_input").keyup(function() {
 		$("#teamname_hidden").val($("#name_input").val());
 	});
+
+	var player_name;
+	$(".player").hover(function() {
+		console.log(this);
+		player_name = this.children[1].innerText;
+		$(this.children[1]).html("<a class='btn btn-danger btn-mini'>Ta bort </a><a class='btn btn-mini'>Mer Info </a>");
+		}, function() {
+			$(this.children[1]).html(player_name.replace(" ", "\n"));
+		}
+	);
 });
 
 $(function() {
@@ -201,6 +211,8 @@ function handleDragStart(e) {
 
 		  draggedPlayer = new Player(id, name, country, position);
 
+
+		handleMarked();
 
 
 		 // Koppla event beroende på position
