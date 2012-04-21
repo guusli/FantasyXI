@@ -254,8 +254,7 @@ function handleDrop(e) {
 			//console.log(name);
 			$(e.currentTarget.children[1]).text(name);
 
-			$("tr#player_"+ draggedPlayer.id).addClass("marked");
-			$("tr#player_"+ draggedPlayer.id).attr('draggable','false');
+			handleMarked();
 
 
 			// Koppla bort eventet
