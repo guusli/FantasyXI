@@ -1,7 +1,12 @@
 class LeaguesController < ApplicationController
 
+	require "fb_graph"
+
 	def index
 		@leagues = League.search(params[:search])
+		#raise session.to_yaml
+		@page = Nokogiri::HTML(open('https://graph.facebook.com/me/friends?access_token=' + session[:access_token] + '&fields=installed'))
+		@page = @page.to_s.scan(/\{.+\}\}/)
 	end
 
 	def show

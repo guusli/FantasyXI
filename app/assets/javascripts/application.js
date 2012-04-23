@@ -244,6 +244,8 @@ function handleDrop(e) {
 			//console.log(name);
 			$(e.currentTarget.children[1]).text(name);
 
+
+
 			handleMarked();
 
 
@@ -253,6 +255,7 @@ function handleDrop(e) {
 			$(box).bind('drop');
 			$(box).unbind('dragleave');
 		});
+
 
 
 			//$("#" + msg).css('opacity', '1.0');
@@ -266,6 +269,10 @@ function handleDragLeave(e) {
 
 
 function handleMarked() {
+		$('#players_table tr').each(function() {
+			$(this).removeClass("marked");
+			$(this).attr('draggable','true');
+		});
 		$.each(teamPlayers, function(index, player) {
 				if(player){
 					$("tr#player_"+ player.id).addClass("marked");
