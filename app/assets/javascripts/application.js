@@ -37,7 +37,6 @@ $(function() {
 });
 
 
-
 $(function() {
 
 	$('#myModal').modal({
@@ -265,6 +264,7 @@ function handleDragLeave(e) {
 
 }
 
+
 function handleMarked() {
 		$.each(teamPlayers, function(index, player) {
 				if(player){
@@ -273,3 +273,4 @@ function handleMarked() {
 				}
 			});
 }
+

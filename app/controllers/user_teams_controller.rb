@@ -49,8 +49,6 @@ class UserTeamsController < ApplicationController
 			p = Player.find(player['id'])
 			@user_team.players.push(p)
 		end
-
-
 	end
 
 	private

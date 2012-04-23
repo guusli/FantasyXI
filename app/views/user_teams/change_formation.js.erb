@@ -8,16 +8,15 @@ function countPlayers(players) {
 }
 
 teamplayers = $.parseJSON($("#teamplayers").val());
-console.log(teamplayers);
+
 
 
 if(teamplayers && (countPlayers(teamplayers["DF"]) > <%= params[:def].to_i %>) ||
-	teamplayers && (countPlayers(teamplayers["MF"]) > <%= params[:mid].to_i %>)||
-	teamplayers && (countPlayers(teamplayers["FW"]) > <%= params[:for].to_i %>)) {
+	(countPlayers(teamplayers["MF"]) > <%= params[:mid].to_i %>)||
+	(countPlayers(teamplayers["FW"]) > <%= params[:for].to_i %>)) {
 	alert("Noo!");
 }
 else {
-
 	$("#pitch").html("<%= escape_javascript(render("pitch"))%>");
 
 $.each(teamplayers["GK"], function(index, player) {
