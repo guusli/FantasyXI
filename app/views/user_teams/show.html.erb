@@ -48,10 +48,8 @@
 				<%= form_for(@user_team, :remote => true, :url => save_team_path) do |f| %>
 				<input type="text" name="teamplayers" id="teamplayers" value="<%= @user_team.players.to_json %>" />
 				<input type="text" name="teamname" id="teamname_hidden" value="<%= @user_team.name %>" />
-				<input type="text" name="formation" id="formation_hidden" value="<%= params[:formation] %>" />
 				<%= f.submit %>
 			<% end %>
-			<%= link_to "Spara Lag", save_team_path, :remote => true %>
 		</div>
 	</div><!-- /row -->
 <% end %>
