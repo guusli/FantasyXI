@@ -5,7 +5,7 @@ class LeaguesController < ApplicationController
 	def index
 		@leagues = League.search(params[:search])
 		#raise session.to_yaml
-		@page = Nokogiri::HTML(open('https://graph.facebook.com/me/friends?access_token=' + session[:access_token] + '&fields=installed'))
+		@page = Nokogiri::HTML(open('https://graph.facebook.com/me/friends?access_token=' + session[:access_token] + '&fields=installed,name,picture'))
 		@page = @page.to_s.scan(/\{.+\}\}/)
 	end
 
