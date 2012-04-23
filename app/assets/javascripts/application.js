@@ -39,6 +39,17 @@ $(function() {
 
 
 $(function() {
+
+	$('#myModal').modal({
+  		keyboard: false
+	});
+
+	$('#myModal').on('show', function () {
+		
+	})
+
+	$('#myModal').modal('hide')
+
 	$('.disabled').click(function(e) {
 		e.preventDefault();
 	});
@@ -53,7 +64,17 @@ $(function() {
 		$("#teamname_hidden").val($("#name_input").val());
 	});
 
-	var player_name;
+	/*var player_name;
+	$("#pitch .player").click(function() {
+		player_name = this.children[1].innerText;
+		$('#myModal').modal('show')
+		$('#myModal h3').text(teamPlayers["GK"][0].name);
+		$('#myModal .modal-body').html();
+
+	});*/
+
+
+	/*var player_name;
 	$(".player").hover(function() {
 		console.log(this);
 		player_name = this.children[1].innerText;
@@ -61,7 +82,7 @@ $(function() {
 		}, function() {
 			$(this.children[1]).html(player_name.replace(" ", "\n"));
 		}
-	);
+	);*/
 });
 
 $(function() {
@@ -70,7 +91,7 @@ $(function() {
 
 	var squad_players = $.parseJSON($("#teamplayers").val());
 
-	console.log(squad_players);
+	//console.log(squad_players);
 	
 	var gk_count = 0;
 	var df_count = 0;
@@ -84,54 +105,15 @@ $(function() {
 		var new_player = new Player(player.id, player.name, countries[player.team_id-1], player.position);
 
 
-		if(player.position == "GK") {
-
 			var kit_url = '/assets/kits/thumbs/' + countries[player.team_id-1] + 'thumb.png';
-			$('.gk_' + gk_count + ' .kit').css('background-image',"url('" + kit_url + "')");
+			$('.player_' + i + ' .kit').css('background-image',"url('" + kit_url + "')");
 			var name = player.name.replace(" ", "\n");
 			//console.log(name);
-			$('.gk_' + gk_count + ' .player_name').text(name);
+			$('.player_' + i + ' .player_name').text(name);
 
-			teamPlayers["GK"][gk_count] = new_player;
+			teamPlayers[i] = new_player;
 
-			gk_count++;
-		}
-		else if(player.position == "DF") {
-
-			var kit_url= '/assets/kits/thumbs/' + countries[player.team_id-1] + 'thumb.png';
-			$('.df_' + df_count + ' .kit').css('background-image',"url('" + kit_url + "')");
-			var name = player.name.replace(" ", "\n");
-			//console.log(name);
-			$('.df_' + df_count + ' .player_name').text(name);
-
-			teamPlayers["DF"][df_count] = new_player;
-
-			df_count++;
-		}
-		else if(player.position == "MF") {
-			var kit_url = '/assets/kits/thumbs/' + countries[player.team_id-1] + 'thumb.png';
-			$('.mf_' + mf_count + ' .kit').css('background-image',"url('" + kit_url + "')");
-			var name = player.name.replace(" ", "\n");
-			//console.log(name);
-			$('.mf_' + mf_count + ' .player_name').text(name);
-
-			teamPlayers["MF"][mf_count] = new_player;
-
-			mf_count++;
-		}
-		else if(player.position == "FW") {
-			var kit_url = '/assets/kits/thumbs/' + countries[player.team_id-1] + 'thumb.png';
-			$('.fw_' + fw_count + ' .kit').css('background-image',"url('" + kit_url + "')");
-			var name = player.name.replace(" ", "\n");
-			//console.log(name);
-			$('.fw_' + fw_count + ' .player_name').text(name);
-
-			teamPlayers["FW"][fw_count] = new_player;
-
-			fw_count++;
-		}
-
-		$('#teamplayers').val(JSON.stringify(teamPlayers));
+		//$('#teamplayers').val(JSON.stringify(teamPlayers));
 
 	});
 
@@ -185,11 +167,7 @@ $(function() {
 });
 
 
-	var teamPlayers = {};
-	teamPlayers.GK = [];
-	teamPlayers.DF = [];
-	teamPlayers.MF = [];
-	teamPlayers.FW = [];
+	var teamPlayers = [];
 	var draggedPlayer;
 
 
@@ -247,9 +225,10 @@ function handleDragOver(e) {
 function handleDrop(e) {
 
 
-			var player_parent = e.target.parentElement.className.split(" ")[1].match(/\d+/)[0];
-			
-			teamPlayers[draggedPlayer.position][player_parent] = draggedPlayer;
+			var player_number = e.target.parentElement.className.split(" ")[1].match(/\d+/)[0];
+			console.log(player_number);
+
+			teamPlayers[player_number] = draggedPlayer;
 
 
 			$("#teamplayers").val(JSON.stringify(teamPlayers));
@@ -287,25 +266,7 @@ function handleDragLeave(e) {
 }
 
 function handleMarked() {
-		$.each(teamPlayers["GK"], function(index, player) {
-				if(player){
-					$("tr#player_"+ player.id).addClass("marked");
-					$("tr#player_"+ player.id).attr('draggable','false');
-				}
-			});
-			$.each(teamPlayers["DF"], function(index, player) {
-				if(player){
-					$("tr#player_"+ player.id).addClass("marked");
-					$("tr#player_"+ player.id).attr('draggable','false');
-				}
-			});
-			$.each(teamPlayers["MF"], function(index, player) {
-				if(player){
-					$("tr#player_"+ player.id).addClass("marked");
-					$("tr#player_"+ player.id).attr('draggable','false');
-				}
-			});
-			$.each(teamPlayers["FW"], function(index, player) {
+		$.each(teamPlayers, function(index, player) {
 				if(player){
 					$("tr#player_"+ player.id).addClass("marked");
 					$("tr#player_"+ player.id).attr('draggable','false');

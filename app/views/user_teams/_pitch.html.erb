@@ -1,18 +1,13 @@
-	<% unless params[:def] && params[:mid] && params[:for]%>
-		<% params[:def] = '4'; %>
-		<% params[:mid] = '4'; %>
-		<% params[:for] = '2'; %>
-	<% end %>
 		<div id="goalie">
-			<div class="player gk_0">
+			<div class="player player_0">
 				<div class="kit"></div>
 				<div class="player_name"></div>
 			</div>
 		</div>
 		
 		<div id="defense">
-			<% params[:def].to_i.times do |i|  %>
-				<div class="player df_<%=i %>" >
+			<% 4.times do |i|  %>
+				<div class="player player_<%=i+1 %>" >
 					<div class="kit"></div>
 					<div class="player_name"></div>
 				</div>
@@ -20,8 +15,8 @@
 		</div>
 		
 		<div id="midfield">
-			<% params[:mid].to_i.times do |i|  %>
-				<div class="player mf_<%=i %>">
+			<% 4.times do |i|  %>
+				<div class="player player_<%=i+5 %>">
 					<div class="kit"></div>
 					<div class="player_name"></div>
 				</div>
@@ -29,8 +24,8 @@
 		</div>
 		
 		<div id="forwards">
-			<% params[:for].to_i.times do |i|  %>
-				<div class="player fw_<%=i %>">
+			<% 	2.times do |i|  %>
+				<div class="player player_<%=i+9 %>">
 					<div class="kit"></div>
 					<div class="player_name"></div>
 				</div>

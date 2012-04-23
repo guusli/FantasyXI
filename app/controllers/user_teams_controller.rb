@@ -45,19 +45,7 @@ class UserTeamsController < ApplicationController
 		j = ActiveSupport::JSON
 		teamplayers = j.decode(params[:teamplayers])
 
-		teamplayers["GK"].each do |player|
-			p = Player.find(player['id'])
-			@user_team.players.push(p)
-		end
-		teamplayers["DF"].each do |player|
-			p = Player.find(player['id'])
-			@user_team.players.push(p)
-		end
-		teamplayers["MF"].each do |player|
-			p = Player.find(player['id'])
-			@user_team.players.push(p)
-		end
-		teamplayers["FW"].each do |player|
+		teamplayers.each do |player|
 			p = Player.find(player['id'])
 			@user_team.players.push(p)
 		end
