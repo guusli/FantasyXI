@@ -178,7 +178,6 @@ function Player(id, name, country, position) {
 }
 
 function handleDragStart(e) {
-		  //e.srcElement.style.opacity = '0.4';
 
 		  var id = e.target.getAttribute('id').match(/\d+/)[0];
 		  var name = e.target.children[0].innerText;
@@ -212,7 +211,6 @@ function handleDragStart(e) {
 
 		  var dragIcon = kits[draggedPlayer.country.toLowerCase()]
 
-			//console.log(dragIcon);
 		   e.originalEvent.dataTransfer.setDragImage(dragIcon, 25,25);
 }
 
@@ -235,13 +233,10 @@ function handleDrop(e) {
 
 
 			var kit_url = '/assets/kits/thumbs/' + draggedPlayer.country.toLowerCase() + 'thumb.png';
-			//console.log("url('" + kit_url + "')" );
-
-			//console.log(e);
 
 			$(e.currentTarget.children[0]).css('background-image',"url('" + kit_url + "')");
 			var name = draggedPlayer.name.replace(" ", "\n");
-			//console.log(name);
+
 			$(e.currentTarget.children[1]).text(name);
 
 
@@ -255,11 +250,6 @@ function handleDrop(e) {
 			$(box).bind('drop');
 			$(box).unbind('dragleave');
 		});
-
-
-
-			//$("#" + msg).css('opacity', '1.0');
-		}
 
 
 function handleDragLeave(e) {
