@@ -8,6 +8,7 @@ gem 'rails', '3.2.1'
 gem 'sqlite3'
 gem 'will_paginate', '~> 3.0'
 gem 'fb_graph'
+gem 'hirb'
 
 
 # Gems used only for assets and not required
