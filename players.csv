@@ -1,356 +1,356 @@
-position,name,team,
-GK,Thomas Sørensen,1, Stoke City
-GK,Stephan Andersen,1, Evian
-DF,Simon Kjær,1, Roma
-DF,Daniel Wass,1, Evian
-DF,Lars Jacobsen,1, København
-DF,Daniel Agger,1, Liverpool
-DF,Simon Poulsen,1, AZ
-DF,Andreas Bjelland,1, Nordsjælland
-MF,Christian Poulsen,1, Evian
-MF,William Kvist,1, VfB Stuttgart
-MF,Michael Silberbauer,1, Young Boys
-MF,Lasse Schøne,1, NEC
-MF,Jakob Poulsen,1, Midtjylland
-MF,Christian Eriksen,1, Ajax
-MF,Niki Zimling,1, Club Brugge
-FW,Nicklas Bendtner,1, Sunderland
-FW,Tobias Mikkelsen,1, Nordsjælland
-FW,Mads Junker,1, Roda
-FW,Dennis Rommedahl,1, Brøndby
-FW,Michael Krohn-Dehli,1,
-GK,Joe Hart,2, Manchester City
-GK,Robert Green,2, West Ham United
-GK,Scott Carson,2, Bursaspor
-DF,Ashley Cole,2, Chelsea
-DF,Joleon Lescott,2, Manchester City
-DF,Micah Richards,2, Manchester City
-DF,Gary Cahill,2, Chelsea
-DF,Leighton Baines,2, Everton
-DF,Phil Jones,2, Manchester United
-DF,Chris Smalling,2, Manchester United
-MF,Steven Gerrard,2, Liverpool
-MF,Gareth Barry,2, Manchester City
-MF,Stewart Downing,2, Liverpool
-MF,James Milner,2, Manchester City
-MF,Theo Walcott,2, Arsenal
-MF,Ashley Young,2, Manchester United
-MF,Scott Parker,2, Tottenham Hotspur
-MF,Adam Johnson,2, Manchester City
-FW,Danny Welbeck,2, Manchester United
-FW,Fraizer Campbell,2, Sunderland
-FW,Daniel Sturridge,2, Chelsea
-GK,Hugo Lloris (captain),3, Lyon
-GK,Steve Mandanda,3, Marseille
-GK,Cédric Carrasso,3, Bordeaux
-DF,Mathieu Debuchy,3, Lille
-DF,Patrice Evra,3, Manchester United
-DF,Adil Rami,3, Valencia
-DF,Philippe Mexès,3, Milan
-DF,Mamadou Sakho,3, Paris Saint-Germain
-DF,Anthony Réveillère,3, Lyon
-DF,Éric Abidal,3, Barcelona
-MF,Yohan Cabaye,3, Newcastle United
-MF,Franck Ribéry,3, Bayern Munich
-MF,Mathieu Valbuena,3, Marseille
-MF,Samir Nasri,3, Manchester City
-MF,Florent Malouda,3, Chelsea
-MF,Yann M'Vila,3, Rennes
-MF,Alou Diarra,3, Marseille
-MF,Marvin Martin,3, Sochaux
-MF,Morgan Amalfitano,3, Marseille
-FW,Olivier Giroud,3, Montpellier
-FW,Louis Saha,3, Tottenham Hotspur
-FW,Jérémy Menez,3, Paris Saint-Germain
-FW,Kévin Gameiro,3, Paris Saint-Germain
-GK,Alexandros Tzorvas,4,
-GK,Orestis Karnezis,4,
-DF,Giannis Maniatis,4,
-DF,Iosif Cholevas,4,
-DF,Nikos Spyropoulos,4,
-DF,Avraam Papadopoulos,4,
-DF,Vasilis Torosidis,4,
-DF,Sokratis Papastathopoulos,4, Werder Bremen
-DF,Kyriakos Papadopoulos,4, Schalke 04
-MF,Grigoris Makos,4, AEK Athens
-MF,Giorgos Karagounis,4, Panathinaikos
-MF,Kostas Fortounis,4, Kaiserslautern
-MF,Giorgos Fotakis,4, PAOK
-MF,Kostas Katsouranis,4, Panathinaikos
-MF,Giannis Fetfatzidis,4, Olympiacos
-FW,Giorgos Samaras,4, Celtic
-FW,Nikos Lyberopoulos,4, AEK Athens
-FW,Stefanos Athanasiadis,4, PAOK
-FW,Dimitris Salpigidis,4, PAOK
-FW,Theofanis Gekas,4, Samsunspor
-FW,Lazaros Christodoulopoulos,4, Panathinaikos
-GK,Maarten Stekelenburg,5, Roma
-GK,Michel Vorm,5, Swansea City
-GK,Tim Krul,5, Newcastle United
-DF,John Heitinga,5, Everton
-DF,Joris Mathijsen,5, Málaga
-DF,Khalid Boulahrouz,5, VfB Stuttgart
-DF,Erik Pieters,5, PSV
-DF,Jeffrey Bruma,5, Hamburger SV
-DF,Ron Vlaar,5, Feyenoord
-MF,Mark van Bommel ,5, Milan
-MF,Nigel de Jong,5, Manchester City
-MF,Wesley Sneijder,5, Internazionale
-MF,Arjen Robben,5, Bayern Munich
-MF,Rafael van der Vaart,5, Tottenham Hotspur
-MF,Ibrahim Afellay,5, Barcelona
-MF,Demy de Zeeuw,5, Spartak Moscow
-MF,Urby Emanuelson,5, Milan
-FW,Dirk Kuyt,5, Liverpool
-FW,Robin van Persie,5, Arsenal
-FW,Klaas-Jan Huntelaar,5, Schalke 04
-FW,Luuk de Jong,5, Twente
-FW,Luciano Narsingh,5, Heerenveen
-FW,Eljero Elia,5, Juventus
-GK,Shay Given,6, Aston Villa
-GK,David Forde,6, Millwall
-GK,Stephen Henderson,6, West Ham
-DF,John O'Shea,6, Sunderland
-DF,Shane Duffy,6, Everton
-DF,Sean St Ledger,6, Leicester City
-DF,Darren O'Dea,6, Leeds United
-DF,Stephen Ward,6, Wolverhampton Wanderers
-DF,Kevin Foley,6, Wolverhampton Wanderers
-MF,Damien Duff,6, Fulham
-MF,Aiden McGeady,6, Spartak Moscow
-MF,Stephen Hunt,6, Wolverhampton Wanderers
-MF,Glenn Whelan,6, Stoke City
-MF,Keith Andrews,6, West Bromwich Albion
-MF,Paul Green,6, Derby County
-MF,Keith Fahey,6, Birmingham City
-MF,Séamus Coleman,6, Everton
-MF,James McCarthy,6, Wigan Athletic
-MF,James McClean,6, Sunderland
-FW,Robbie Keane,6, Los Angeles Galaxy
-FW,Kevin Doyle,6, Wolverhampton Wanderers
-FW,Shane Long,6, West Bromwich Albion
-FW,Simon Cox,6, West Bromwich Albion
-FW,Jonathan Walters,6, Stoke City
-GK,Gianluigi Buffon (c),7, Juventus
-GK,Salvatore Sirigu,7, Paris Saint-Germain
-GK,Emiliano Viviano,7, Palermo
-GK,Morgan De Sanctis,7, Napoli
-DF,Christian Maggio,7, Napoli
-DF,Giorgio Chiellini,7, Juventus
-DF,Domenico Criscito,7, Zenit St. Petersburg
-DF,Federico Balzaretti,7, Palermo
-DF,Ignazio Abate,7, Milan
-DF,Davide Astori,7, Cagliari
-DF,Andrea Barzagli,7, Juventus
-DF,Leonardo Bonucci,7, Juventus
-DF,Angelo Ogbonna,7, Torino
-MF,Daniele De Rossi,7, Roma
-MF,Claudio Marchisio,7, Juventus
-MF,Thiago Motta,7, Paris Saint-Germain
-MF,Riccardo Montolivo,7, Fiorentina
-MF,Andrea Pirlo,7, Juventus
-MF,Antonio Nocerino,7, Milan
-FW,Giampaolo Pazzini,7, Internazionale
-FW,Alessandro Matri,7, Juventus
-FW,Sebastian Giovinco,7, Parma
-FW,Fabio Borini,7, Roma
-GK,Stipe Pletikosa,8, Rostov
-GK,Ivan Kelava,8, Dinamo Zagreb
-GK,Danijel Subašić,8, Monaco
-DF,Josip Šimunić,8, Dinamo Zagreb
-DF,Vedran Ćorluka,8, Bayer Leverkusen
-DF,Danijel Pranjić,8, Bayern Munich
-DF,Gordon Schildenfeld,8, Eintracht Francfort
-DF,Domagoj Vida,8, Dinamo Zagreb
-DF,Šime Vrsaljko,8, Dinamo Zagreb
-MF,Ivan Rakitić,8, Séville
-MF,Ognjen Vukojević,8, Dynamo Kiev
-MF,Luka Modrić,8, Tottenham Hotspur
-MF,Darijo Srna ,8, Chakhtar Donetsk
-MF,Tomislav Dujmović,8, Real Saragosse
-MF,Niko Kranjčar,8, Tottenham Hotspur
-MF,Ivan Perišić,8, Borussia Dortmund
-FW,Nikica Jelavić,8, Everton
-FW,Mario Mandžukić,8, VfL Wolfsbourg
-FW,Ivica Olić,8, Bayern Munich
-FW,Eduardo,8, Chakhtar Donetsk
-GK,Łukasz Fabiański,9, Arsenal
-GK,Wojciech Szczęsny,9, Arsenal
-DF,Marcin Wasilewski,9, Anderlecht
-DF,Jakub Wawrzyniak,9, Legia Warsaw
-DF,Tomasz Jodłowiec,9, Polonia Warsaw
-DF,Łukasz Piszczek,9, Borussia Dortmund
-DF,Grzegorz Wojtkowiak,9, Lech Poznań
-DF,Damien Perquis,9, Sochaux
-DF,Sebastian Boenisch,9, Werder Bremen
-DF,Marcin Kamiński,9, Lech Poznań
-DF,Dariusz Dudka,9, Auxerre
-MF,Jakub Błaszczykowski ,9, Borussia Dortmund
-MF,Sebastian Mila,9, Śląsk Wrocław
-MF,Sławomir Peszko,9, 1. FC Köln
-MF,Ludovic Obraniak,9, Bordeaux
-MF,Adrian Mierzejewski,9, Trabzonspor
-MF,Maciej Rybus,9, Terek Grozny
-MF,Adam Matuszczyk,9, Fortuna Düsseldorf
-MF,Eugen Polański,9, Mainz 05
-FW,Robert Lewandowski,9, Borussia Dortmund
-FW,Ireneusz Jeleń,9, Lille
-FW,Kamil Grosicki,9, Sivasspor
-GK,Eduardo,10, Benfica
-GK,Rui Patrício,10, Sporting
-GK,Beto,10, CFR Cluj
-DF,Bruno Alves,10, Zenit Saint Petersburg
-DF,Pepe,10, Real Madrid
-DF,Fábio Coentrão,10, Real Madrid
-DF,João Pereira,10, Sporting
-DF,Rolando,10, Porto
-DF,Ricardo Costa,10, Valencia
-DF,Nélson,10, Betis
-MF,Raul Meireles,10, Chelsea
-MF,João Moutinho,10, Porto
-MF,Miguel Veloso,10, Genoa
-MF,Paulo Machado,10, Toulouse
-MF,Manuel Fernandes,10, Beşiktaş
-MF,Rúben Micael,10, Real Zaragoza
-FW,Cristiano Ronaldo ,10, Real Madrid
-FW,Nani,10, Manchester United
-FW,Hélder Postiga,10, Real Zaragoza
-FW,Hugo Almeida,10, Beşiktaş
-FW,Ricardo Quaresma,10, Beşiktaş
-FW,Nélson Oliveira,10, Benfica
-GK,Vladimir Gabulov,11, Anzhi Makhachkala
-GK,Igor Akinfeev,11, CSKA Moscow
-DF,Aleksandr Anyukov,11, Zenit Saint Petersburg
-DF,Vasili Berezutskiy,11, CSKA Moscow
-DF,Sergei Ignashevich,11, CSKA Moscow
-DF,Yuri Zhirkov,11, Anzhi Makhachkala
-DF,Aleksei Berezutskiy,11, CSKA Moscow
-DF,Yevgeni Makeyev,11, Spartak Moscow
-MF,Roman Shirokov,11, Zenit Saint Petersburg
-MF,Igor Denisov,11, Zenit Saint Petersburg
-MF,Konstantin Zyryanov,11, Zenit Saint Petersburg
-MF,Alan Dzagoev,11, CSKA Moscow
-MF,Igor Semshov,11, Dynamo Moscow
-MF,Dmitri Loskov,11, Lokomotiv Moscow
-MF,Sergei Semak,11, Zenit Saint Petersburg
-MF,Dmitri Kombarov,11, Spartak Moscow
-FW,Roman Pavlyuchenko,11, Lokomotiv Moscow
-FW,Andrei Arshavin,11, Zenit Saint Petersburg
-FW,Pavel Pogrebnyak,11, Fulham
-FW,Aleksandr Kerzhakov,11, Zenit Saint Petersburg
-FW,Artem Dzyuba,11, Spartak Moscow
-GK,Iker Casillas ,12, Real Madrid
-GK,Víctor Valdés,12, Barcelona
-GK,Pepe Reina,12, Liverpool
-DF,Andoni Iraola,12, Athletic Bilbao
-DF,Gerard Piqué,12, Barcelona
-DF,Carles Puyol,12, Barcelona
-DF,Sergio Ramos,12, Real Madrid
-DF,Álvaro Arbeloa,12, Real Madrid
-DF,Jordi Alba,12, Valencia
-MF,Thiago Alcântara,12, Barcelona
-MF,Andrés Iniesta,12, Barcelona
-MF,Iker Muniain,12, Athletic Bilbao
-MF,Xavi Hernández,12, Barcelona
-MF,Cesc Fàbregas,12, Barcelona
-MF,Juan Mata,12, Chelsea
-MF,Xabi Alonso,12, Real Madrid
-MF,Sergio Busquets,12, Barcelona
-MF,Javi Martínez,12, Athletic Bilbao
-MF,Santi Cazorla,12, Málaga
-MF,David Silva,12, Manchester City
-MF,Jesús Navas,12, Sevilla
-FW,Roberto Soldado,12, Valencia
-FW,Fernando Llorente,12, Athletic Bilbao
-GK,Andreas Isaksson,13, PSV
-GK,Johan Wiland,13, Copenhagen
-DF,Mikael Lustig,13, Celtic
-DF,Olof Mellberg,13, Olympiacos
-DF,Daniel Majstorović,13, Celtic
-DF,Martin Olsson,13, Blackburn Rovers
-DF,Andreas Granqvist,13, Genoa
-DF,Mikael Antonsson,13, Bologna
-DF,Oscar Wendt,13, Borussia Mönchengladbach
-DF,Jonas Olsson,13, West Bromwich Albion
-MF,Emir Bajrami,13, Twente
-MF,Sebastian Larsson,13, Sunderland
-MF,Anders Svensson,13, Elfsborg
-MF,Kim Källström,13, Lyon
-MF,Pontus Wernbloom,13, CSKA Moscow
-MF,Samuel Holmén,13, İstanbul BB
-MF,Ola Toivonen,13, PSV
-MF,Rasmus Elm,13, AZ
-FW,Zlatan Ibrahimović ,13, Milan
-FW,Johan Elmander,13, Galatasaray
-FW,Tobias Hysén,13, IFK Göteborg
-FW,John Guidetti,13, Feyenoord
-GK,Petr Čech,14, Chelsea
-GK,Jaroslav Drobný,14, Hamburger SV
-DF,Michal Kadlec,14, Bayer Leverkusen
-DF,Tomáš Sivok,14, Beşiktaş
-DF,Daniel Pudil,14, Cesena
-DF,Roman Hubník,14, Hertha Berlin
-DF,Theodor Gebre Selassie,14, Slovan Liberec
-DF,David Limberský,14, Viktoria Plzeň
-DF,František Rajtoral,14, Viktoria Plzeň
-MF,Jan Rajnoch,14, Sivasspor
-MF,Tomáš Rosický ,14, Arsenal
-MF,Jaroslav Plašil,14, Bordeaux
-MF,Tomáš Hübschman,14, Shakhtar Donetsk
-MF,Daniel Kolář,14, Viktoria Plzeň
-MF,Milan Petržela,14, Viktoria Plzeň
-MF,Václav Pilař,14, Viktoria Plzeň
-MF,Petr Jiráček,14, Wolfsburg
-FW,Jan Rezek,14, Anorthosis Famagusta
-FW,Milan Baroš,14, Galatasaray
-FW,Jiří Štajner,14, Slovan Liberec
-FW,David Lafata,14, Baumit Jablonec
-FW,Tomáš Pekhart,14, Nürnberg
-GK,Manuel Neuer,15, Bayern Munich
-GK,Tim Wiese,15, Werder Bremen
-DF,Marcel Schmelzer,15, Borussia Dortmund
-DF,Benedikt Höwedes,15, Schalke 04
-DF,Dennis Aogo,15, Hamburger SV
-DF,Mats Hummels,15, Borussia Dortmund
-DF,Holger Badstuber,15, Bayern Munich
-DF,Christian Träsch,15, VfL Wolfsburg
-DF,Jérôme Boateng,15, Bayern Munich
-MF,Sami Khedira,15, Real Madrid
-MF,Simon Rolfes,15, Bayer Leverkusen
-MF,Mesut Özil,15, Real Madrid
-MF,André Schürrle,15, Bayer Leverkusen
-MF,Thomas Müller,15, Bayern Munich
-MF,Toni Kroos,15, Bayern Munich
-MF,Marco Reus,15, Borussia Mönchengladbach
-MF,Lars Bender,15, Bayer Leverkusen
-FW,Miroslav Klose,15, Lazio
-FW,Cacau,15, VfB Stuttgart
-FW,Mario Gómez,15, Bayern Munich
-GK,Oleksandr Rybka,16, Shakhtar Donetsk
-GK,Maksym Koval,16, Dynamo Kyiv
-GK,Andriy Pyatov,16, Shakhtar Donetsk
-DF,Yaroslav Rakitskiy,16, Shakhtar Donetsk
-DF,Artem Fedetskiy,16, Karpaty Lviv
-DF,Dmytro Chygrynskiy,16, Shakhtar Donetsk
-DF,Vyacheslav Shevchuk,16, Shakhtar Donetsk
-DF,Serhiy Kryvtsov,16, Shakhtar Donetsk
-DF,Yevhen Cheberyachko,16, Dnipro Dnipropetrovsk
-DF,Andriy Rusol,16,Retired
-DF,Mykola Ischenko,16, Illichivets Mariupol
-DF,Vasyl Kobin,16, Shakhtar Donetsk
-DF,Ihor Oshchypko,16, Karpaty Lviv
-DF,Oleksandr Romanchuk,16, Volyn Lutsk
-MF,Oleksiy Hay,16, Shakhtar Donetsk
-MF,Maksym Kalynychenko,16, Tavriya Simferopol
-MF,Edmar Aparecida,16, Metalist Kharkiv
-MF,Ihor Khudobyak,16, Karpaty Lviv
-MF,Denys Kozhanov,16, Illichivets Mariupol
-MF,Serhiy Kravchenko,16, Dnipro Dnipropetrovsk
-MF,Denys Oliynyk,16, Dnipro Dnipropetrovsk
-MF,Taras Stepanenko,16, Shakhtar Donetsk
-FW,Andriy Shevchenko,16, Dynamo Kyiv
-FW,Roman Bezus,16, Vorskla Poltava
-FW,Yevhen Seleznyov,16, Shakhtar Donetsk
-FW,Anton Shynder,16, Tavriya Simferopol
-FW,Oleksiy Antonov,16, Dnipro Dnipropetrovsk
-FW,Artem Kravets,16, Dynamo Kyiv
+position,name,team_id
+GK,Thomas Sørensen,1
+GK,Stephan Andersen,1
+DF,Simon Kjær,1
+DF,Daniel Wass,1
+DF,Lars Jacobsen,1
+DF,Daniel Agger,1
+DF,Simon Poulsen,1
+DF,Andreas Bjelland,1
+MF,Christian Poulsen,1
+MF,William Kvist,1
+MF,Michael Silberbauer,1
+MF,Lasse Schøne,1
+MF,Jakob Poulsen,1
+MF,Christian Eriksen,1
+MF,Niki Zimling,1
+FW,Nicklas Bendtner,1
+FW,Tobias Mikkelsen,1
+FW,Mads Junker,1
+FW,Dennis Rommedahl,1
+FW,Michael Krohn-Dehli,1
+GK,Joe Hart,2
+GK,Robert Green,2
+GK,Scott Carson,2
+DF,Ashley Cole,2
+DF,Joleon Lescott,2
+DF,Micah Richards,2
+DF,Gary Cahill,2
+DF,Leighton Baines,2
+DF,Phil Jones,2
+DF,Chris Smalling,2
+MF,Steven Gerrard,2
+MF,Gareth Barry,2
+MF,Stewart Downing,2
+MF,James Milner,2
+MF,Theo Walcott,2
+MF,Ashley Young,2
+MF,Scott Parker,2
+MF,Adam Johnson,2
+FW,Danny Welbeck,2
+FW,Fraizer Campbell,2
+FW,Daniel Sturridge,2
+GK,Hugo Lloris,3
+GK,Steve Mandanda,3
+GK,Cédric Carrasso,3
+DF,Mathieu Debuchy,3
+DF,Patrice Evra,3
+DF,Adil Rami,3
+DF,Philippe Mexès,3
+DF,Mamadou Sakho,3
+DF,Anthony Réveillère,3
+DF,Éric Abidal,3
+MF,Yohan Cabaye,3
+MF,Franck Ribéry,3
+MF,Mathieu Valbuena,3
+MF,Samir Nasri,3
+MF,Florent Malouda,3
+MF,Yann M'Vila,3
+MF,Alou Diarra,3
+MF,Marvin Martin,3
+MF,Morgan Amalfitano,3
+FW,Olivier Giroud,3
+FW,Louis Saha,3
+FW,Jérémy Menez,3
+FW,Kévin Gameiro,3
+GK,Alexandros Tzorvas,4
+GK,Orestis Karnezis,4
+DF,Giannis Maniatis,4
+DF,Iosif Cholevas,4
+DF,Nikos Spyropoulos,4
+DF,Avraam Papadopoulos,4
+DF,Vasilis Torosidis,4
+DF,Sokratis Papastathopoulos,4
+DF,Kyriakos Papadopoulos,4
+MF,Grigoris Makos,4
+MF,Giorgos Karagounis,4
+MF,Kostas Fortounis,4
+MF,Giorgos Fotakis,4
+MF,Kostas Katsouranis,4
+MF,Giannis Fetfatzidis,4
+FW,Giorgos Samaras,4
+FW,Nikos Lyberopoulos,4
+FW,Stefanos Athanasiadis,4
+FW,Dimitris Salpigidis,4
+FW,Theofanis Gekas,4
+FW,Lazaros Christodoulopoulos,4
+GK,Maarten Stekelenburg,5
+GK,Michel Vorm,5
+GK,Tim Krul,5
+DF,John Heitinga,5
+DF,Joris Mathijsen,5
+DF,Khalid Boulahrouz,5
+DF,Erik Pieters,5
+DF,Jeffrey Bruma,5
+DF,Ron Vlaar,5
+MF,Mark van Bommel ,5
+MF,Nigel de Jong,5
+MF,Wesley Sneijder,5
+MF,Arjen Robben,5
+MF,Rafael van der Vaart,5
+MF,Ibrahim Afellay,5
+MF,Demy de Zeeuw,5
+MF,Urby Emanuelson,5
+FW,Dirk Kuyt,5
+FW,Robin van Persie,5
+FW,Klaas-Jan Huntelaar,5
+FW,Luuk de Jong,5
+FW,Luciano Narsingh,5
+FW,Eljero Elia,5
+GK,Shay Given,6
+GK,David Forde,6
+GK,Stephen Henderson,6
+DF,John O'Shea,6
+DF,Shane Duffy,6
+DF,Sean St Ledger,6
+DF,Darren O'Dea,6
+DF,Stephen Ward,6
+DF,Kevin Foley,6
+MF,Damien Duff,6
+MF,Aiden McGeady,6
+MF,Stephen Hunt,6
+MF,Glenn Whelan,6
+MF,Keith Andrews,6
+MF,Paul Green,6
+MF,Keith Fahey,6
+MF,Séamus Coleman,6
+MF,James McCarthy,6
+MF,James McClean,6
+FW,Robbie Keane,6
+FW,Kevin Doyle,6
+FW,Shane Long,6
+FW,Simon Cox,6
+FW,Jonathan Walters,6
+GK,Gianluigi Buffon,7
+GK,Salvatore Sirigu,7
+GK,Emiliano Viviano,7
+GK,Morgan De Sanctis,7
+DF,Christian Maggio,7
+DF,Giorgio Chiellini,7
+DF,Domenico Criscito,7
+DF,Federico Balzaretti,7
+DF,Ignazio Abate,7
+DF,Davide Astori,7
+DF,Andrea Barzagli,7
+DF,Leonardo Bonucci,7
+DF,Angelo Ogbonna,7
+MF,Daniele De Rossi,7
+MF,Claudio Marchisio,7
+MF,Thiago Motta,7
+MF,Riccardo Montolivo,7
+MF,Andrea Pirlo,7
+MF,Antonio Nocerino,7
+FW,Giampaolo Pazzini,7
+FW,Alessandro Matri,7
+FW,Sebastian Giovinco,7
+FW,Fabio Borini,7
+GK,Stipe Pletikosa,8
+GK,Ivan Kelava,8
+GK,Danijel Subašić,8
+DF,Josip Šimunić,8
+DF,Vedran Ćorluka,8
+DF,Danijel Pranjić,8
+DF,Gordon Schildenfeld,8
+DF,Domagoj Vida,8
+DF,Šime Vrsaljko,8
+MF,Ivan Rakitić,8
+MF,Ognjen Vukojević,8
+MF,Luka Modrić,8
+MF,Darijo Srna ,8
+MF,Tomislav Dujmović,8
+MF,Niko Kranjčar,8
+MF,Ivan Perišić,8
+FW,Nikica Jelavić,8
+FW,Mario Mandžukić,8
+FW,Ivica Olić,8
+FW,Eduardo,8
+GK,Łukasz Fabiański,9
+GK,Wojciech Szczęsny,9
+DF,Marcin Wasilewski,9
+DF,Jakub Wawrzyniak,9
+DF,Tomasz Jodłowiec,9
+DF,Łukasz Piszczek,9
+DF,Grzegorz Wojtkowiak,9
+DF,Damien Perquis,9
+DF,Sebastian Boenisch,9
+DF,Marcin Kamiński,9
+DF,Dariusz Dudka,9
+MF,Jakub Błaszczykowski ,9
+MF,Sebastian Mila,9
+MF,Sławomir Peszko,9
+MF,Ludovic Obraniak,9
+MF,Adrian Mierzejewski,9
+MF,Maciej Rybus,9
+MF,Adam Matuszczyk,9
+MF,Eugen Polański,9
+FW,Robert Lewandowski,9
+FW,Ireneusz Jeleń,9
+FW,Kamil Grosicki,9
+GK,Eduardo,10
+GK,Rui Patrício,10
+GK,Beto,10
+DF,Bruno Alves,10
+DF,Pepe,10
+DF,Fábio Coentrão,10
+DF,João Pereira,10
+DF,Rolando,10
+DF,Ricardo Costa,10
+DF,Nélson,10
+MF,Raul Meireles,10
+MF,João Moutinho,10
+MF,Miguel Veloso,10
+MF,Paulo Machado,10
+MF,Manuel Fernandes,10
+MF,Rúben Micael,10
+FW,Cristiano Ronaldo ,10
+FW,Nani,10
+FW,Hélder Postiga,10
+FW,Hugo Almeida,10
+FW,Ricardo Quaresma,10
+FW,Nélson Oliveira,10
+GK,Vladimir Gabulov,11
+GK,Igor Akinfeev,11
+DF,Aleksandr Anyukov,11
+DF,Vasili Berezutskiy,11
+DF,Sergei Ignashevich,11
+DF,Yuri Zhirkov,11
+DF,Aleksei Berezutskiy,11
+DF,Yevgeni Makeyev,11
+MF,Roman Shirokov,11
+MF,Igor Denisov,11
+MF,Konstantin Zyryanov,11
+MF,Alan Dzagoev,11
+MF,Igor Semshov,11
+MF,Dmitri Loskov,11
+MF,Sergei Semak,11
+MF,Dmitri Kombarov,11
+FW,Roman Pavlyuchenko,11
+FW,Andrei Arshavin,11
+FW,Pavel Pogrebnyak,11
+FW,Aleksandr Kerzhakov,11
+FW,Artem Dzyuba,11
+GK,Iker Casillas ,12
+GK,Víctor Valdés,12
+GK,Pepe Reina,12
+DF,Andoni Iraola,12
+DF,Gerard Piqué,12
+DF,Carles Puyol,12
+DF,Sergio Ramos,12
+DF,Álvaro Arbeloa,12
+DF,Jordi Alba,12
+MF,Thiago Alcântara,12
+MF,Andrés Iniesta,12
+MF,Iker Muniain,12
+MF,Xavi Hernández,12
+MF,Cesc Fàbregas,12
+MF,Juan Mata,12
+MF,Xabi Alonso,12
+MF,Sergio Busquets,12
+MF,Javi Martínez,12
+MF,Santi Cazorla,12
+MF,David Silva,12
+MF,Jesús Navas,12
+FW,Roberto Soldado,12
+FW,Fernando Llorente,12
+GK,Andreas Isaksson,13
+GK,Johan Wiland,13
+DF,Mikael Lustig,13
+DF,Olof Mellberg,13
+DF,Daniel Majstorović,13
+DF,Martin Olsson,13
+DF,Andreas Granqvist,13
+DF,Mikael Antonsson,13
+DF,Oscar Wendt,13
+DF,Jonas Olsson,13
+MF,Emir Bajrami,13
+MF,Sebastian Larsson,13
+MF,Anders Svensson,13
+MF,Kim Källström,13
+MF,Pontus Wernbloom,13
+MF,Samuel Holmén,13
+MF,Ola Toivonen,13
+MF,Rasmus Elm,13
+FW,Zlatan Ibrahimović ,13
+FW,Johan Elmander,13
+FW,Tobias Hysén,13
+FW,John Guidetti,13
+GK,Petr Čech,14
+GK,Jaroslav Drobný,14
+DF,Michal Kadlec,14
+DF,Tomáš Sivok,14
+DF,Daniel Pudil,14
+DF,Roman Hubník,14
+DF,Theodor Gebre Selassie,14
+DF,David Limberský,14
+DF,František Rajtoral,14
+MF,Jan Rajnoch,14
+MF,Tomáš Rosický ,14
+MF,Jaroslav Plašil,14
+MF,Tomáš Hübschman,14
+MF,Daniel Kolář,14
+MF,Milan Petržela,14
+MF,Václav Pilař,14
+MF,Petr Jiráček,14
+FW,Jan Rezek,14
+FW,Milan Baroš,14
+FW,Jiří Štajner,14
+FW,David Lafata,14
+FW,Tomáš Pekhart,14
+GK,Manuel Neuer,15
+GK,Tim Wiese,15
+DF,Marcel Schmelzer,15
+DF,Benedikt Höwedes,15
+DF,Dennis Aogo,15
+DF,Mats Hummels,15
+DF,Holger Badstuber,15
+DF,Christian Träsch,15
+DF,Jérôme Boateng,15
+MF,Sami Khedira,15
+MF,Simon Rolfes,15
+MF,Mesut Özil,15
+MF,André Schürrle,15
+MF,Thomas Müller,15
+MF,Toni Kroos,15
+MF,Marco Reus,15
+MF,Lars Bender,15
+FW,Miroslav Klose,15
+FW,Cacau,15
+FW,Mario Gómez,15
+GK,Oleksandr Rybka,16
+GK,Maksym Koval,16
+GK,Andriy Pyatov,16
+DF,Yaroslav Rakitskiy,16
+DF,Artem Fedetskiy,16
+DF,Dmytro Chygrynskiy,16
+DF,Vyacheslav Shevchuk,16
+DF,Serhiy Kryvtsov,16
+DF,Yevhen Cheberyachko,16
+DF,Andriy Rusol,16
+DF,Mykola Ischenko,16
+DF,Vasyl Kobin,16
+DF,Ihor Oshchypko,16
+DF,Oleksandr Romanchuk,16
+MF,Oleksiy Hay,16
+MF,Maksym Kalynychenko,16
+MF,Edmar Aparecida,16
+MF,Ihor Khudobyak,16
+MF,Denys Kozhanov,16
+MF,Serhiy Kravchenko,16
+MF,Denys Oliynyk,16
+MF,Taras Stepanenko,16
+FW,Andriy Shevchenko,16
+FW,Roman Bezus,16
+FW,Yevhen Seleznyov,16
+FW,Anton Shynder,16
+FW,Oleksiy Antonov,16
+FW,Artem Kravets,16
