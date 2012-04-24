@@ -35,7 +35,7 @@ class UserTeamsController < ApplicationController
 		flash[:notice] = "Ditt lag har uppdaterats"
 
 		if current_user.user_teams.empty?
-			current_user.user_teams.push(UserTeam.create(:name => params[:teamname]))
+			current_user.user_teams.push(UserTeam.create(:name => params[:teamname], :points => 0))
 			flash[:notice] = "Ditt lag har skapats"
 		end
 

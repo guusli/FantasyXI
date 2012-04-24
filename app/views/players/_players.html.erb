@@ -13,9 +13,7 @@
 	</tr></thead >
 
 <% for player in @players %>
-	<%
-		player_stats = player.player_stats.find_by_player_id_and_round(player.id, params[:round]);
-		%>
+	<% player_stats = player.player_stats.find_by_player_id_and_round(player.id, params[:round]); %>
 	<tbody><tr>
 		<td><%= link_to player.name, player_path(player)  %></td>
 		<td><%= Team.find(player.team_id).name %></td>

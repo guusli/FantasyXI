@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120419121206) do
+ActiveRecord::Schema.define(:version => 20120424115523) do
 
   create_table "acquisitions", :force => true do |t|
     t.integer  "user_team_id"
@@ -65,13 +65,6 @@ ActiveRecord::Schema.define(:version => 20120419121206) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "user_team_stats", :force => true do |t|
-    t.integer  "points"
-    t.integer  "user_team_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "user_teams", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -79,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20120419121206) do
     t.datetime "updated_at", :null => false
     t.integer  "round"
     t.integer  "formation"
+    t.integer  "points"
   end
 
   create_table "users", :force => true do |t|

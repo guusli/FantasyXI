@@ -11,7 +11,7 @@ class LeaguesController < ApplicationController
 
 	def show
 		@league = League.find params[:id]
-		@members = User.find(:all, :conditions => ['leagues.id LIKE ?', '1'], :joins => [:leagues])
+		@members = User.find(:all, :conditions => ['leagues.id LIKE ?', params[:id]], :joins => [:leagues])
 
 		if(current_user && @league.users.find_by_id(current_user.id))
 			@member = true
