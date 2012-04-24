@@ -28,22 +28,11 @@
 
 		<table class="table table-striped table-bordered table-condensed">
 		<tr><td>Namn:</td><td><%= @player.name %></td></tr>
-			<% if params[:round] != nil%>
-
-				<tr><td>Poäng:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], params[:round]]).first.points %></td></tr>
-				<tr><td>Mål:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], params[:round]]).first.goals %></td></tr>
-				<tr><td>Assist:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], params[:round]]).first.assists %></td></tr>
-				<tr><td>Gula:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], params[:round]]).first.yellow %></td></tr>
-				<tr><td>Röda:</td><td><%= @player.player_stats.find(:all, :conditions => ["player_id LIKE ? AND round LIKE ?", params[:id], params[:round]]).first.red %></td></tr>
-			<% else %>
-
-				<tr><td>Poäng:</td><td><%= PlayerStat.where(:player_id => @player.id).sum(:points) %></td></tr>
-				<tr><td>Mål:</td><td><%= PlayerStat.where(:player_id => @player.id).sum(:goals) %></td></tr>
-				<tr><td>Assists:</td><td><%= PlayerStat.where(:player_id => @player.id).sum(:assists) %></td></tr>
-				<tr><td>Gula:</td><td><%= PlayerStat.where(:player_id => @player.id).sum(:yellow) %></td></tr>
-				<tr><td>Röda:</td><td><%= PlayerStat.where(:player_id => @player.id).sum(:red) %></td></tr>
-
-			<% end %>
+				<tr><td>Poäng:</td><td><%= @player.points %></td></tr>
+				<tr><td>Mål:</td><td><%= @player.goals %></td></tr>
+				<tr><td>Assist:</td><td><%= @player.assists %></td></tr>
+				<tr><td>Gula:</td><td><%= @player.yellow%></td></tr>
+				<tr><td>Röda:</td><td><%= @player.red %></td></tr>
 		</table>
 	</div>
 </div>

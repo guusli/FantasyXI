@@ -35,7 +35,29 @@ class PlayersController < ApplicationController
 	end
 
 	def show
-		@player = Player.find params[:id]
+		if not params[:round]
+			@player = Player.joins(:player_stats)
+				.select("players.* 
+					, sum(player_stats.points) as points
+					, sum(player_stats.red) as red
+					, sum(player_stats.yellow) as yellow
+					, sum(player_stats.assists) as assists
+					, sum(player_stats.goals) as goals")
+				.where(:id => params[:id])
+				.group("players.id")
+				.first
+		else
+			 @player = Player.joins(:player_stats)
+			 	.select("players.* 
+			 		, player_stats.points as points
+			 		, player_stats.goals as goals
+			 		, player_stats.assists as assists
+			 		, player_stats.red as red
+			 		, player_stats.yellow as yellow")
+			 	.group("players.id")
+			 	.where(:player_stats => {:round => params[:round]}, :id => params[:id])
+				.first
+		end
 	end
 
 	def new
