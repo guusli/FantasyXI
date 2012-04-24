@@ -13,6 +13,7 @@
 	</tr></thead >
 
 <% for player in @players %>
+
 	<tbody><tr>
 		<td><%= link_to player.name, player_path(player)  %></td>
 		<td><%= Team.find(player.team_id).name %></td>

@@ -14,14 +14,12 @@
 				<th>Poäng</th>
 			</tr></thead >
 
-
-		<% for member, i in @members %>
-		<%  params[:user_team_id] = UserTeam.where(:user_id => member.id).first.id %>
+		<% for member in @members %>
 			<tbody><tr>
 				<td></td>
 				<td><%= UserTeam.where(:user_id => member.id).first.name %></td>
 				<td><%= member.name %></td>
-				<td><%= UserTeamStat.where(:user_team_id => params[:user_team_id]).first.points %></td>
+				<td><%= UserTeam.where(:user_id => member.id).sum(:points) %></td>
 			</tr></tbody>
 		<% end %>
 <% end %>
