@@ -11,6 +11,8 @@ class LeaguesController < ApplicationController
 
 	def show
 		@league = League.find params[:id]
+		@members = User.find(:all, :conditions => ['leagues.id LIKE ?', '1'], :joins => [:leagues])
+
 		if(current_user && @league.users.find_by_id(current_user.id))
 			@member = true
 		else
@@ -20,7 +22,7 @@ class LeaguesController < ApplicationController
 
 	def join
 		LeagueMembership.create(:league_id => params[:id], :user_id => current_user.id)
-		redirect_to leagues_path
+		redirect_to :back
 	end
 
 	def leave

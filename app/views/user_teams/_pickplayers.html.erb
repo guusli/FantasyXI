@@ -1,4 +1,4 @@
-<table id="players_table" class="table table-condensed">
+<table id="players_table" class="table table-striped table-bordered table-condensed">
 	<script> handleMarked();</script>
 <span>
 <tr>
@@ -18,5 +18,4 @@
 </span>
 <% end %>
 </table>
-
 <%= will_paginate @players ,:inner_window => 2, :previous_label => "«", :next_label => '»', :renderer => PaginationListLinkRenderer %>

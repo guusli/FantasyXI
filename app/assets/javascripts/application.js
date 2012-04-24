@@ -187,10 +187,6 @@ function handleDragStart(e) {
 
 		  draggedPlayer = new Player(id, name, country, position);
 
-
-		handleMarked();
-
-
 		 // Koppla event beroende på position
 		 var player_position;
 		if (draggedPlayer.position == "GK") player_position = "#goalie";
@@ -250,6 +246,7 @@ function handleDrop(e) {
 			$(box).bind('drop');
 			$(box).unbind('dragleave');
 		});
+}
 
 
 function handleDragLeave(e) {
@@ -259,15 +256,15 @@ function handleDragLeave(e) {
 
 
 function handleMarked() {
-		$('#players_table tr').each(function() {
-			$(this).removeClass("marked");
-			$(this).attr('draggable','true');
-		});
-		$.each(teamPlayers, function(index, player) {
-				if(player){
-					$("tr#player_"+ player.id).addClass("marked");
-					$("tr#player_"+ player.id).attr('draggable','false');
-				}
-			});
+	$('#players_table tr').each(function() {
+		$(this).removeClass("marked");
+		$(this).attr('draggable','true');
+	});
+	$.each(teamPlayers, function(index, player) {
+		if(player){
+			$("tr#player_"+ player.id).addClass("marked");
+			$("tr#player_"+ player.id).attr('draggable','false');
+		}
+	});
 }
 
