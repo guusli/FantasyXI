@@ -10,10 +10,11 @@ class LeaguesController < ApplicationController
 	end
 
 	def show
-		@league = League.find params[:id]
-		@members = User.find(:all, :conditions => ['leagues.id LIKE ?', params[:id]], :joins => [:leagues])
+		@members = User.joins(:leagues,:user_teams)
+				.select("users.*, user_teams.name as user_team,leagues.name as league_name, sum(user_teams.points) as points")
+				.group("users.id").where(:leagues => {:id => 1})
 
-		if(current_user && @league.users.find_by_id(current_user.id))
+		if(current_user && @members.find_by_id(current_user.id))
 			@member = true
 		else
 			@member = false
