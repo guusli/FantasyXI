@@ -2,7 +2,7 @@
   <%= f.label :name %>
   <%= f.text_field :name %><br />
 
-  <input value="<%= current_user.id %>" />
+  <%= f.hidden_field :admin_id, :value => current_user.id %>
 
   <%= f.submit %>
 <% end %>
