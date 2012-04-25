@@ -21,6 +21,15 @@ class LeaguesController < ApplicationController
 		end
 	end
 
+	def new
+		@league = League.new
+	end
+
+	def create
+		l = League.create params[:league]
+		redirect_to l
+	end
+
 	def join
 		LeagueMembership.create(:league_id => params[:id], :user_id => current_user.id)
 		redirect_to :back
