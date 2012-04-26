@@ -144,24 +144,23 @@ $(function() {
   			positions.push("FW");
 		}
 
-		if(positions.length < 1) {
-			$.getScript(this.href);
+			if(positions.length > 0) {
+				$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");
+			}
+			else {
+				$('#players_table tbody').html("");
+				$('.pagination').html("");
+			}
+
 			return false;
-		}
-		else {
-			console.log(positions);
-			$.getScript("?positions=" + positions.toString());
-			return false;
-		}
 
 	});
 });
 
 
 $(function() {
-	$('#post_team_select').change(function() {
-  		var team_id = this.value;
-  		$.getScript("?team_id=" + team_id); 	
+	$('#players_search #team_id').change(function() {
+  		$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");	
 	});
 });
 

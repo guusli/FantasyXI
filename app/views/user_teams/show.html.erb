@@ -25,17 +25,29 @@
 				<div id="filter_settings">
 				<label>Sök</label>
 				<%= text_field_tag :search, params[:search] %>
-				<label>Land</label>
-				<%= select("post", "team_select", Team.all.collect {|t| [ t.name, t.id ] }, {:include_blank => 'Alla Länder'}) %>
+				<label>Lag</label>
+				<%= select_tag "team_id", options_from_collection_for_select(Team.all,'id','name')  , {:prompt => "Alla länder" }%>
 				</div>
 				<div id="position_select">
-					<label>Position</label>
-					<ul>
-					<li><%= check_box_tag 'gk_check',"gk_check", true, :id=> 'gk_check', :class => "position_check" %></li>	
-					<li><%= check_box_tag 'df_check',"df_check", true, :id=> 'df_check', :class => "position_check" %></li>
-					<li><%= check_box_tag 'mf_check',"mf_check", true, :id=> 'mf_check', :class => "position_check" %></li>
-					<li><%= check_box_tag 'fw_check',"fw_check", true, :id=> 'fw_check',:class => "position_check" %></li>
-					</ul>
+					<label>Positioner</label>
+					<table>
+					<tr>
+						<td><%= check_box_tag 'gk_check',"gk_check", true, :id=> 'gk_check', :class => "position_check" %></td>
+						<td><%= label_tag 'gk_check', 'Målvakter' %></td>
+					</tr>	
+					<tr>
+						<td><%= check_box_tag 'df_check',"df_check", true, :id=> 'df_check', :class => "position_check" %></td>
+						<td><%= label_tag 'df_check', 'Backar' %></td>
+					</tr>
+					<tr>
+						<td><%= check_box_tag 'mf_check',"mf_check", true, :id=> 'mf_check', :class => "position_check" %></td>
+						<td><%= label_tag 'mf_check', 'Mittfältare' %></td>
+					</tr>
+					<tr>
+						<td><%= check_box_tag 'fw_check',"fw_check", true, :id=> 'fw_check', :class => "position_check" %></td>
+						<td><%= label_tag 'fw_check', 'Anfallare' %></td>
+					</tr>
+					</table>
 				</div>
 				<div id="players"><%= render 'pickplayers' %>
 

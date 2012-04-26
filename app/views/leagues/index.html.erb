@@ -4,16 +4,6 @@
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
-    <% j = ActiveSupport::JSON %>
-    <% json = j.decode(@page[0]) %>
-    <table>
-    <% json['data'].each do |j| %>
-    <% if j.length > 3 %>
-    <% #u = FbGraph::User.fetch(j["id"]) %>
-    <tr><td><%= link_to image_tag(j['picture']), "http://www.facebook.com/#{j["id"]}" %></td><td><%= j['name'] %></td></tr>
-    <% end %>
-    <% end %>
-	</table>
 
     
 

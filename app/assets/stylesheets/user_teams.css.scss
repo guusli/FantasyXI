@@ -103,13 +103,13 @@
 }
 
 #position_select {
-	float:left ;
+	width: 200px;
+	float: left;
+	margin-left: 20px;
 }
-
-#position_select ul {
-	list-style: none;
+#position_select table tr {
+	padding:  0px;
 }
-
 /*.player .plus {
 	display: none;
 	margin-left: 25%;

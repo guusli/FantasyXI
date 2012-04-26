@@ -1,7 +1,6 @@
-$("#players_table td").fadeOut('fast', function() {
+
 	$("#players").html("<%= escape_javascript(render("pickplayers"))%>");
 	
 	$("#players #players_table tr").each(function(index, player) {
 			$(player).bind('dragstart', handleDragStart);
 		});
-});

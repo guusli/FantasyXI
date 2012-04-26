@@ -1,0 +1,13 @@
+<% page = Nokogiri::HTML(open('https://graph.facebook.com/me/friends?access_token=' + session[:access_token] + '&fields=installed,name,picture'))
+		page = page.to_s.scan(/\{.+\}\}/) %>
+
+<% j = ActiveSupport::JSON %>
+    <% json = j.decode(page[0]) %>
+    <table>
+    <% json['data'].each do |j| %>
+    <% if j.length > 3 %>
+    <% #u = FbGraph::User.fetch(j["id"]) %>
+    <tr><td><%= link_to image_tag(j['picture']), "http://www.facebook.com/#{j["id"]}" %></td><td><%= j['name'] %></td></tr>
+    <% end %>
+    <% end %>
+	</table>

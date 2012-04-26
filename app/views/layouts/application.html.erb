@@ -27,6 +27,7 @@
 		    <a href="#"
 		          class="dropdown-toggle"
 		          data-toggle="dropdown">
+
 		          Ligor
 		          <b class="caret"></b>
 		    </a>
@@ -42,6 +43,26 @@
           <li><%= link_to "Skapa liga" , new_league_path %></li>
 		    </ul>
 		  </li>
+      <% has_invites = (not current_user.invites.empty?) %>
+      <% invite_count = current_user.invites.count %>
+      <li class="dropdown">
+        <a href="#"
+              class="dropdown-toggle"
+              data-toggle="dropdown">
+
+              <%= "Inbjudningar#{"(" + current_user.invites.count.to_s + ")" if has_invites }" %>
+              <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <% if current_user && (not current_user.invites.empty?) %>
+          <% current_user.invites.each do |invite| %>
+          <% league = League.find(invite.league_id) %>
+            <li><%= link_to league.name , league %></li>
+          <% end %>
+          <% end %>
+        </ul>
+      </li>
+
             <li><%= link_to "Ranking" , user_teams_path %></li>
             <li><%= link_to "Statistik", players_path %></li>
         </ul>

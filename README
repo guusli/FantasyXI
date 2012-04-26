@@ -1,0 +1,3 @@
+Poängen för ett lag i en runda
+
+Player.joins(:user_teams, :player_stats).select("user_teams.name ,players.*, sum(player_stats.points)  as total_points").where(:user_teams => {:user_id => 1}, :player_stats => {:round => 2 })

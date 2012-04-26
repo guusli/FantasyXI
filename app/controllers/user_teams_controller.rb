@@ -1,6 +1,6 @@
 class UserTeamsController < ApplicationController
 
-	helper_method :sort_column, :sort_direction
+	helper_method :sort_column, :sort_direction, :team_id, :positions
 
 	def index
 		@user_teams = UserTeam.all
@@ -19,10 +19,11 @@ class UserTeamsController < ApplicationController
 			@user_team = UserTeam.new
 		end
 		
-		if team_id
-			@players = Player.where(:team_id => team_id).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
-		else	
-			@players = Player.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+		if team_id.to_i > 0
+			@players = Player.search(params[:search]).where(:team_id => team_id).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+		else
+
+			@players = Player.search(params[:search]).where(:position => positions).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
 		end
 	end
 	end
@@ -58,7 +59,26 @@ class UserTeamsController < ApplicationController
 	end
 
 	def positions
-		params[:positions] || "XX"
+		if not (params[:gk_check] || params[:df_check] || params[:mf_check] || params[:fw_check])
+			return ["GK", "DF","MF","FW"] 
+		end
+
+		pos = []
+
+		if(params[:gk_check])
+			pos.push "GK"
+		end
+		if(params[:df_check])
+			pos.push "DF"
+		end
+		if(params[:mf_check])
+			pos.push "MF"
+		end
+		if(params[:fw_check])
+			pos.push "FW"
+		end
+
+		return pos
 	end
   
   def sort_column

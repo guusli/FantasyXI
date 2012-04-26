@@ -1,11 +1,14 @@
 <table id="players_table" class="table table-bordered table-condensed">
 	<script> handleMarked();</script>
 <span>
+<thead>
 <tr>
 	<th><%= sortable "name", "Namn"%></th>
 	<th><%= sortable "price", "Pris"%></th>
 	<th><%= sortable "position", "Position"%></th>
 	<th><%= sortable "team_id", "Land"%></th>
+</thead>
+<tbody>
 <% @players.each do |player| %>
 	<tr draggable="true" id=<%="player_#{player.id}"%> >
 	<td><%= player.name %></td>
@@ -17,5 +20,6 @@
 
 </span>
 <% end %>
+</tbody>
 </table>
 <%= will_paginate @players ,:inner_window => 2, :previous_label => "«", :next_label => '»', :renderer => PaginationListLinkRenderer %>
