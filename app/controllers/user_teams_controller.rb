@@ -3,8 +3,7 @@ class UserTeamsController < ApplicationController
 	helper_method :sort_column, :sort_direction, :team_id, :positions
 
 	def index
-		@user_teams = UserTeam.all
-
+		@user_teams = User.joins(:user_teams).select("users.*, user_teams.name as user_team, sum(user_teams.points) as points").group("users.id").order(:points)
 	end
 
 	def show
