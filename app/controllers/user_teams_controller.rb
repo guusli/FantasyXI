@@ -11,18 +11,29 @@ class UserTeamsController < ApplicationController
 		if not current_user.user_teams.empty?
 			@user_team = current_user.user_teams[0]
 
-			@user_team_ids = @user_team.players.map do |p|
-				p.id
+			#@user_team_ids = @user_team.players.map do |p|
+				#p.id
+			#end
+			@points = User.find(1).user_teams.inject do |sum, ut|
+				sum.points + ut.points
 			end
+
+			@bank = 11_000_000 - @user_team.players.map(&:price).inject(0, :+)
 		else
 			@user_team = UserTeam.new
 		end
 
 		
 		if team_id.to_i > 0
-			@players = Player.search(params[:search]).where(:team_id => team_id).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+			@players = Player.joins(:player_stats)
+			.select("players.*, sum(player_stats.points) as points").group("players.id")
+			.search(params[:search]).where(:team_id => team_id, :position => positions).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
 		else
-			@players = Player.search(params[:search]).where(:position => positions).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+
+			@players = Player.joins(:player_stats)
+			.select("players.*, sum(player_stats.points) as points").group("players.id")
+			.search(params[:search]).where(:position => positions)
+			.order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
 		end
 
 	end

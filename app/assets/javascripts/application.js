@@ -45,7 +45,9 @@ $(function() {
 
 	$('#myModal').on('show', function () {
 		
-	})
+	});
+
+	$('#pitch .player .kit').popover();
 
 	$('#myModal').modal('hide')
 
@@ -73,15 +75,16 @@ $(function() {
 	});*/
 
 
-	/*var player_name;
+	var player_name;
 	$(".player").hover(function() {
-		console.log(this);
-		player_name = this.children[1].innerText;
+		var kit = this.children[0];
+		kit.setAttribute('data-original-title',this.children[1].innerText);
+		/*player_name = this.children[1].innerText;
 		$(this.children[1]).html("<a class='btn btn-danger btn-mini'>Ta bort </a><a class='btn btn-mini'>Mer Info </a>");
 		}, function() {
 			$(this.children[1]).html(player_name.replace(" ", "\n"));
-		}
-	);*/
+		}*/
+	});
 });
 
 $(function() {
@@ -159,7 +162,7 @@ $(function() {
 
 
 $(function() {
-	$('#players_search #team_id').change(function() {
+	$('#players_search #team_select').change(function() {
   		$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");	
 	});
 });
