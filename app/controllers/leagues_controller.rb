@@ -45,6 +45,17 @@ class LeaguesController < ApplicationController
 		@league.users.delete(current_user)
 		redirect_to leagues_path
 	end
+	
+	def accept
+		LeagueMembership.create(:league_id => params[:id], :user_id => current_user.id)
+		User.find(1).invites.where(:league_id => params[:id]).destroy_all
+		redirect_to :back
+	end
+
+	def decline
+		current_user.invites.where(:league_id => params[:id]).destroy_all
+		redirect_to leagues_path
+	end
 
 	def remove_user
 		u = User.find(params[:user_id])

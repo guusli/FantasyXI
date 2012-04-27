@@ -4,6 +4,9 @@
 		<% if not @admin %>
 		<% if @member %>
 			<%= link_to "Gå Ur", :controller => :leagues, :action => :leave %>
+		<% elsif params[:invited] %>
+			<%= link_to "Acceptera", :controller => :leagues, :action => :accept %>
+			<%= link_to "Neka", :controller => :leagues, :action => :decline %>
 		<% else %>
 			<%= link_to "Gå Med", :controller => :leagues, :action => :join %>
 		<% end %>

@@ -18,6 +18,9 @@
           <span class="icon-bar"></span>
         </a>
         <a class="brand" href="/">Fantasy XI</a>
+
+        <% if current_user %>
+
         <div class="nav-collapse">
           <ul class="nav pull-left">
             <% if current_user %>
@@ -27,8 +30,9 @@
 		    <a href="#"
 		          class="dropdown-toggle"
 		          data-toggle="dropdown">
-
-		          Ligor
+              <% has_invites = (not current_user.invites.empty?) %>
+             <% invite_count = current_user.invites.count %>
+		          Ligor <%= content_tag(:span, invite_count,:class => 'badge') if has_invites %>
 		          <b class="caret"></b>
 		    </a>
 		    <ul class="dropdown-menu">
@@ -41,33 +45,26 @@
           <li><%= link_to "Alla ligor" , leagues_path %></li>
           <li class="divider"></li>
           <li><%= link_to "Skapa liga" , new_league_path %></li>
+          <% if has_invites %>
+          <li class="divider"></li>
+            <li class="nav-header">Inbjudningar</li>
+            <% current_user.invites.each do |invite| %>
+            <% league = League.find(invite.league_id) %>
+            <li><%= link_to league.name , league_path(league, :invited => true) %></li>
+          <% end %>
+          <% end %>
 		    </ul>
 		  </li>
-      <% has_invites = (not current_user.invites.empty?) %>
-      <% invite_count = current_user.invites.count %>
-      <li class="dropdown">
-        <a href="#"
-              class="dropdown-toggle"
-              data-toggle="dropdown">
-
-              <%= "Inbjudningar#{"(" + current_user.invites.count.to_s + ")" if has_invites }" %>
-              <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <% if current_user && (not current_user.invites.empty?) %>
-          <% current_user.invites.each do |invite| %>
-          <% league = League.find(invite.league_id) %>
-            <li><%= link_to league.name , league %></li>
-          <% end %>
-          <% end %>
-        </ul>
-      </li>
 
             <li><%= link_to "Ranking" , user_teams_path %></li>
             <li><%= link_to "Statistik", players_path %></li>
         </ul>
+
+
+      <% end %> 
             <ul class="nav pull-right"><li><a href="#"><%= current_user.name if current_user %></a></li>
             <li>
+
               <% if current_user %>
                 <%= link_to "Logga Ut", logout_path %>
               <% else %>

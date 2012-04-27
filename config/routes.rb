@@ -8,6 +8,8 @@ Fantasyxi::Application.routes.draw do
   match "leagues/:id/join" => "leagues#join"
   match "leagues/:id/leave" => "leagues#leave"
   match "leagues/:id/remove_user" => "leagues#remove_user"
+  match "leagues/:id/accept" => "leagues#accept"
+  match "leagues/:id/decline" => "leagues#decline"
 
 
   resources :players
