@@ -148,11 +148,14 @@ $(function() {
 		}
 
 			if(positions.length > 0) {
+				$('#positions').val(positions.toString());
 				$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");
 			}
 			else {
 				$('#players_table tbody').html("");
 				$('.pagination').html("");
+				$('#positions').val("");
+				$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");
 			}
 
 			return false;
@@ -162,7 +165,7 @@ $(function() {
 
 
 $(function() {
-	$('#players_search #team_select').change(function() {
+	$('#players_search #team_id').change(function() {
   		$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");	
 	});
 });

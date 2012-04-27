@@ -1,6 +1,12 @@
 
+
 	$("#players").html("<%= escape_javascript(render("pickplayers"))%>");
 	
 	$("#players #players_table tr").each(function(index, player) {
 			$(player).bind('dragstart', handleDragStart);
 		});
+
+		if(!($("#positions").val())) {
+		$('#players_table tbody').html("");
+		$('.pagination').html("");
+	}
