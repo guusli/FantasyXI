@@ -14,6 +14,7 @@ class PlayersController < ApplicationController
 					, sum(player_stats.assists) as assists
 					, sum(player_stats.goals) as goals")
 				.group("players.id")
+				.search(params[:search])
 				.order(sort_column + " " + sort_direction)
 				.paginate(:per_page => 20, :page => params[:page])
 		else
@@ -26,6 +27,7 @@ class PlayersController < ApplicationController
 			 		, player_stats.yellow as yellow")
 			 	.group("players.id")
 			 	.where(:player_stats => {:round => params[:round]})
+			 	.search(params[:search])
 			 	.order(sort_column + " " + sort_direction)
 				.paginate(:per_page => 20, :page => params[:page])
 		end
