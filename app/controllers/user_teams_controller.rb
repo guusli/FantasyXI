@@ -14,9 +14,7 @@ class UserTeamsController < ApplicationController
 			#@user_team_ids = @user_team.players.map do |p|
 				#p.id
 			#end
-			@points = User.find(1).user_teams.inject do |sum, ut|
-				sum.points + ut.points
-			end
+			@points = current_user.user_teams.map(&:points).inject(0, :+)
 
 			@bank = 11_000_000 - @user_team.players.map(&:price).inject(0, :+)
 		else
