@@ -1,4 +1,4 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
+	// This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
@@ -62,17 +62,6 @@ $(function() {
 
 	});*/
 
-
-	var player_name;
-	$(".player").hover(function() {
-		var kit = this.children[0];
-		kit.setAttribute('data-original-title',this.children[1].innerText);
-		/*player_name = this.children[1].innerText;
-		$(this.children[1]).html("<a class='btn btn-danger btn-mini'>Ta bort </a><a class='btn btn-mini'>Mer Info </a>");
-		}, function() {
-			$(this.children[1]).html(player_name.replace(" ", "\n"));
-		}*/
-	});
 });
 
 $(function() {
@@ -255,8 +244,9 @@ function handleMarked() {
 	});
 	$.each(teamPlayers, function(index, player) {
 		if(player){
-			$("tr#player_"+ player.id).addClass("marked");
+			$("tr#player_"+ player.id + " td").addClass("marked");
 			$("tr#player_"+ player.id).attr('draggable','false');
+			$("tr#player_"+ player.id + " td").last().removeClass("marked");
 		}
 	});
 }
