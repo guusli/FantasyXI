@@ -3,11 +3,13 @@
 
 <% j = ActiveSupport::JSON %>
     <% json = j.decode(page[0]) %>
-    <table>
+    <table class="table table-nostyle" id="invite_table" >
     <% json['data'].each do |j| %>
-    <% if j.length > 3 %>
-    <% #u = FbGraph::User.fetch(j["id"]) %>
-    <tr><td><%= link_to image_tag(j['picture']), "http://www.facebook.com/#{j["id"]}" %></td><td><%= j['name'] %></td></tr>
+    <% if j.length > 3 && (not @uids.include?(j["id"])) %>
+    <tr>
+        <td colspan="2"><%= link_to image_tag(j['picture']), "http://www.facebook.com/#{j["id"]}" %></td><td><%= j['name'] %></td>
+        <td><a class="btn inviteButton" data-complete-text="Inbjudan skickad" data-uid="<%= j["id"] %>" data-loading-text = "..."  data-leagueid="<%= params[:id] %>" > Skicka inbjudan</a> </td>
+    </tr>
     <% end %>
     <% end %>
 	</table>

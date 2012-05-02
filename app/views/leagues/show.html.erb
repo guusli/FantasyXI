@@ -1,38 +1,70 @@
-<h1><%= @members.first.league_name %></h1>
-<div class="span5">
-<% if current_user %>
-		<% if not @admin %>
-		<% if @member %>
-			<%= link_to "Gå Ur", :controller => :leagues, :action => :leave %>
-		<% elsif params[:invited] %>
-			<%= link_to "Acceptera", :controller => :leagues, :action => :accept %>
-			<%= link_to "Neka", :controller => :leagues, :action => :decline %>
-		<% else %>
-			<%= link_to "Gå Med", :controller => :leagues, :action => :join %>
-		<% end %>
-		<% end %>
-		<table class="table table-striped">
-			<thead><tr>
-				<th></th>
-				<th>Namn</th>
-				<th>Manager</th>
-				<th>Poäng</th>
-			</tr></thead >
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h1>
+			<%= @members.first.league_name %>
+		</h1>
+		<div class="row">
+			<div class="span5">
+				<% if current_user %><% if not @admin %><% if @member %><%= link_to "Gå Ur", :controller => :leagues, :action => :leave %><% elsif params[:invited] %><%= link_to "Acceptera", :controller => :leagues, :action => :accept %><%= link_to "Neka", :controller => :leagues, :action => :decline %><% else %><%= link_to "Gå Med", :controller => :leagues, :action => :join %><% end %><% end %>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th></th>
+							<th>
+								Namn
+							</th>
+							<th>
+								Manager
+							</th>
+							<th>
+								Poäng
+							</th>
+						</tr>
+					</thead><% @members.each_with_index do |member, i| %>
+					<tbody>
+						<tr>
+							<td>
+								<%= i +1%>
+							</td>
+							<td>
+								<%= member.user_team %>
+							</td>
+							<td>
+								<%= member.name %>
+							</td>
+							<td>
+								<%= member.points %>
+							</td><% if  @admin %>
+							<td>
+								<%= link_to "Ta bort",{:controller => :leagues, :action => :remove_user, :user_id => member.id} if not member.id == member.admin_id%>
+							</td><% end %>
+						</tr>
+					</tbody><% end %><!-- /row -->
+					<% end %>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+						<div class="span5">
+							<a class="btn" data-toggle="modal" href="#myModal" >Bjud in vänner</a>
+						</div>
+					</div><!-- /row -->
 
-		<% @members.each_with_index do |member, i| %>
-			<tbody><tr>
-				<td><%= i +1%></td>
-				<td><%= member.user_team %></td>
-				<td><%= member.name %></td>
-				<td><%= member.points %></td>
-				<% if  @admin %>
-				<td><%= link_to "Ta bort",{:controller => :leagues, :action => :remove_user, :user_id => member.id}, :remote => true if not member.id == member.admin_id%> </td>
-				<% end %>
-			</tr></tbody>
-		<% end %>
-
-		  <%= render 'invite'%>
-
-		  
-<% end %>
-</div>
+		<div class="modal" id="myModal" >
+				<div class="modal-header">
+					<a class="close btn" data-dismiss="modal">x</a>
+					<h3>Bjud in vänner</h3>
+				</div>
+				<div class="modal-body">
+					<%= render 'invite' , :object =>  @uids  %>
+				</div>
+				<div class="modal-footer">
+					<a class="btn" data-dismiss="modal">Stäng</a>
+				</div>
+			</div>
+	</body>
+</html>

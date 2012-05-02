@@ -39,18 +39,6 @@ $(function() {
 
 $(function() {
 
-	$('#myModal').modal({
-  		keyboard: false
-	});
-
-	$('#myModal').on('show', function () {
-		
-	});
-
-	$('#pitch .player .kit').popover();
-
-	$('#myModal').modal('hide')
-
 	$('.disabled').click(function(e) {
 		e.preventDefault();
 	});

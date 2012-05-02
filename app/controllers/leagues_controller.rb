@@ -16,6 +16,8 @@ class LeaguesController < ApplicationController
 					, sum(user_teams.points) as points")
 				.group("users.id").where(:leagues => {:id => params[:id]}).order('points DESC')
 
+		@uids = @members.map(&:uid)
+
 		if(current_user && @members.find_by_id(current_user.id))
 			@member = true
 		else
@@ -48,13 +50,19 @@ class LeaguesController < ApplicationController
 	
 	def accept
 		LeagueMembership.create(:league_id => params[:id], :user_id => current_user.id)
-		User.find(1).invites.where(:league_id => params[:id]).destroy_all
+		User.find(current_user.id).invites.where(:league_id => params[:id]).destroy_all
 		redirect_to :back
 	end
 
 	def decline
 		current_user.invites.where(:league_id => params[:id]).destroy_all
 		redirect_to leagues_path
+	end
+
+	def send_invite
+		u = User.find_by_uid(params[:uid]);
+		u.invites.push(Invite.create(:sender_id => current_user.id,
+							  :league_id => params[:league_id]))
 	end
 
 	def remove_user

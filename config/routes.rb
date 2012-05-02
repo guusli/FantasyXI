@@ -21,6 +21,8 @@ Fantasyxi::Application.routes.draw do
   match 'change_formation' => 'user_teams#change_formation'
   match 'save_team' => 'user_teams#save_team'
 
+  match 'send_invite' => 'leagues#send_invite'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
