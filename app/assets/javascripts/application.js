@@ -14,11 +14,18 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+//= require jquery.ui.all
 
 
 var kits = {};
 var countries = "danmark,england,frankrike,grekland,holland,irland,italien,kroatien,polen,portugal,ryssland,spanien,sverige,tjeckien,tyskland,ukraina".split(",");
 $(function() {
+
+
+	$("#test").click(function() {
+		$.getScript(this.href);
+	});
+
 	preloads = countries;
 
 	$.each(preloads, function(x, c) {
@@ -117,6 +124,9 @@ $(function() {
     	$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");
     return false;
   });
+
+
+
 
 	$('.position_check').change(function() {
 

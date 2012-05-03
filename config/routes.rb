@@ -18,6 +18,7 @@ Fantasyxi::Application.routes.draw do
   resources :users
   resources :user_teams
 
+  match 'player_info' => 'user_teams#player_info'
   match 'change_formation' => 'user_teams#change_formation'
   match 'save_team' => 'user_teams#save_team'
 

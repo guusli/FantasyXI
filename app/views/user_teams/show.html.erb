@@ -17,41 +17,44 @@
 			</div>
 		</div>
 		<div class="span6">
-			<%= form_tag @user_team, :method => 'get', :id => "players_search" do %>
+			<%= link_to 'Add a fox', {:controller => :user_teams, :action => :player_info } , :remote => true %>
+			<%= form_tag @user_team, :method => 'get', :id => "players_search", :class => "form-inline" do %>
 
 				<%= hidden_field_tag :direction, params[:direction] %>
 				<%= hidden_field_tag :sort, params[:sort] %>
 				<%= hidden_field_tag :team_id, params[:team_id] %>
-				<%= text_field_tag :positions, positions %>
+				<%= hidden_field_tag :positions, positions %>
+				<%= text_field_tag :low_boundary %>
+				<%= text_field_tag :high_boundary %>
 
-				<div id="filter_settings">
+				<div id="filter_settings" class="well"  p>
 				<label>Sök</label>
 				<%= text_field_tag :search, params[:search] %>
 				<label>Lag</label>
 				<%= select_tag "team_id", options_from_collection_for_select(Team.all,'id','name')  , {:prompt => "Alla länder" }%>
-				</div>
 				<div id="position_select">
-					<label>Positioner</label>
 					<table>
 					<tr>
+						<td>Positioner</td>
 						<td><%= check_box_tag 'gk_check',"gk_check", true, :id=> 'gk_check', :class => "position_check" %></td>
 						<td><%= label_tag 'gk_check', 'Målvakter' %></td>
-					</tr>	
-					<tr>
+
 						<td><%= check_box_tag 'df_check',"df_check", true, :id=> 'df_check', :class => "position_check" %></td>
 						<td><%= label_tag 'df_check', 'Backar' %></td>
-					</tr>
-					<tr>
 						<td><%= check_box_tag 'mf_check',"mf_check", true, :id=> 'mf_check', :class => "position_check" %></td>
 						<td><%= label_tag 'mf_check', 'Mittfältare' %></td>
-					</tr>
-					<tr>
 						<td><%= check_box_tag 'fw_check',"fw_check", true, :id=> 'fw_check', :class => "position_check" %></td>
 						<td><%= label_tag 'fw_check', 'Anfallare' %></td>
 					</tr>
 					</table>
+
 				</div>
+
+					<div id="slider"></div>
+				</div>
+
 				<div id="players"><%= render 'pickplayers' %>
+
 
 				</div>
 			<% end %>

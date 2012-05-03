@@ -19,6 +19,7 @@ $('#myModal').modal({
 		$(this).button('loading');
 			$.getScript("/send_invite?uid=" + uid + "&league_id=" + league_id, function(data){
 				pressed.button('complete');
+				pressed.addClass("btn-success");
 			});
 
 	});

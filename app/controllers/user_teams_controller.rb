@@ -7,6 +7,7 @@ class UserTeamsController < ApplicationController
 	end
 
 	def show
+
 	if current_user
 		if not current_user.user_teams.empty?
 			@user_team = current_user.user_teams[0]
@@ -37,7 +38,8 @@ class UserTeamsController < ApplicationController
 	end
 	end
 
-	def change_formation
+	def player_info
+		@player = Player.all.first
 	end
 
 	def save_team
@@ -90,6 +92,8 @@ class UserTeamsController < ApplicationController
 		return pos
 	end
   
+
+
   def sort_column
   	params[:sort] || "name"
   end
