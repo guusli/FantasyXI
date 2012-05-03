@@ -2,15 +2,25 @@ $(function() {
   	$( "#slider" ).slider({
 			range: true,
 			min: 0,
-			max: 11,
-			values: [ 0, 11 ],
+			max: 11000000,
+			step: 1000000,
+			values: [ 0, 11000000 ],
 			slide: function( event, ui ) {
-				$('#low_boundary').val($( "#slider" ).slider( "values", 0 ));
-				$('#high_boundary').val($( "#slider" ).slider( "values", 1 ));
+				updateSlider();
+			},
+			change: function( event, ui ) {
+				updateSlider();
 			}
-		});
+	});
 
-$(function(){
+	var updateSlider = function() {
+		$('#low_boundary').val($( "#slider" ).slider( "values", 0 ));
+		$('#high_boundary').val($( "#slider" ).slider( "values", 1 ));
+		$('#low_boundary_label').text($( "#slider" ).slider( "values", 0 ));
+		$('#high_boundary_label').text($( "#slider" ).slider( "values", 1 ));
+		$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");
+	};
+
 
 	$("#pitch .player").click(function(){
 

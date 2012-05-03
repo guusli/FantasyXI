@@ -18,7 +18,7 @@
 	<td><%= player.position %></td>
 	<td><%= Team.find(player.team_id).name %></td>
 	<td><%= player.points %></td>
-	<td class="not-disabled"><%= link_to "info", player_path(player), :class => "btn btn-info btn-mini" %>
+	<td class="not-disabled"><%= link_to 'Info', {:controller => :user_teams, :action => :player_info , :player_id => player.id} , {:remote => true} %>
 	</tr>
 
 

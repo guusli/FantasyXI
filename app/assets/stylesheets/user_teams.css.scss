@@ -100,15 +100,32 @@
 
 #filter_settings {
 	float: left;
+	width: 530px;
+}
+
+#search_teamselect {
+	margin: 0px auto;
+	width: 480px;
+	text-align: center;
+}
+
+#search_teamselect input, select{
+	width: 180px;
+	margin: 10px;
 }
 
 #position_select {
-	width: 200px;
-	float: left;
-	margin-left: 20px;
+	margin: 0px auto;
+	width: 480px;
+	padding: 20px 0px;
+	text-align: center;
 }
-#position_select table tr {
-	padding:  0px;
+#position_select ul {
+	margin-left: 0px;
+}
+#position_select ul li {
+	display: inline;
+	padding: 15px;
 }
 /*.player .plus {
 	display: none;
@@ -120,8 +137,19 @@
 	width: 375px;
 }
 
+#low_boundary_label {
+	margin: 20px;
+}
+#high_boundary_label {
+	margin: 20px;
+	float: right;
+	width: 70px;
+	text-align: right;
+}
 #slider {
 	clear: both;
+	width: 480px;
+	margin: 0px auto;
 }
 
 

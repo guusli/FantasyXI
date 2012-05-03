@@ -17,40 +17,39 @@
 			</div>
 		</div>
 		<div class="span6">
-			<%= link_to 'Add a fox', {:controller => :user_teams, :action => :player_info } , :remote => true %>
 			<%= form_tag @user_team, :method => 'get', :id => "players_search", :class => "form-inline" do %>
 
 				<%= hidden_field_tag :direction, params[:direction] %>
 				<%= hidden_field_tag :sort, params[:sort] %>
 				<%= hidden_field_tag :team_id, params[:team_id] %>
 				<%= hidden_field_tag :positions, positions %>
-				<%= text_field_tag :low_boundary %>
-				<%= text_field_tag :high_boundary %>
+				<%= hidden_field_tag :low_boundary ,low_boundary %>
+				<%= hidden_field_tag :high_boundary ,high_boundary %>
 
-				<div id="filter_settings" class="well"  p>
+				<div id="filter_settings" class="well">
+				<div id="search_teamselect">
 				<label>Sök</label>
 				<%= text_field_tag :search, params[:search] %>
 				<label>Lag</label>
 				<%= select_tag "team_id", options_from_collection_for_select(Team.all,'id','name')  , {:prompt => "Alla länder" }%>
+				</div>
 				<div id="position_select">
-					<table>
-					<tr>
-						<td>Positioner</td>
-						<td><%= check_box_tag 'gk_check',"gk_check", true, :id=> 'gk_check', :class => "position_check" %></td>
-						<td><%= label_tag 'gk_check', 'Målvakter' %></td>
+					<ul>
+						<li><%= check_box_tag 'gk_check',"gk_check", true, :id=> 'gk_check', :class => "position_check" %>
+						<%= label_tag 'gk_check', 'Målvakter' %></li>
 
-						<td><%= check_box_tag 'df_check',"df_check", true, :id=> 'df_check', :class => "position_check" %></td>
-						<td><%= label_tag 'df_check', 'Backar' %></td>
-						<td><%= check_box_tag 'mf_check',"mf_check", true, :id=> 'mf_check', :class => "position_check" %></td>
-						<td><%= label_tag 'mf_check', 'Mittfältare' %></td>
-						<td><%= check_box_tag 'fw_check',"fw_check", true, :id=> 'fw_check', :class => "position_check" %></td>
-						<td><%= label_tag 'fw_check', 'Anfallare' %></td>
-					</tr>
-					</table>
+						<li><%= check_box_tag 'df_check',"df_check", true, :id=> 'df_check', :class => "position_check" %>
+						<%= label_tag 'df_check', 'Backar' %></li>
+						<li><%= check_box_tag 'mf_check',"mf_check", true, :id=> 'mf_check', :class => "position_check" %>
+						<%= label_tag 'mf_check', 'Mittfältare' %></li>
+						<li><%= check_box_tag 'fw_check',"fw_check", true, :id=> 'fw_check', :class => "position_check" %>
+						<%= label_tag 'fw_check', 'Anfallare' %></li>
+					</ul>
 
 				</div>
-
-					<div id="slider"></div>
+				<div id="slider"></div>
+				<label id="low_boundary_label">0</label>
+				<label id="high_boundary_label">0</label>
 				</div>
 
 				<div id="players"><%= render 'pickplayers' %>
@@ -63,8 +62,8 @@
 	<div class="row">
 		<div class="span6">
 				<%= form_for(@user_team, :remote => true, :url => save_team_path) do |f| %>
-				<input type="text" name="teamplayers" id="teamplayers" value="<%= @user_team.players.to_json %>" />
-				<input type="text" name="teamname" id="teamname_hidden" value="<%= @user_team.name %>" />
+				<input type="hidden" name="teamplayers" id="teamplayers" value="<%= @user_team.players.to_json %>" />
+				<input type="hidden" name="teamname" id="teamname_hidden" value="<%= @user_team.name %>" />
 				<%= f.submit %>
 			<% end %>
 		</div>

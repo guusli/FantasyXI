@@ -1,6 +1,6 @@
 class UserTeamsController < ApplicationController
 
-	helper_method :sort_column, :sort_direction, :team_id, :positions
+	helper_method :sort_column, :sort_direction, :team_id, :positions, :low_boundary, :high_boundary
 
 	def index
 		@user_teams = User.joins(:user_teams).select("users.*, user_teams.name as user_team, sum(user_teams.points) as points").group("users.id").order('points DESC')
@@ -26,20 +26,20 @@ class UserTeamsController < ApplicationController
 		if team_id.to_i > 0
 			@players = Player.joins(:player_stats)
 			.select("players.*, sum(player_stats.points) as points").group("players.id")
-			.search(params[:search]).where(:team_id => team_id, :position => positions).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+			.search(params[:search]).where(:team_id => team_id, :position => positions, :price =>low_boundary..high_boundary).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
 		else
 
 			@players = Player.joins(:player_stats)
 			.select("players.*, sum(player_stats.points) as points").group("players.id")
-			.search(params[:search]).where(:position => positions)
-			.order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+			.search(params[:search]).where(:position => positions, :price =>low_boundary..high_boundary)
+			.order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
 		end
 
 	end
 	end
 
 	def player_info
-		@player = Player.all.first
+		@player = Player.find(params[:player_id])
 	end
 
 	def save_team
@@ -90,6 +90,14 @@ class UserTeamsController < ApplicationController
 		end
 
 		return pos
+	end
+
+	def low_boundary
+		params[:low_boundary] || 0
+	end
+
+	def high_boundary
+		params[:high_boundary] || 11_000_000
 	end
   
 
