@@ -1,1 +1,12 @@
-alert("<%= @player.name %>");
+$("#info").html("<%= escape_javascript(render("detailed_info"))%>");
+$(".modal-header #player_name").html("<%= @player.name %>");
+$("#info_kit").html('<%= image_tag "kits/#{Team.find(@player.team_id).name.downcase!}.png" %>');
+$("#infoModal").css('display',"block");
+$("#infoModal .close_modal").click(function(){
+		$("#infoModal").css('display',"none");
+	});
+$("#table_points td:last").html("<%= @player.sum_points %>");
+$("#table_goals td:last").html("<%= @player.sum_goals %>");
+$("#table_assists td:last").html("<%= @player.sum_assists %>");
+$("#table_yellow td:last").html("<%= @player.sum_yellow %>");
+$("#table_red td:last").html("<%= @player.sum_red %>");

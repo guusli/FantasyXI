@@ -8,7 +8,7 @@
 	<th><%= sortable "position", "Position"%></th>
 	<th><%= sortable "team_id", "Land"%></th>
 	<th><%= sortable "points", "Poäng"%></th>
-	<th>Info</th>
+	<th></th>
 </thead>
 <tbody>
 <% @players.each do |player| %>
@@ -18,12 +18,15 @@
 	<td><%= player.position %></td>
 	<td><%= Team.find(player.team_id).name %></td>
 	<td><%= player.points %></td>
-	<td class="not-disabled"><%= link_to 'Info', {:controller => :user_teams, :action => :player_info , :player_id => player.id} , {:remote => true} %>
+
+	<td class="not-disabled"><%= link_to 'info', {:controller => :user_teams, :action => :player_info, :player_id => player.id} , {"data-toggle" => "modal" , :class => "btn btn-mini btn-info",:remote => true} %>
 	</tr>
-
-
 </span>
 <% end %>
 </tbody>
 </table>
 <%= will_paginate @players ,:inner_window => 2, :previous_label => "«", :next_label => '»', :renderer => PaginationListLinkRenderer %>
+
+<div id="info">
+<%= render 'detailed_info' %>
+</div>

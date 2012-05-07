@@ -22,6 +22,12 @@ $(function() {
 	};
 
 
+		});
+
+
+$(function(){
+	
+
 	$("#pitch .player").click(function(){
 
 		var position = $(this).data("position");
@@ -30,3 +36,17 @@ $(function() {
 	});
 
 });
+
+$(function(){
+	$('#infoModal').modal({
+  		keyboard: false
+	});
+
+	$('#infoModal').on('show', function () {
+		
+	});
+
+	$('#infoModal').modal('hide')
+
+});
+

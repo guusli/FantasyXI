@@ -39,7 +39,16 @@ class UserTeamsController < ApplicationController
 	end
 
 	def player_info
-		@player = Player.find(params[:player_id])
+		@player = Player.joins(:player_stats)
+				.select("players.* 
+					, sum(player_stats.points) as sum_points
+					, sum(player_stats.red) as sum_red
+					, sum(player_stats.yellow) as sum_yellow
+					, sum(player_stats.assists) as sum_assists
+					, sum(player_stats.goals) as sum_goals")
+				.where(:id => params[:player_id])
+				.group("players.id")
+				.first
 	end
 
 	def save_team
