@@ -2,9 +2,9 @@ $(function() {
   	$( "#slider" ).slider({
 			range: true,
 			min: 0,
-			max: 11000000,
-			step: 1000000,
-			values: [ 0, 11000000 ],
+			max: 2000000,
+			step: 100000,
+			values: [ 0, 2000000 ],
 			slide: function( event, ui ) {
 				updateSlider();
 			},

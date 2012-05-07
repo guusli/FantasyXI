@@ -4,6 +4,8 @@
 		csv.each do |row|
 			row = row.to_hash.symbolize_keys
 			p = Player.create(row)
-			PlayerStat.create(:player_id => p.id, :points => '0', :goals => '0', :assists => '0', :red => '0' , :yellow => '0', :round => '1')
+			6.times do |round|
+				p.player_stats.push(PlayerStat.create(:points => '0', :goals => '0', :assists => '0', :red => '0' , :yellow => '0', :round => round+1))
+			end
 		end
 	end

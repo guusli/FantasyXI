@@ -87,8 +87,7 @@ $(function() {
 	if(squad_players) {
 	$.each(squad_players, function(i, player) {
 
-
-		var new_player = new Player(player.id, player.name, countries[player.team_id-1], player.position);
+		var new_player = new Player(player.id, player.name, countries[player.team_id-1], player.position, player.price );
 
 
 			var kit_url = '/assets/kits/thumbs/' + countries[player.team_id-1] + 'thumb.png';
@@ -162,22 +161,24 @@ $(function() {
 	var draggedPlayer;
 
 
-function Player(id, name, country, position) {
+function Player(id, name, country, position, price) {
 	this.id = id;
 	this.name = name;
 	this.country = country;
 	this.position = position;
+	this.price = price;
 }
 
 function handleDragStart(e) {
 
 		  var id = e.target.getAttribute('id').match(/\d+/)[0];
 		  var name = e.target.children[0].innerText;
+		  var price = e.target.children[1].innerText;
 		  var position = e.target.children[2].innerText;
 		  var country = e.target.children[3].innerText;
 
 
-		  draggedPlayer = new Player(id, name, country, position);
+		  draggedPlayer = new Player(id, name, country, position, price);
 
 		 // Koppla event beroende på position
 		 var player_position;
@@ -211,7 +212,8 @@ function handleDrop(e) {
 
 
 			var player_number = e.target.parentElement.className.split(" ")[1].match(/\d+/)[0];
-			console.log(player_number);
+
+			var oldPlayer = teamPlayers[player_number];
 
 			teamPlayers[player_number] = draggedPlayer;
 
@@ -237,7 +239,22 @@ function handleDrop(e) {
 			$(box).unbind('dragover');
 			$(box).bind('drop');
 			$(box).unbind('dragleave');
+
+
 		});
+
+		// Uppdatera pris
+
+		var bank = parseInt($('#bank').text());
+		//alert(typeof(bank));
+		if(oldPlayer) {
+			var priceDiff = draggedPlayer.price - oldPlayer.price;
+		}
+		else {
+			priceDiff = draggedPlayer.price
+		}
+
+		$('#bank').text(parseInt(bank) - priceDiff);
 }
 
 

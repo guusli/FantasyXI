@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+#header_row {
+	width: 400px;
+}
+#header_row h1{
+	float: left;
+}
+#header_row  h2{
+	float: right;
+	color: #888;
+}
+/* PITCH STUFF */
+
 #pitch {
 	background-image: url('pitch/pitch.png');
 
@@ -62,14 +75,6 @@
 	float: left;
 }
 
-#players_table  {
-	cursor: pointer;
-}
-
-#players_table th, a {
-	cursor: default;
-}
-
 
 .player .kit {
 	background-image: url('kits/empty.png');
@@ -91,6 +96,38 @@
 
 }
 
+/*.player .plus {
+	display: none;
+	margin-left: 25%;
+	margin-top: 25%;
+}*/
+
+.marked {
+
+  opacity:0.4;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  cursor:default;
+}
+.marked td .btn{
+	opacity:1.0;
+	background: red;
+}
+
+#save_button {
+	width: 375px;
+}
+
+/* CONTROLS STUFF */
+
+#players_table  {
+	cursor: pointer;
+}
+
+#players_table th, a {
+	cursor: default;
+}
 #name_input {
 	height: 50px;
 	width: 400px;
@@ -127,15 +164,6 @@
 	display: inline;
 	padding: 15px;
 }
-/*.player .plus {
-	display: none;
-	margin-left: 25%;
-	margin-top: 25%;
-}*/
-
-#save_button {
-	width: 375px;
-}
 
 #low_boundary_label {
 	margin: 20px;
@@ -150,18 +178,4 @@
 	clear: both;
 	width: 480px;
 	margin: 0px auto;
-}
-
-
-.marked {
-
-  opacity:0.4;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  user-select: none;
-  cursor:default;
-}
-.marked td .btn{
-	opacity:1.0;
-	background: red;
 }

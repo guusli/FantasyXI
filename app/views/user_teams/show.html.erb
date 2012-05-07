@@ -2,8 +2,9 @@
 <% if current_user %>
 <div id="user_team_name">
 <% if not current_user.user_teams.empty? %>
-  <h1><%= @user_team.name %></h1><h2><%= @points %></h2>
-  <h3><%= @bank %></h3>
+  <div id="header_row"><h1><%= @user_team.name %></h1><h2><%= @points %></h2></div>
+  <div class="clear"></div>
+  <h3 id="bank" ><%= @bank %></h3>
   <% else %>
 	<h1><input id="name_input" value="Namn"/></h1>
 <% end %>
