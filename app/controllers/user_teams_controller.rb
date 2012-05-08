@@ -49,6 +49,8 @@ class UserTeamsController < ApplicationController
 				.where(:id => params[:player_id])
 				.group("players.id")
 				.first
+
+		@player_round = Player.find(params[:player_id]).player_stats
 	end
 
 	def save_team

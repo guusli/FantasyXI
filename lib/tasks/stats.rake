@@ -4,7 +4,7 @@
 		round = 1 # Runda
 		csv.each_with_index do |row, index|
 			row = row.to_hash.symbolize_keys
-			p = Player.find(index+2887)
+			p = Player.find(index+1130)
 			points = 2* row[:goals].to_i +
 						row[:assists].to_i -
 						2* row[:red].to_i -
