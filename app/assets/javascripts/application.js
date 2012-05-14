@@ -325,7 +325,7 @@ function handleMarked() {
 		if(player){
 			$("tr#player_"+ player.id + " td").addClass("marked");
 			$("tr#player_"+ player.id).attr('draggable','false');
-			$("tr#player_"+ player.id + " td").last().removeClass("marked");
+			//$("tr#player_"+ player.id + " td").last().removeClass("marked");
 		}
 	});
 }

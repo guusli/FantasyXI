@@ -1,6 +1,6 @@
 Fantasyxi::Application.routes.draw do
 
-  root :to => "UserTeams#show"
+  root :to => "UserTeams#index"
 
   match "/auth/facebook/callback" => "sessions#create"
   match "/logout" => "sessions#destroy", :as => :logout
@@ -10,6 +10,8 @@ Fantasyxi::Application.routes.draw do
   match "leagues/:id/remove_user" => "leagues#remove_user"
   match "leagues/:id/accept" => "leagues#accept"
   match "leagues/:id/decline" => "leagues#decline"
+
+  match "user_teams/:id/spy" => "user_teams#spy"
 
 
   resources :players

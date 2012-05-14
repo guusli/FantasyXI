@@ -10,8 +10,8 @@
 
 <% @user_teams.each_with_index do |user_teams, i| %>
 			<tbody><tr>
-				<td><%= i +1%></td>
-				<td><%= user_teams.user_team %></td>
+				<td><%= i +1 %></td>
+				<td><%= link_to user_teams.user_team_name, user_team_path(user_teams.user_team_id) %></td>
 				<td><%= user_teams.name %></td>
 				<td><%= user_teams.points %></td>
 			</tr></tbody>

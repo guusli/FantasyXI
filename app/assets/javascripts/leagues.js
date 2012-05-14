@@ -17,10 +17,11 @@ $('#myModal').modal({
 		var uid = pressed.data('uid');
 		var league_id = pressed.data('leagueid');
 		$(this).button('loading');
-			$.getScript("/send_invite?uid=" + uid + "&league_id=" + league_id, function(data){
+		$.getScript("/send_invite?uid=" + uid + "&league_id=" + league_id, function(data){
 				pressed.button('complete');
+				pressed.text("Inbjudan skickad.")
 				pressed.addClass("btn-success");
-			});
+		});
 
 	});
 

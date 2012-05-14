@@ -25,6 +25,8 @@ class LeaguesController < ApplicationController
 		end
 
 		@admin = current_user.id == @members.first.admin_id
+
+		@invites = Invite.find_by_league_id(params[:id])
 	end
 
 	def new
@@ -61,8 +63,8 @@ class LeaguesController < ApplicationController
 
 	def send_invite
 		u = User.find_by_uid(params[:uid]);
-		u.invites.push(Invite.create(:sender_id => current_user.id,
-							  :league_id => params[:league_id]))
+		Invite.create(:user_id => u.id, :sender_id => current_user.id,
+							  :league_id => params[:league_id])
 	end
 
 	def remove_user
