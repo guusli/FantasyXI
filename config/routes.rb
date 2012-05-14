@@ -21,6 +21,7 @@ Fantasyxi::Application.routes.draw do
   match 'player_info' => 'user_teams#player_info'
   match 'change_formation' => 'user_teams#change_formation'
   match 'save_team' => 'user_teams#save_team'
+  match 'undo_substitution' => 'user_teams#undo_substitution'
 
   match 'send_invite' => 'leagues#send_invite'
 

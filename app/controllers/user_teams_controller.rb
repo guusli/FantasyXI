@@ -35,6 +35,18 @@ class UserTeamsController < ApplicationController
 			.order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
 		end
 
+		@sub_hash = []
+		@user_team.substitutions.each do |s|
+			hash = Hash.new
+			#player_in = Player.joins(:team).select('players.*, teams.name as country').where(:id => s.player_in)
+			#player_out = Player.joins(:team).select('players.*, teams.name as country').where(:id => s.player_out)
+			player_in = Player.find(s.player_in)
+			player_out = Player.find(s.player_out)
+			hash['player_in'] = player_in
+			hash['player_out'] = player_out
+			hash['position'] = s.position
+			@sub_hash.push(hash)
+		end
 	end
 	end
 
@@ -69,11 +81,24 @@ class UserTeamsController < ApplicationController
 		@user_team.players.destroy_all
 		j = ActiveSupport::JSON
 		teamplayers = j.decode(params[:teamplayers])
+		substitutions = j.decode(params[:substitutions])
 
 		teamplayers.each do |player|
 			p = Player.find(player['id'])
 			@user_team.players.push(p)
 		end
+		@user_team.substitutions.destroy_all
+
+		substitutions.each do |sub|
+			@user_team.substitutions.push(Substitution.create(:player_in => sub['player_in']['id'], :player_out => sub['player_out']['id'], :position => sub['position']))
+		end
+	end
+
+	def undo_substitution
+		user_team = current_user.user_teams[0];
+		user_team.substitutions.where(:position => params[:position]).destroy_all
+
+		redirect_to user_teams_path
 	end
 
 	private

@@ -21,20 +21,12 @@ var kits = {};
 var countries = "danmark,england,frankrike,grekland,holland,irland,italien,kroatien,polen,portugal,ryssland,spanien,sverige,tjeckien,tyskland,ukraina".split(",");
 $(function() {
 
-
-	$("#test").click(function() {
-		$.getScript(this.href);
-	});
-
 	preloads = countries;
 
 	$.each(preloads, function(x, c) {
 	    kits[c] = new Image();
 	    kits[c].src = "/assets/kits/thumbs/" + preloads[x] + "thumb.png";
 	});
-
-
-
 });
 
 $(function() {
@@ -77,32 +69,39 @@ $(function() {
 
 	var squad_players = $.parseJSON($("#teamplayers").val());
 
-	//console.log(squad_players);
-	
-	var gk_count = 0;
-	var df_count = 0;
-	var mf_count = 0;
-	var fw_count = 0;
-
 	if(squad_players) {
 	$.each(squad_players, function(i, player) {
 
 		var new_player = new Player(player.id, player.name, countries[player.team_id-1], player.position, player.price );
 
-
 			var kit_url = '/assets/kits/thumbs/' + countries[player.team_id-1] + 'thumb.png';
 			$('.player_' + i + ' .kit').css('background-image',"url('" + kit_url + "')");
 			var name = player.name.replace(" ", "\n");
-			//console.log(name);
 			$('.player_' + i + ' .player_name').text(name);
 
 			teamPlayers[i] = new_player;
 
-		//$('#teamplayers').val(JSON.stringify(teamPlayers));
-
 	});
 
 	}
+
+	$(function(){
+
+		var sub_players = $.parseJSON($("#substitutions").val());
+		if(sub_players)
+		{
+			$.each(sub_players, function(i, s){
+				var player_in = new Player(s.player_in.id, s.player_in.name, countries[s.player_in.team_id-1], s.position, s.player_in.price);
+				var player_out = new Player(s.player_out.id, s.player_out.name, countries[s.player_out.team_id-1], s.position, s.player_out.price);
+				var new_sub = new Substitution(player_in, player_out, s.position);
+
+				substitution[new_sub.position] = new_sub;
+				draw_subs(new_sub);
+
+			})
+		}
+		//clickSub();
+	});
 
 	$("#players th a, #players .pagination a").live("click", function(){
 		$.getScript(this.href);
@@ -112,9 +111,6 @@ $(function() {
     	$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");
     return false;
   });
-
-
-
 
 	$('.position_check').change(function() {
 
@@ -145,7 +141,6 @@ $(function() {
 			}
 
 			return false;
-
 	});
 });
 
@@ -156,10 +151,10 @@ $(function() {
 	});
 });
 
-
+	var substitution = [];
 	var teamPlayers = [];
 	var draggedPlayer;
-
+	var sub = [];
 
 function Player(id, name, country, position, price) {
 	this.id = id;
@@ -167,6 +162,12 @@ function Player(id, name, country, position, price) {
 	this.country = country;
 	this.position = position;
 	this.price = price;
+}
+
+function Substitution(player_in, player_out, position) {
+	this.player_in = player_in;
+	this.player_out = player_out;
+	this.position = position;
 }
 
 function handleDragStart(e) {
@@ -193,10 +194,7 @@ function handleDragStart(e) {
 			$(box).bind('dragleave', handleDragLeave);
 		});
 
-
-
- 	e.originalEvent.dataTransfer.setData("text/plain", e.target.children[3].innerText);
-
+ 		e.originalEvent.dataTransfer.setData("text/plain", e.target.children[3].innerText);
 
 		  var dragIcon = kits[draggedPlayer.country.toLowerCase()]
 
@@ -210,17 +208,19 @@ function handleDragOver(e) {
 
 function handleDrop(e) {
 
-
+	
 			var player_number = e.target.parentElement.className.split(" ")[1].match(/\d+/)[0];
 
+			if(teamPlayers[0]){
 			var oldPlayer = teamPlayers[player_number];
-
+			if(oldPlayer.id == draggedPlayer.id || sub.length == 3)
+			{
+				return true;
+			}
+			}
 			teamPlayers[player_number] = draggedPlayer;
 
-
 			$("#teamplayers").val(JSON.stringify(teamPlayers));
-
-
 
 			var kit_url = '/assets/kits/thumbs/' + draggedPlayer.country.toLowerCase() + 'thumb.png';
 
@@ -229,44 +229,92 @@ function handleDrop(e) {
 
 			$(e.currentTarget.children[1]).text(name);
 
-
-
-			handleMarked();
-
-
 			// Koppla bort eventet
 			$("#pitch .player").each(function(index, box) {
 			$(box).unbind('dragover');
 			$(box).bind('drop');
 			$(box).unbind('dragleave');
 
-
 		});
-
 		// Uppdatera pris
 
 		var bank = parseInt($('#bank').text());
 		//alert(typeof(bank));
 		if(oldPlayer) {
 			var priceDiff = draggedPlayer.price - oldPlayer.price;
+			substitution[player_number] = new Substitution(draggedPlayer, oldPlayer, player_number);
+			sub = $.map(substitution, function(s,i){
+				return s;
+			});
+			$("#subs").html("");
+			$.each(sub, function(i,s){
+				draw_subs(s);
+			})
 		}
 		else {
 			priceDiff = draggedPlayer.price
 		}
 
+		$("#substitutions").val(JSON.stringify(sub));
+
 		$('#bank').text(parseInt(bank) - priceDiff);
+		handleMarked();
+		//clickSub();
 }
 
+function clickSub() {
+			$("#subs .btn-sub").click(function() {
+				var position = $(this).data('position');
+
+				teamPlayers[position] = substitution[position].player_out;
+				handleMarked();
+
+				var kit_url = '/assets/kits/thumbs/' + substitution[position].player_out.country.toLowerCase() + 'thumb.png';
+
+				$(".player_"+position+" .kit").css('background-image',"url('" + kit_url + "')");
+				var name = substitution[position].player_out.name.replace(" ", "\n");
+
+				$(".player_"+position+" .player_name").text(name);
+				delete substitution[position];
+				
+
+				var subs = $.map(substitution, function(s,i){
+				return s;
+				});
+				$("#teamplayers").val(JSON.stringify(teamPlayers));
+				$("#substitutions").val(JSON.stringify(subs));	
+
+				$("#subs").html("");
+
+				$.each(substitution, function(i, s){
+					if(s)
+						draw_subs(s);
+				});
+				$.get('undo_substitution.js', {'position': position});				
+				});
+}
+
+	function draw_subs (s){
+				var sub_div = $("<div class='sub'></div>");
+				sub_div.data('postion', s.position);
+				sub_div.append("in: ")
+				sub_div.append(s.player_in.name);
+				sub_div.append("</br>")
+				sub_div.append("ut: ")
+				sub_div.append(s.player_out.name);
+				sub_div.append("<a class='btn btn-danger btn-sub' data-position='"+s.position+"'>Ångra</a>")
+				$("#subs").append(sub_div);
+				clickSub();
+			}
 
 function handleDragLeave(e) {
 	e.preventDefault();
-
 }
 
 
 function handleMarked() {
 	$('#players_table tr').each(function() {
-		$(this).removeClass("marked");
+		$('#players_table tr td').removeClass("marked");
 		$(this).attr('draggable','true');
 	});
 	$.each(teamPlayers, function(index, player) {

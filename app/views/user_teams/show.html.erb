@@ -11,13 +11,18 @@
 </div>
 	
 	<div class="row">
-		<div class="span6">
+		<div class="span4">
 		      <div id="pitch_alert" class="alert alert-success"><%= flash[:notice] %></div>
 			<div id="pitch">
 			<%= render 'pitch' %>
 			</div>
 		</div>
-		<div class="span6">
+		<div class="span3">
+			<h2>Byten</h2>
+			<div id="subs">
+			</div>
+		</div>
+		<div class="span5">
 			<%= form_tag @user_team, :method => 'get', :id => "players_search", :class => "form-inline" do %>
 
 				<%= hidden_field_tag :direction, params[:direction] %>
@@ -38,7 +43,6 @@
 					<ul>
 						<li><%= check_box_tag 'gk_check',"gk_check", true, :id=> 'gk_check', :class => "position_check" %>
 						<%= label_tag 'gk_check', 'Målvakter' %></li>
-
 						<li><%= check_box_tag 'df_check',"df_check", true, :id=> 'df_check', :class => "position_check" %>
 						<%= label_tag 'df_check', 'Backar' %></li>
 						<li><%= check_box_tag 'mf_check',"mf_check", true, :id=> 'mf_check', :class => "position_check" %>
@@ -61,9 +65,10 @@
 		</div>	
 	</div><!-- /row -->
 	<div class="row">
-		<div class="span6">
+		<div class="span5">
 				<%= form_for(@user_team, :remote => true, :url => save_team_path) do |f| %>
-				<input type="hidden" name="teamplayers" id="teamplayers" value="<%= @user_team.players.to_json %>" />
+				<input type="" name="teamplayers" id="teamplayers" value="<%= @user_team.players.to_json %>" />
+				<input type="" name="substitutions" id="substitutions" value="<%= @sub_hash.to_json %>" />
 				<input type="hidden" name="teamname" id="teamname_hidden" value="<%= @user_team.name %>" />
 				<%= f.submit %>
 			<% end %>
