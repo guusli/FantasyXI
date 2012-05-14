@@ -260,7 +260,6 @@ function handleDrop(e) {
 
 		$('#bank').text(parseInt(bank) - priceDiff);
 		handleMarked();
-		//clickSub();
 }
 
 function clickSub() {
@@ -301,10 +300,10 @@ function clickSub() {
 	function draw_subs (s){
 				var sub_div = $("<div class='sub'></div>");
 				sub_div.data('postion', s.position);
-				sub_div.append("in: ")
+				sub_div.append("<img src='/assets/icons/green_arrow.png'/> ")
 				sub_div.append(s.player_in.name);
 				sub_div.append("</br>")
-				sub_div.append("ut: ")
+				sub_div.append("<img src='/assets/icons/red_arrow.png'/> ")
 				sub_div.append(s.player_out.name);
 				sub_div.append("<a class='btn btn-danger btn-sub' data-position='"+s.position+"'>Ångra</a>")
 				$("#subs").append(sub_div);
