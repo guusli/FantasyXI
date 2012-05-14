@@ -29,10 +29,11 @@ $(function(){
 	
 
 	$("#pitch .player").click(function(){
-
-		var position = $(this).data("position");
+		var position = $(this).bata("position");
 		var player_id = teamPlayers[position].id;
-		$.get('player_info.js', {'player_id': player_id});
+		alert(player_id);
+		$.get('/player_info.js', {'player_id': player_id});
+
 	});
 
 });

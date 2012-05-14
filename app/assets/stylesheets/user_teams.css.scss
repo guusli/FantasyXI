@@ -2,9 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$pitch_height: 575px;
 
 #header_row {
 	width: 400px;
+	margin: auto;
 }
 #header_row h1{
 	float: left;
@@ -24,11 +26,12 @@
 	-khtml-user-select: none;
 	user-select: none;
 	cursor:default;
+	margin: auto;
 
 }
 #pitch_alert {
 	width: 350px;
-	display: none;
+	margin: 10px auto;
 }
 
 #goalie {
@@ -114,9 +117,16 @@
 	opacity:1.0;
 	background: red;
 }
-
+#save_button_div {
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
 #save_button {
-	width: 375px;
+	width: 400px;
+	height: 80px;
+	font-size: 20pt;
+	margin: 7px auto;
 }
 
 /* CONTROLS STUFF */
@@ -133,11 +143,6 @@
 	width: 400px;
 	font-size: 30px;
 	color: #aaa;
-}
-
-#filter_settings {
-	float: left;
-	width: 530px;
 }
 
 #search_teamselect {
@@ -185,10 +190,6 @@
 	display:none;
 }
 
-.sub{
-	margin:10px;
-}
 
 #subs .btn-sub{
-	float:right;
 }

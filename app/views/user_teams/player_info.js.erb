@@ -11,39 +11,12 @@ $("#table_assists td:last").html("<%= @player.sum_assists %>");
 $("#table_yellow td:last").html("<%= @player.sum_yellow %>");
 $("#table_red td:last").html("<%= @player.sum_red %>");
 
-$("#table_points .round_0").html("<%= @player_round[0].points %>");
-$("#table_goals .round_0").html("<%= @player_round[0].goals %>");
-$("#table_assists .round_0").html("<%= @player_round[0].assists %>");
-$("#table_yellow .round_0").html("<%= @player_round[0].yellow %>");
-$("#table_red .round_0").html("<%= @player_round[0].red %>");
+<% 6.times do |i| %>
 
-$("#table_points .round_1").html("<%= @player_round[1].points %>");
-$("#table_goals .round_1").html("<%= @player_round[1].goals %>");
-$("#table_assists .round_1").html("<%= @player_round[1].assists %>");
-$("#table_yellow .round_1").html("<%= @player_round[1].yellow %>");
-$("#table_red .round_1").html("<%= @player_round[1].red %>");
+$("#table_points .round_" + <%=i%>).html("<%= @player_round[i].points %>");
+$("#table_goals .round_" + <%=i%>).html("<%= @player_round[i].goals %>");
+$("#table_assists .round_" + <%=i%>).html("<%= @player_round[i].assists %>");
+$("#table_yellow .round_" + <%=i%>).html("<%= @player_round[i].yellow %>");
+$("#table_red .round_" + <%=i%>).html("<%= @player_round[i].red %>");
 
-$("#table_points .round_2").html("<%= @player_round[2].points %>");
-$("#table_goals .round_2").html("<%= @player_round[2].goals %>");
-$("#table_assists .round_2").html("<%= @player_round[2].assists %>");
-$("#table_yellow .round_2").html("<%= @player_round[2].yellow %>");
-$("#table_red .round_2").html("<%= @player_round[2].red %>");
-
-$("#table_points .round_3").html("<%= @player_round[3].points %>");
-$("#table_goals .round_3").html("<%= @player_round[3].goals %>");
-$("#table_assists .round_3").html("<%= @player_round[3].assists %>");
-$("#table_yellow .round_3").html("<%= @player_round[3].yellow %>");
-$("#table_red .round_3").html("<%= @player_round[3].red %>");
-
-$("#table_points .round_4").html("<%= @player_round[4].points %>");
-$("#table_goals .round_4").html("<%= @player_round[4].goals %>");
-$("#table_assists .round_4").html("<%= @player_round[4].assists %>");
-$("#table_yellow .round_4").html("<%= @player_round[4].yellow %>");
-$("#table_red .round_4").html("<%= @player_round[4].red %>");
-
-$("#table_points .round_5").html("<%= @player_round[5].points %>");
-$("#table_goals .round_5").html("<%= @player_round[5].goals %>");
-$("#table_assists .round_5").html("<%= @player_round[5].assists %>");
-$("#table_yellow .round_5").html("<%= @player_round[5].yellow %>");
-$("#table_red .round_5").html("<%= @player_round[5].red %>");
-
+<% end %>

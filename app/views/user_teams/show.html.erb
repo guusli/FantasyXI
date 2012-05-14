@@ -1,28 +1,41 @@
 
 <% if current_user %>
-<div id="user_team_name">
-<% if not current_user.user_teams.empty? %>
-  <div id="header_row"><h1><%= @user_team.name %></h1><h2><%= @points %></h2></div>
-  <div class="clear"></div>
-  <h3 id="bank" ><%= @bank %></h3>
-  <% else %>
-	<h1><input id="name_input" value="Namn"/></h1>
-<% end %>
-</div>
 	
 	<div class="row">
-		<div class="span4">
-		      <div id="pitch_alert" class="alert alert-success"><%= flash[:notice] %></div>
-			<div id="pitch">
-			<%= render 'pitch' %>
+		<div class="span6">
+			<div class="well">
+				<div id="user_team_name">
+					<% if not current_user.user_teams.empty? %>
+					  <div id="header_row"><h1><%= @user_team.name %></h1><h2><%= @points %></h2></div>
+					  <div class="clear"></div>
+					  <h3 id="bank" ><%= @bank %></h3>
+					  <% else %>
+						<h1><input id="name_input" value="Namn"/></h1>
+					<% end %>
+					</div>
+		    	<div id="pitch_alert" class="alert alert-info"><%= flash[:notice] %></div>
+				<div id="pitch">
+				<%= render 'pitch' %>
+				</div>
+				<div id="save_button_div">
+				<%= form_for(@user_team, :remote => true, :url => save_team_path) do |f| %>
+				<input type="hidden" name="teamplayers" id="teamplayers" value="<%= @user_team.players.to_json %>" />
+				<input type="hidden" name="substitutions" id="substitutions" value="<%= @sub_hash.to_json %>" />
+				<input type="hidden" name="teamname" id="teamname_hidden" value="<%= @user_team.name %>" />
+				<input type="hidden" name="undo_sub_pos" id="undo_sub_pos" value="[]" />
+				<%= f.submit("Spara lag", :id => 'save_button',:class => 'btn btn-warning')%>
+				</div>
+			<% end %>
 			</div>
 		</div>
-		<div class="span3">
+		<div class="span6">
+			<div class="well">
 			<h2>Byten</h2>
 			<div id="subs">
 			</div>
+			</div>
 		</div>
-		<div class="span5">
+		<div class="span6">
 			<%= form_tag @user_team, :method => 'get', :id => "players_search", :class => "form-inline" do %>
 
 				<%= hidden_field_tag :direction, params[:direction] %>
@@ -57,7 +70,7 @@
 				<label id="high_boundary_label">0</label>
 				</div>
 
-				<div id="players"><%= render 'pickplayers' %>
+				<div id="players" class="well" ><%= render 'pickplayers' %>
 
 
 				</div>
@@ -65,14 +78,7 @@
 		</div>	
 	</div><!-- /row -->
 	<div class="row">
-		<div class="span5">
-				<%= form_for(@user_team, :remote => true, :url => save_team_path) do |f| %>
-				<input type="" name="teamplayers" id="teamplayers" value="<%= @user_team.players.to_json %>" />
-				<input type="" name="substitutions" id="substitutions" value="<%= @sub_hash.to_json %>" />
-				<input type="hidden" name="teamname" id="teamname_hidden" value="<%= @user_team.name %>" />
-				<input type="" name="undo_sub_pos" id="undo_sub_pos" value="[]" />
-				<%= f.submit %>
-			<% end %>
+		<div class="span6" id="user_team_form" >
 		</div>
 	</div><!-- /row -->
 <% end %>

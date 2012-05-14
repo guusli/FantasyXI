@@ -33,6 +33,8 @@ class UserTeamsController < ApplicationController
 
 	def show
 
+	flash[:notice] = "Dra spelare fraan listan till hoeger."
+
 	if current_user
 		if not current_user.user_teams.empty?
 			@user_team = UserTeam.find(params[:id])
@@ -107,6 +109,8 @@ class UserTeamsController < ApplicationController
 		end
 
 		@user_team = current_user.user_teams[0]
+		@points = current_user.user_teams.map(&:points).inject(0, :+)
+		@bank = 11_000_000 - @user_team.players.map(&:price).inject(0, :+)
 
 		@user_team.players.destroy_all
 		j = ActiveSupport::JSON

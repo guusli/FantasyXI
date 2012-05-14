@@ -16,3 +16,12 @@
 .clear {
 	clear: both;
 }
+
+.island {
+	background: red;
+	padding: 20px;
+	opacity: 1;
+	-moz-opacity: 1;
+	filter:alpha(opacity=1);
+	margin: 0px auto;
+}
