@@ -212,12 +212,14 @@ function handleDrop(e) {
 	
 			var player_number = e.target.parentElement.className.split(" ")[1].match(/\d+/)[0];
 
-			if(teamPlayers[0]){
+			if(teamPlayers[player_number]) {
 			var oldPlayer = teamPlayers[player_number];
-			if(oldPlayer.id == draggedPlayer.id || sub.length == 3)
-			{
-				return true;
-			}
+
+			// Förhindra dubbeldrop
+				if(oldPlayer.id == draggedPlayer.id || sub.length == 3)
+				{
+					return true;
+				}
 			}
 			teamPlayers[player_number] = draggedPlayer;
 
@@ -236,13 +238,13 @@ function handleDrop(e) {
 			$(box).bind('drop');
 			$(box).unbind('dragleave');
 
-		});
+			});
 		// Uppdatera pris
 
 		var bank = parseInt($('#bank').text());
-		//alert(typeof(bank));
+		var priceDiff = 0;
 		if(oldPlayer) {
-			var priceDiff = draggedPlayer.price - oldPlayer.price;
+			priceDiff = draggedPlayer.price - oldPlayer.price;
 			substitution[player_number] = new Substitution(draggedPlayer, oldPlayer, player_number);
 			sub = $.map(substitution, function(s,i){
 				return s;
@@ -258,6 +260,7 @@ function handleDrop(e) {
 
 		$("#substitutions").val(JSON.stringify(sub));
 
+		alert(parseInt(bank) - priceDiff);
 		$('#bank').text(parseInt(bank) - priceDiff);
 		handleMarked();
 		//clickSub();
