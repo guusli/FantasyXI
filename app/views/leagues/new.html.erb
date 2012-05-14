@@ -1,8 +1,11 @@
+<div class="span4"><div class="well">
+<h1>Skapa Liga</h1>
 <%= form_for @league do |f| %>
-  <%= f.label :name %>
+  <%= f.label :name, 'Namn' %>
   <%= f.text_field :name %><br />
 
   <%= f.hidden_field :admin_id, :value => current_user.id %>
 
-  <%= f.submit %>
+  <%= f.submit('Skapa Liga', :class => 'btn') %>
 <% end %>
+</div></div>

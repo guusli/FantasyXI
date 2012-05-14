@@ -1,14 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
+<div class="row">
+			<div class="span5">
+				<div class="well">
 		<h1>
 			<%= @members.first.league_name %>
 		</h1>
-		<div class="row">
-			<div class="span5">
+		
 				<% if current_user %><% if not @admin %><% if @member %><%= link_to "Gå Ur", :controller => :leagues, :action => :leave %><% elsif params[:invited] %><%= link_to "Acceptera", :controller => :leagues, :action => :accept %><%= link_to "Neka", :controller => :leagues, :action => :decline %><% else %><%= link_to "Gå Med", :controller => :leagues, :action => :join %><% end %><% end %>
 				<table class="table table-striped">
 					<thead>
@@ -46,14 +42,15 @@
 					</tbody><% end %><!-- /row -->
 					<% end %>
 				</table>
-			</div>
-		</div>
+
 		<div class="row">
 						<div class="span5">
 							<a class="btn" data-toggle="modal" href="#myModal" >Bjud in vänner</a>
 						</div>
 					</div><!-- /row -->
-
+			</div>
+		</div>
+	</div>
 		<div class="modal" id="myModal" >
 				<div class="modal-header">
 					<a class="close btn" data-dismiss="modal">x</a>
@@ -66,5 +63,5 @@
 					<a class="btn" data-dismiss="modal">Stäng</a>
 				</div>
 			</div>
-	</body>
-</html>
+
+			

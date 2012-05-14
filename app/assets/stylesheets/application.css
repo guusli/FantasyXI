@@ -25,3 +25,8 @@
 	filter:alpha(opacity=1);
 	margin: 0px auto;
 }
+
+.brand{
+	font-family:Cambria;
+	font-style:italic;
+}

@@ -305,6 +305,7 @@ function clickSub() {
 				sub_div.append("</br>")
 				sub_div.append("<img src='/assets/icons/red_arrow.png'/> ")
 				sub_div.append(s.player_out.name);
+				sub_div.append("</br>")
 				sub_div.append("<a class='btn btn-danger btn-sub' data-position='"+s.position+"'>Ångra</a>")
 				$("#subs").append(sub_div);
 				clickSub();
