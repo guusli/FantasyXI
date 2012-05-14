@@ -82,6 +82,7 @@ class UserTeamsController < ApplicationController
 		j = ActiveSupport::JSON
 		teamplayers = j.decode(params[:teamplayers])
 		substitutions = j.decode(params[:substitutions])
+		undo_sub_pos = j.decode(params[:undo_sub_pos])
 
 		teamplayers.each do |player|
 			p = Player.find(player['id'])
@@ -92,11 +93,15 @@ class UserTeamsController < ApplicationController
 		substitutions.each do |sub|
 			@user_team.substitutions.push(Substitution.create(:player_in => sub['player_in']['id'], :player_out => sub['player_out']['id'], :position => sub['position']))
 		end
+
+			undo_sub_pos.each do |pos|
+				@user_team.substitutions.where(:position => pos).destroy_all
+			end
 	end
 
 	def undo_substitution
-		user_team = current_user.user_teams[0];
-		user_team.substitutions.where(:position => params[:position]).destroy_all
+		#user_team = current_user.user_teams[0];
+		#user_team.substitutions.where(:position => params[:position]).destroy_all
 
 		redirect_to user_teams_path
 	end

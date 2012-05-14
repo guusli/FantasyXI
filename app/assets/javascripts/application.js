@@ -155,6 +155,7 @@ $(function() {
 	var teamPlayers = [];
 	var draggedPlayer;
 	var sub = [];
+	var undo_position = [];
 
 function Player(id, name, country, position, price) {
 	this.id = id;
@@ -281,6 +282,9 @@ function clickSub() {
 				var subs = $.map(substitution, function(s,i){
 				return s;
 				});
+
+				undo_position.push(position);
+				$("#undo_sub_pos").val(JSON.stringify(undo_position));
 				$("#teamplayers").val(JSON.stringify(teamPlayers));
 				$("#substitutions").val(JSON.stringify(subs));	
 

@@ -70,6 +70,7 @@
 				<input type="" name="teamplayers" id="teamplayers" value="<%= @user_team.players.to_json %>" />
 				<input type="" name="substitutions" id="substitutions" value="<%= @sub_hash.to_json %>" />
 				<input type="hidden" name="teamname" id="teamname_hidden" value="<%= @user_team.name %>" />
+				<input type="" name="undo_sub_pos" id="undo_sub_pos" value="[]" />
 				<%= f.submit %>
 			<% end %>
 		</div>
