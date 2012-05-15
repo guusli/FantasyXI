@@ -1,6 +1,6 @@
 Fantasyxi::Application.routes.draw do
 
-  root :to => "UserTeams#index"
+  root :to => "Players#index"
 
   match "/auth/facebook/callback" => "sessions#create"
   match "/logout" => "sessions#destroy", :as => :logout

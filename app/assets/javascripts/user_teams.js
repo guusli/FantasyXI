@@ -48,7 +48,7 @@ $(function() {
 			$("#pitch_alert").removeClass('alert-info');
 			return false;
 		}
-		else if($('#name_input').empty()) {
+		else if($('#name_input').val() == "Namn" || $('#name_input').val() == "" ) {
 			$("#pitch_alert").html("Vänligen fyll i lagnamn.");
 			$("#pitch_alert").addClass('alert-danger');
 			$("#pitch_alert").removeClass('alert-info');
