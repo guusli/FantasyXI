@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
 			user.provider = auth["uid"]
 			user.uid = auth["uid"]
 			user.name = auth["info"]["name"]
+
+			6.times do |round|
+				user.user_teams.push(UserTeam.create(:points => 0, :round => round + 1))
+			end
 		end
 	end
 end

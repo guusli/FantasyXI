@@ -5,7 +5,7 @@
 			<%= @members.first.league_name %>
 		</h1>
 		
-				<% if current_user %><% if not @admin %><% if @member %><%= link_to "Gå Ur", :controller => :leagues, :action => :leave %><% elsif params[:invited] %><%= link_to "Acceptera", :controller => :leagues, :action => :accept %><%= link_to "Neka", :controller => :leagues, :action => :decline %><% else %><%= link_to "Gå Med", :controller => :leagues, :action => :join %><% end %><% end %>
+				<% if current_user %><% if not @admin %><% if @member %><%= link_to "Gå Ur", {:controller => :leagues, :action => :leave}, {:class => "btn btn-danger"} %><% elsif params[:invited] %><%= link_to "Acceptera", {:controller => :leagues, :action => :accept}, {:class => 'btn btn-success'} %><%= link_to "Neka", {:controller => :leagues, :action => :decline}, {:class => 'btn btn-danger'} %><% else %><%= link_to "Gå Med", {:controller => :leagues, :action => :join}, {:class => 'btn btn-success'} %><% end %><% end %>
 				<table class="table table-striped">
 					<thead>
 						<tr>

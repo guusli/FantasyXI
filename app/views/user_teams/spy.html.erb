@@ -1,17 +1,17 @@
 <div class="row">
-		<div class="span6 offset4">
+		<div class="span6">
+			<div class="well">
 
-<div id="user_team_name">
+
+	<div id="header_row">
 <% if not current_user.user_teams.empty? %>
-  <div id="header_row"><h1><%= @user_team.name %></h1><h2><%= @points %></h2></div>
+ <div id="user_team_name"> <h1><%= @user_team.name %></h1></div><h2>Poäng: <%= @points %></h2>
   <div class="clear"></div>
   <h3 id="bank" ><%= @bank %></h3>
   <% else %>
 	<h1><input id="name_input" value="Namn"/></h1>
 <% end %>
 </div>
-
-		      <div id="pitch_alert" class="alert alert-success"><%= flash[:notice] %></div>
 			<div id="pitch">
 			<%= render 'pitch' %>
 			</div>
@@ -21,4 +21,4 @@
 		<div class="span6">
 				<input type="hidden" name="teamplayers" id="teamplayers" value="<%= @user_team.players.to_json %>" />
 		</div>
-	</div>
+	</div></div>
