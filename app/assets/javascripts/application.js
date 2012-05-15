@@ -212,7 +212,7 @@ function handleDrop(e) {
 	
 			var player_number = e.target.parentElement.className.split(" ")[1].match(/\d+/)[0];
 
-			if(teamPlayers[0]){
+			if(teamPlayers[player_number]){
 			var oldPlayer = teamPlayers[player_number];
 			if(oldPlayer.id == draggedPlayer.id || sub.length == 3)
 			{

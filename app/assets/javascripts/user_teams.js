@@ -22,10 +22,6 @@ $(function() {
 	};
 
 
-		});
-
-
-$(function(){
 	
 
 	$("#pitch .player").click(function(){
@@ -34,9 +30,7 @@ $(function(){
 		$.get('/player_info.js', {'player_id': player_id});
 	});
 
-});
 
-$(function(){
 	$('#infoModal').modal({
   		keyboard: false
 	});
@@ -45,7 +39,22 @@ $(function(){
 		
 	});
 
-	$('#infoModal').modal('hide')
+	$('#infoModal').modal('hide');
+
+	$("#save_form").submit(function() {
+		if(teamPlayers.map(function(p,i){if(p) return 1;}).reduce(function(v,sum) { return  v + sum},0) < 11) {
+			$("#pitch_alert").html("Vänligen fyll hela laget.");
+			$("#pitch_alert").addClass('alert-danger');
+			$("#pitch_alert").removeClass('alert-info');
+			return false;
+		}
+		else if($('#name_input').empty()) {
+			$("#pitch_alert").html("Vänligen fyll i lagnamn.");
+			$("#pitch_alert").addClass('alert-danger');
+			$("#pitch_alert").removeClass('alert-info');
+			return false;
+		}
+	});
 
 });
 

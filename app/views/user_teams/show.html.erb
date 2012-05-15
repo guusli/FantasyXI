@@ -19,7 +19,7 @@
 				<%= render 'pitch' %>
 				</div>
 				<div id="save_button_div">
-				<%= form_for(@user_team, :remote => true, :url => save_team_path) do |f| %>
+				<%= form_for(@user_team, :remote => true, :url => save_team_path, :html => {:id => 'save_form'}) do |f| %>
 				<input type="hidden" name="teamplayers" id="teamplayers" value="<%= @user_team.players.to_json %>" />
 				<input type="hidden" name="substitutions" id="substitutions" value="<%= @sub_hash.to_json %>" />
 				<input type="hidden" name="teamname" id="teamname_hidden" value="<%= @user_team.name %>" />
