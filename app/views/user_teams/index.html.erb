@@ -9,12 +9,12 @@
 				<th>Poäng</th>
 			</tr></thead >
 
-<% @user_teams.each_with_index do |user_teams, i| %>
+<% @user.each_with_index do |user, i| %>
 			<tbody><tr>
 				<td><%= i +1 %></td>
-				<td><%= link_to user_teams.user_team_name, user_team_path(user_teams.user_team_id) %></td>
-				<td><%= user_teams.name %></td>
-				<td><%= user_teams.points %></td>
+				<td><%= link_to user.user_teams.first.name, user_team_path(user.user_teams[current_round].id) %></td>
+				<td><%= user.name %></td>
+				<td><%= user.user_teams.map(&:points).reduce(:+) %></td>
 			</tr></tbody>
 <% end %>
 </div>
