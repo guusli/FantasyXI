@@ -3,7 +3,7 @@ class UserTeamsController < ApplicationController
 	helper_method :sort_column, :sort_direction, :team_id, :positions, :low_boundary, :high_boundary
 
 	def index
-		@user_teams = User.joins(:user_teams).select("users.*, user_teams.id as user_team_id ,user_teams.name as user_team_name, sum(user_teams.points) as points").where(:user_teams => {:round => 1}).group("users.id").order('points DESC')
+		@user_teams = User.joins(:user_teams).select("users.*, user_teams.id as user_team_id ,user_teams.name as user_team_name, sum(user_teams.points) as points").group("users.id").order('points DESC')
 	end
 
 	def spy
