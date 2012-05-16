@@ -106,11 +106,8 @@ class UserTeamsController < ApplicationController
 			flash[:notice] = "Ditt lag har skapats"
 		end
 
-<<<<<<< HEAD
-		@user_team = current_user.user_teams[0] #current_round
-=======
 		@user_team = current_user.user_teams[current_round - 1]
->>>>>>> blö
+
 		@points = current_user.user_teams.map(&:points).inject(0, :+)
 		@bank = 11_000_000 - @user_team.players.map(&:price).inject(0, :+)
 
