@@ -27,7 +27,7 @@
 								<%= i +1%>
 							</td>
 							<td>
-								<%= member.user_team %>
+								<%= link_to member.user_team_name, user_team_path(member.user_team_id) %>
 							</td>
 							<td>
 								<%= member.name %>

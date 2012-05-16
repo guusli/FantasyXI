@@ -3,15 +3,13 @@ class UserTeamsController < ApplicationController
 	helper_method :sort_column, :sort_direction, :team_id, :positions, :low_boundary, :high_boundary
 
 	def index
-		@user_teams = User.joins(:user_teams).select("users.*, user_teams.id as user_team_id ,user_teams.name as user_team_name, sum(user_teams.points) as points").group("users.id").order('points DESC')
+		@user_teams = User.joins(:user_teams).select("users.*, user_teams.id as user_team_id ,user_teams.name as user_team_name, sum(user_teams.points) as points").where(:user_teams => {:round => 1}).group("users.id").order('points DESC')
 	end
 
 	def spy
 			@user_team = UserTeam.find(params[:id])
 			@user = User.find(@user_team.user_id)
-
-
-
+			
 			@points = @user.user_teams.map(&:points).inject(0, :+)
 
 			@bank = 11_000_000 - @user_team.players.map(&:price).inject(0, :+)
@@ -108,7 +106,7 @@ class UserTeamsController < ApplicationController
 			flash[:notice] = "Ditt lag har skapats"
 		end
 
-		@user_team = current_user.user_teams[0]
+		@user_team = current_user.user_teams[0] #current_round
 		@points = current_user.user_teams.map(&:points).inject(0, :+)
 		@bank = 11_000_000 - @user_team.players.map(&:price).inject(0, :+)
 

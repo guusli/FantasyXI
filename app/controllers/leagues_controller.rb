@@ -10,12 +10,13 @@ class LeaguesController < ApplicationController
 	def show
 		@members = User.joins(:leagues,:user_teams)
 				.select("users.*
-					, user_teams.name as user_team
+					, user_teams.name as user_team_name
+					, user_teams.id as user_team_id
 					,leagues.name as league_name
 					,leagues.admin_id as admin_id
 					, sum(user_teams.points) as points")
 				.group("users.id").where(:leagues => {:id => params[:id]}).order('points DESC')
-
+				
 		@uids = @members.map(&:uid)
 
 		if(current_user && @members.find_by_id(current_user.id))
