@@ -16,7 +16,11 @@ class LeaguesController < ApplicationController
 					,leagues.admin_id as admin_id
 					, sum(user_teams.points) as points")
 				.group("users.id").where(:leagues => {:id => params[:id]}).order('points DESC')
-				
+
+		@user = User.all.sort! { |a,b| b.user_teams.map(&:points).reduce(:+) <=> a.user_teams.map(&:points).reduce(:+)}
+
+		@league = League.find(params[:id])
+
 		@uids = @members.map(&:uid)
 
 		if(current_user && @members.find_by_id(current_user.id))

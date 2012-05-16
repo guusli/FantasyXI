@@ -20,23 +20,23 @@
 								Poäng
 							</th>
 						</tr>
-					</thead><% @members.each_with_index do |member, i| %>
+					</thead><% @user.each_with_index do |user, i| %>
 					<tbody>
 						<tr>
 							<td>
 								<%= i +1%>
 							</td>
 							<td>
-								<%= link_to member.user_team_name, user_team_path(member.user_team_id) %>
+								<%= link_to user.user_teams.first.name, user_team_path(user.user_teams[current_round-1].id) %>
 							</td>
 							<td>
-								<%= member.name %>
+								<%= user.name %>
 							</td>
 							<td>
-								<%= member.points %>
+								<%= user.user_teams.map(&:points).reduce(:+) %>
 							</td><% if  @admin %>
 							<td>
-								<%= link_to "Ta bort",{:controller => :leagues, :action => :remove_user, :user_id => member.id} if not member.id == member.admin_id%>
+								<%= link_to "Ta bort",{:controller => :leagues, :action => :remove_user, :user_id => user.id} if not user.id == @league.admin_id%>
 							</td><% end %>
 						</tr>
 					</tbody><% end %><!-- /row -->

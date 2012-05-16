@@ -18,7 +18,7 @@ end
 module Fantasyxi
   class Application < Rails::Application
 
-    ROUND = 2
+    ROUND = 1
     
     config.autoload_paths += %W(#{config.root}/lib)
 

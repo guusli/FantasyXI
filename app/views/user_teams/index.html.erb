@@ -12,7 +12,7 @@
 <% @user.each_with_index do |user, i| %>
 			<tbody><tr>
 				<td><%= i +1 %></td>
-				<td><%= link_to user.user_teams.first.name, user_team_path(user.user_teams[current_round].id) %></td>
+				<td><%= link_to user.user_teams.first.name, user_team_path(user.user_teams[current_round-1].id) %></td>
 				<td><%= user.name %></td>
 				<td><%= user.user_teams.map(&:points).reduce(:+) %></td>
 			</tr></tbody>
