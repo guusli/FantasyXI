@@ -37,10 +37,8 @@ class UserTeamsController < ApplicationController
 		if not current_user.user_teams.empty?
 			@user_team = UserTeam.find(params[:id])
 
-			#@user_team_ids = @user_team.players.map do |p|
-				#p.id
-			#end
-			#raise @current_user.user_teams.to_yaml
+			
+			# Ska man få ändra laget eller inte?
 			is_owner = current_user.id == @user_team.user_id
 
 			redirect_to :action => :spy, :controller => :user_teams if not is_owner
@@ -53,6 +51,7 @@ class UserTeamsController < ApplicationController
 		end
 
 		
+		# Filtrerat på land
 		if team_id.to_i > 0
 			@players = Player.joins(:player_stats)
 			.select("players.*, sum(player_stats.points) as points").group("players.id")
