@@ -1,3 +1,4 @@
+// Renderar modal med detaljerad information
 $("#info").html("<%= escape_javascript(render("detailed_info"))%>");
 $(".modal-header #player_name").html("<%= @player.name %>");
 $("#info_kit").html('<%= image_tag "kits/#{Team.find(@player.team_id).name.downcase!}.png" %>');
@@ -11,6 +12,7 @@ $("#table_assists td:last").html("<%= @player.sum_assists %>");
 $("#table_yellow td:last").html("<%= @player.sum_yellow %>");
 $("#table_red td:last").html("<%= @player.sum_red %>");
 
+// Gå igenom alla rundor
 <% 6.times do |i| %>
 
 $("#table_points .round_" + <%=i%>).html("<%= @player_round[i].points %>");
