@@ -26,7 +26,7 @@ $(function() {
 	$('#players_search #team_id').change(function() {
   		$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");	
 	});
-});
+
 
 $("#players th a, #players .pagination a").live("click", function(){
 		$.getScript(this.href);
@@ -36,6 +36,6 @@ $("#players th a, #players .pagination a").live("click", function(){
     	$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");
     return false;
 });
-
+});
 
 
