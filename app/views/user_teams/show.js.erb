@@ -1,13 +1,10 @@
 	$("#players").html("<%= escape_javascript(render("pickplayers"))%>");
 	
-	// Kopplar drag-event till de nya spelarna i listan
 	$("#players #players_table tr").each(function(index, player) {
 			$(player).bind('dragstart', handleDragStart);
-	});
+		});
 
-		// Om ingen position har valts ska inget visas
 		if(!($("#positions").val())) {
-			$('#players_table tbody').html("");
-			$('.pagination').html("");
-		}
+		$('#players_table tbody').html("");
+		$('.pagination').html("");
 	}

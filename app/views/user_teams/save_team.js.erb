@@ -1,11 +1,11 @@
-// Uppdaterar flashen
+ //var teamplayers = $.parseJSON($("#teamplayers").text());
+
 $("#pitch_alert").html("<%= flash[:notice] %>");
 $("#pitch_alert").css('display','block');
 $("#pitch_alert").addClass('alert-success');
 $("#pitch_alert").removeClass('alert-info');
 $("#pitch_alert").removeClass('alert-danger');
 
-// Uppdaterar lagnamn
 $('#user_team_name').html("<h1><%= current_user.user_teams[0].name %>");
 
 /*$.each(teamplayers, function(i, position) {
