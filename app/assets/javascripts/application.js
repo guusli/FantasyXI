@@ -27,7 +27,7 @@ $(function() {
   		$.get($("#players_search").attr("action"), $("#players_search").serialize(), null, "script");	
 	});
 
-
+//Klickad med ett live-event, live för att den ska uppdatera js koden när man har klickat på kolumnerna eller pagination.
 $("#players th a, #players .pagination a").live("click", function(){
 		$.getScript(this.href);
 		return false;
